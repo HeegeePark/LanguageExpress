@@ -13,6 +13,7 @@
 		4F4F04022B99890D003B88DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F4F04002B99890D003B88DF /* Main.storyboard */; };
 		4F4F04042B99890F003B88DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F4F04032B99890F003B88DF /* Assets.xcassets */; };
 		4F4F04072B99890F003B88DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F4F04052B99890F003B88DF /* LaunchScreen.storyboard */; };
+		4FC4EC472BA0130D004AD6E6 /* VisionKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC4EC462BA0130D004AD6E6 /* VisionKitViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		4F4F04032B99890F003B88DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4F4F04062B99890F003B88DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4F4F04082B99890F003B88DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4FC4EC462BA0130D004AD6E6 /* VisionKitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionKitViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		4F4F03F92B99890D003B88DF /* LanguageExpress */ = {
 			isa = PBXGroup;
 			children = (
+				4FC4EC482BA01315004AD6E6 /* Test */,
 				4F4F03FA2B99890D003B88DF /* AppDelegate.swift */,
 				4F4F03FC2B99890D003B88DF /* SceneDelegate.swift */,
 				4F4F03FE2B99890D003B88DF /* ViewController.swift */,
@@ -65,6 +68,14 @@
 				4F4F04082B99890F003B88DF /* Info.plist */,
 			);
 			path = LanguageExpress;
+			sourceTree = "<group>";
+		};
+		4FC4EC482BA01315004AD6E6 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				4FC4EC462BA0130D004AD6E6 /* VisionKitViewController.swift */,
+			);
+			path = Test;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,6 +152,7 @@
 				4F4F03FF2B99890D003B88DF /* ViewController.swift in Sources */,
 				4F4F03FB2B99890D003B88DF /* AppDelegate.swift in Sources */,
 				4F4F03FD2B99890D003B88DF /* SceneDelegate.swift in Sources */,
+				4FC4EC472BA0130D004AD6E6 /* VisionKitViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
