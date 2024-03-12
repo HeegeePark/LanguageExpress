@@ -8,58 +8,55 @@
 import UIKit
 import VisionKit
 import Vision
+import SnapKit
 
-class VisionKitViewController: UIViewController {
+final class VisionKitViewController: UIViewController {
     
-    private let label: UILabel = {
-            let label = UILabel()
-            label.numberOfLines = 0
-            label.textAlignment = .center
-            return label
-        }()
-        
-        private let imageView: UIImageView = {
-            let imageView = UIImageView()
-            imageView.image = UIImage(named: "test")
-            imageView.contentMode = .scaleAspectFit
-            return imageView
-        }()
+    private let imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = #imageLiteral(resourceName: "test")
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
     
     var rects: [CGRect] = []
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.addSubview(label)
         view.addSubview(imageView)
+        
+        imageView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
         recognizeText(image: imageView.image)
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        imageView.frame = CGRect(
-            x: 20,
-            y: view.safeAreaInsets.top,
-            width: view.frame.size.width-40,
-            height: view.frame.size.width-40)
-        
-        label.frame = CGRect(
-            x: 20,
-            y: view.frame.size.width + view.safeAreaInsets.top,
-            width: view.frame.size.width-40,
-            height: 300)
+    func drawTextArea(text: String, bbox: CGRect) -> UIView {
+        // boundingBox는 전처리된 이미지 기반 정규화된 사이즈에
+        // Quartz 좌표계를 따름(왼쪽 하단 모서리가 (0,0))
+        // UIKit 좌표계와 이미지뷰 크기에 맞는 rect 구하기
+        let imageSize: CGSize = imageView.frame.size
+        let rect = CGRect(
+            x: bbox.origin.x * imageSize.width,
+            y: bbox.origin.y * imageSize.height,
+            width: bbox.width * imageSize.width,
+            height: bbox.height * imageSize.height
+        )
+        let invertedY = imageSize.height - (rect.origin.y + rect.height)
+        let invertedRect = CGRect(
+            x: rect.minX,
+            y: invertedY,
+            width: rect.width,
+            height: rect.height
+        )
+        let recognized = UIView(frame: invertedRect)
+        imageView.addSubview(recognized)
+        recognized.backgroundColor = .red.withAlphaComponent(0.3)
+        return recognized
     }
     
-    func drawTextArea() {
-        rects.forEach { rect in
-            let textArea = UIView(frame: rect)
-            imageView.addSubview(textArea)
-            textArea.backgroundColor = .red
-        }
-    }
-    
-    fileprivate func recognizeText(image: UIImage?){
+    private func recognizeText(image: UIImage?) {
         guard let cgImage = image?.cgImage else {
             fatalError("could not get image")
         }
@@ -72,18 +69,12 @@ class VisionKitViewController: UIViewController {
                 return
             }
             
-            let text = observations.compactMap({
-                let topCandidate = $0.topCandidates(1).first
-                print($0.boundingBox)
-                self?.rects.append($0.boundingBox)
-                
-                return topCandidate?.string
-            }).joined(separator: "\n")
-            
             DispatchQueue.main.async {
-                self?.label.text = text
-                
-                self?.drawTextArea()
+                // 텍스트 인식 area 표시
+                let _ = observations.compactMap({
+                    let topCandidate = $0.topCandidates(1).first
+                    return self?.drawTextArea(text: topCandidate!.string, bbox: $0.boundingBox)
+                })
             }
         }
         
@@ -91,7 +82,8 @@ class VisionKitViewController: UIViewController {
             let revision3 = VNRecognizeTextRequestRevision3
             request.revision = revision3
             request.recognitionLevel = .accurate
-            request.recognitionLanguages = ["ko-KR"]
+            request.recognitionLanguages = ["en-US"]
+            request.minimumTextHeight = 0.01
             request.usesLanguageCorrection = true
             
             do {
@@ -107,10 +99,9 @@ class VisionKitViewController: UIViewController {
             request.usesLanguageCorrection = true
         }
         
-        do{
+        do {
             try handler.perform([request])
         } catch {
-            label.text = "\(error)"
             print(error)
         }
     }
