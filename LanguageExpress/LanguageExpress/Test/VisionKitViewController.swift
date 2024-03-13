@@ -10,12 +10,18 @@ import VisionKit
 import Vision
 import SnapKit
 
+final class CustomTapGestureRecognizer: UITapGestureRecognizer {
+    var text: String?
+}
+
 final class VisionKitViewController: UIViewController {
     
     private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = #imageLiteral(resourceName: "test")
         imageView.contentMode = .scaleAspectFit
+        // 이미지뷰 하위의 텍스트 영역(UIView) 인터랙션이 가능하기 위해
+        imageView.isUserInteractionEnabled = true
         return imageView
     }()
     
@@ -53,7 +59,15 @@ final class VisionKitViewController: UIViewController {
         let recognized = UIView(frame: invertedRect)
         imageView.addSubview(recognized)
         recognized.backgroundColor = .red.withAlphaComponent(0.3)
+        
+        let tapGesture = CustomTapGestureRecognizer(target: self, action: #selector(textAreaTapped))
+        tapGesture.text = text
+        recognized.addGestureRecognizer(tapGesture)
         return recognized
+    }
+    
+    @objc private func textAreaTapped(_ sender: CustomTapGestureRecognizer) {
+        print(sender.text!)
     }
     
     private func recognizeText(image: UIImage?) {
