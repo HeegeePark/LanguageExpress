@@ -38,7 +38,7 @@ final class VisionKitViewController: UIViewController {
         recognizeText(image: imageView.image)
     }
     
-    func drawTextArea(text: String, bbox: CGRect) -> UIView {
+    func drawTextArea(text: String, bbox: CGRect) {
         // boundingBox는 전처리된 이미지 기반 정규화된 사이즈에
         // Quartz 좌표계를 따름(왼쪽 하단 모서리가 (0,0))
         // UIKit 좌표계와 이미지뷰 크기에 맞는 rect 구하기
@@ -49,13 +49,15 @@ final class VisionKitViewController: UIViewController {
             width: bbox.width * imageSize.width,
             height: bbox.height * imageSize.height
         )
-        let invertedY = imageSize.height - (rect.origin.y + rect.height)
+        
+        let invertedY = imageSize.height - (bbox.origin.y + bbox.height)
         let invertedRect = CGRect(
-            x: rect.minX,
+            x: bbox.minX,
             y: invertedY,
-            width: rect.width,
-            height: rect.height
+            width: bbox.width,
+            height: bbox.height
         )
+        
         let recognized = UIView(frame: invertedRect)
         imageView.addSubview(recognized)
         recognized.backgroundColor = .red.withAlphaComponent(0.3)
@@ -63,7 +65,6 @@ final class VisionKitViewController: UIViewController {
         let tapGesture = CustomTapGestureRecognizer(target: self, action: #selector(textAreaTapped))
         tapGesture.text = text
         recognized.addGestureRecognizer(tapGesture)
-        return recognized
     }
     
     @objc private func textAreaTapped(_ sender: CustomTapGestureRecognizer) {
@@ -84,10 +85,38 @@ final class VisionKitViewController: UIViewController {
             }
             
             DispatchQueue.main.async {
-                // 텍스트 인식 area 표시
-                let _ = observations.compactMap({
-                    let topCandidate = $0.topCandidates(1).first
-                    return self?.drawTextArea(text: topCandidate!.string, bbox: $0.boundingBox)
+                let _: [UIView] = observations.compactMap({
+                    guard let topCandidate = $0.topCandidates(1).first else {
+                        return nil
+                    }
+                    
+                    // 복수 개의 단어가 인식될 경우, 단어 단위로 자르기
+                    let words = topCandidate.string.split(separator: " ")
+                    
+                    // 동일한 순서의 글자(중복단어)가 있을 경우, 각 단어별로 고유한 좌표 세팅
+                    var currentIndex = topCandidate.string.startIndex
+                    
+                    for word in words {
+                        guard let wordRange = topCandidate.string.range(of: String(word), range: currentIndex..<topCandidate.string.endIndex) else {
+                            continue
+                        }
+                        
+                        // 단어의 range에 따른 새로운 boundingBox 계산
+                        if let box = try? topCandidate.boundingBox(for: wordRange) {
+                            let boundingBox = VNImageRectForNormalizedRect(
+                                box.boundingBox,
+                                Int(self?.imageView.frame.width ?? 0),
+                                Int(self?.imageView.frame.height ?? 0)
+                            )
+                            
+                            // 텍스트 인식 area 표시
+                            self?.drawTextArea(text: String(word), bbox: boundingBox)
+                        }
+                        
+                        // 다음 단어 위치 update
+                        currentIndex = wordRange.upperBound
+                    }
+                    return nil
                 })
             }
         }
