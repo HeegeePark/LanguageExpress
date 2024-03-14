@@ -15,6 +15,9 @@
 		4F6EFDF52BA2BAD2007B14EC /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 4F6EFDF42BA2BAD2007B14EC /* Realm */; };
 		4F6EFDF72BA2BAD2007B14EC /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4F6EFDF62BA2BAD2007B14EC /* RealmSwift */; };
 		4F6EFDFA2BA2BBC0007B14EC /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = 4F6EFDF92BA2BBC0007B14EC /* Tabman */; };
+		4F6EFE002BA353FC007B14EC /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6EFDFF2BA353FC007B14EC /* UIFont+Extension.swift */; };
+		4F6EFE042BA35490007B14EC /* Sejong hospital Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4F6EFE022BA35490007B14EC /* Sejong hospital Bold.otf */; };
+		4F6EFE052BA35490007B14EC /* Sejong hospital Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4F6EFE032BA35490007B14EC /* Sejong hospital Light.otf */; };
 		4FC4EC472BA0130D004AD6E6 /* VisionKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC4EC462BA0130D004AD6E6 /* VisionKitViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +28,9 @@
 		4F4F04032B99890F003B88DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4F4F04062B99890F003B88DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4F4F04082B99890F003B88DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4F6EFDFF2BA353FC007B14EC /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
+		4F6EFE022BA35490007B14EC /* Sejong hospital Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sejong hospital Bold.otf"; sourceTree = "<group>"; };
+		4F6EFE032BA35490007B14EC /* Sejong hospital Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sejong hospital Light.otf"; sourceTree = "<group>"; };
 		4FC4EC462BA0130D004AD6E6 /* VisionKitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionKitViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -62,6 +68,8 @@
 		4F4F03F92B99890D003B88DF /* LanguageExpress */ = {
 			isa = PBXGroup;
 			children = (
+				4F6EFE012BA35472007B14EC /* Fonts */,
+				4F6EFDFE2BA353EC007B14EC /* Extension */,
 				4FC4EC482BA01315004AD6E6 /* Test */,
 				4F4F03FA2B99890D003B88DF /* AppDelegate.swift */,
 				4F4F03FC2B99890D003B88DF /* SceneDelegate.swift */,
@@ -70,6 +78,23 @@
 				4F4F04082B99890F003B88DF /* Info.plist */,
 			);
 			path = LanguageExpress;
+			sourceTree = "<group>";
+		};
+		4F6EFDFE2BA353EC007B14EC /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				4F6EFDFF2BA353FC007B14EC /* UIFont+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		4F6EFE012BA35472007B14EC /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				4F6EFE022BA35490007B14EC /* Sejong hospital Bold.otf */,
+				4F6EFE032BA35490007B14EC /* Sejong hospital Light.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		4FC4EC482BA01315004AD6E6 /* Test */ = {
@@ -151,6 +176,8 @@
 			files = (
 				4F4F04072B99890F003B88DF /* LaunchScreen.storyboard in Resources */,
 				4F4F04042B99890F003B88DF /* Assets.xcassets in Resources */,
+				4F6EFE052BA35490007B14EC /* Sejong hospital Light.otf in Resources */,
+				4F6EFE042BA35490007B14EC /* Sejong hospital Bold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,6 +190,7 @@
 			files = (
 				4F4F03FB2B99890D003B88DF /* AppDelegate.swift in Sources */,
 				4F4F03FD2B99890D003B88DF /* SceneDelegate.swift in Sources */,
+				4F6EFE002BA353FC007B14EC /* UIFont+Extension.swift in Sources */,
 				4FC4EC472BA0130D004AD6E6 /* VisionKitViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
