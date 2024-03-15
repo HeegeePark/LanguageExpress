@@ -19,6 +19,7 @@
 		4F6EFE042BA35490007B14EC /* Sejong hospital Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4F6EFE022BA35490007B14EC /* Sejong hospital Bold.otf */; };
 		4F6EFE052BA35490007B14EC /* Sejong hospital Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4F6EFE032BA35490007B14EC /* Sejong hospital Light.otf */; };
 		4F6EFE072BA35D81007B14EC /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6EFE062BA35D81007B14EC /* UIColor+Extension.swift */; };
+		4F6EFE0A2BA45AA3007B14EC /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6EFE092BA45AA3007B14EC /* BaseViewController.swift */; };
 		4FC4EC472BA0130D004AD6E6 /* VisionKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC4EC462BA0130D004AD6E6 /* VisionKitViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		4F6EFE022BA35490007B14EC /* Sejong hospital Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sejong hospital Bold.otf"; sourceTree = "<group>"; };
 		4F6EFE032BA35490007B14EC /* Sejong hospital Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sejong hospital Light.otf"; sourceTree = "<group>"; };
 		4F6EFE062BA35D81007B14EC /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		4F6EFE092BA45AA3007B14EC /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		4FC4EC462BA0130D004AD6E6 /* VisionKitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionKitViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -70,6 +72,7 @@
 		4F4F03F92B99890D003B88DF /* LanguageExpress */ = {
 			isa = PBXGroup;
 			children = (
+				4F6EFE082BA45A42007B14EC /* Base */,
 				4F6EFE012BA35472007B14EC /* Fonts */,
 				4F6EFDFE2BA353EC007B14EC /* Extension */,
 				4FC4EC482BA01315004AD6E6 /* Test */,
@@ -98,6 +101,14 @@
 				4F6EFE032BA35490007B14EC /* Sejong hospital Light.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		4F6EFE082BA45A42007B14EC /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				4F6EFE092BA45AA3007B14EC /* BaseViewController.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 		4FC4EC482BA01315004AD6E6 /* Test */ = {
@@ -196,6 +207,7 @@
 				4F6EFE002BA353FC007B14EC /* UIFont+Extension.swift in Sources */,
 				4FC4EC472BA0130D004AD6E6 /* VisionKitViewController.swift in Sources */,
 				4F6EFE072BA35D81007B14EC /* UIColor+Extension.swift in Sources */,
+				4F6EFE0A2BA45AA3007B14EC /* BaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
