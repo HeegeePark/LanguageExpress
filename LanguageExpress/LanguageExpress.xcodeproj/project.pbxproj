@@ -72,6 +72,7 @@
 		4F4F03F92B99890D003B88DF /* LanguageExpress */ = {
 			isa = PBXGroup;
 			children = (
+				4F6EFE0B2BA56553007B14EC /* Domain */,
 				4F6EFE082BA45A42007B14EC /* Base */,
 				4F6EFE012BA35472007B14EC /* Fonts */,
 				4F6EFDFE2BA353EC007B14EC /* Extension */,
@@ -109,6 +110,29 @@
 				4F6EFE092BA45AA3007B14EC /* BaseViewController.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		4F6EFE0B2BA56553007B14EC /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				4F6EFE0C2BA5655A007B14EC /* PhraseCollection */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		4F6EFE0C2BA5655A007B14EC /* PhraseCollection */ = {
+			isa = PBXGroup;
+			children = (
+				4F6EFE0D2BA5656D007B14EC /* ViewController */,
+			);
+			path = PhraseCollection;
+			sourceTree = "<group>";
+		};
+		4F6EFE0D2BA5656D007B14EC /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		4FC4EC482BA01315004AD6E6 /* Test */ = {
