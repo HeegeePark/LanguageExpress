@@ -28,10 +28,7 @@ class BaseViewController: UIViewController {
     }
     
     func configureNavigationBar() {
-        navigationController?.navigationBar.tintColor = .headerNavy
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.largeTitleDisplayMode = .always
-        navigationItem.backButtonTitle = ""
+        navigationController?.configureNavigationBarAppearance()
     }
     
     func showAlert(title: String, message: String, ok: String, handler: @escaping (() -> Void)) {
