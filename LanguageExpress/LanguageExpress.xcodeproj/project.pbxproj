@@ -21,6 +21,12 @@
 		4F6EFE072BA35D81007B14EC /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6EFE062BA35D81007B14EC /* UIColor+Extension.swift */; };
 		4F6EFE0A2BA45AA3007B14EC /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6EFE092BA45AA3007B14EC /* BaseViewController.swift */; };
 		4F6EFE102BA73B29007B14EC /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6EFE0F2BA73B29007B14EC /* UINavigationController+Extension.swift */; };
+		4F6EFE122BA833E6007B14EC /* PhraseCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6EFE112BA833E6007B14EC /* PhraseCollectionViewController.swift */; };
+		4F6EFE162BA8340F007B14EC /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6EFE152BA8340F007B14EC /* BaseView.swift */; };
+		4F6EFE192BA8346E007B14EC /* PhraseCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6EFE182BA8346E007B14EC /* PhraseCollectionView.swift */; };
+		4F6EFE1C2BA8361C007B14EC /* ViewDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6EFE1B2BA8361C007B14EC /* ViewDrawable.swift */; };
+		4F6EFE1E2BA8393A007B14EC /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6EFE1D2BA8393A007B14EC /* UICollectionView+Extension.swift */; };
+		4F6EFE222BA83B6D007B14EC /* PCCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6EFE212BA83B6D007B14EC /* PCCollectionViewCell.swift */; };
 		4FC4EC472BA0130D004AD6E6 /* VisionKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC4EC462BA0130D004AD6E6 /* VisionKitViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +43,12 @@
 		4F6EFE062BA35D81007B14EC /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		4F6EFE092BA45AA3007B14EC /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		4F6EFE0F2BA73B29007B14EC /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
+		4F6EFE112BA833E6007B14EC /* PhraseCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseCollectionViewController.swift; sourceTree = "<group>"; };
+		4F6EFE152BA8340F007B14EC /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		4F6EFE182BA8346E007B14EC /* PhraseCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseCollectionView.swift; sourceTree = "<group>"; };
+		4F6EFE1B2BA8361C007B14EC /* ViewDrawable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDrawable.swift; sourceTree = "<group>"; };
+		4F6EFE1D2BA8393A007B14EC /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
+		4F6EFE212BA83B6D007B14EC /* PCCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCCollectionViewCell.swift; sourceTree = "<group>"; };
 		4FC4EC462BA0130D004AD6E6 /* VisionKitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionKitViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -74,6 +86,7 @@
 		4F4F03F92B99890D003B88DF /* LanguageExpress */ = {
 			isa = PBXGroup;
 			children = (
+				4F6EFE1A2BA83567007B14EC /* Protocol */,
 				4F6EFE0B2BA56553007B14EC /* Domain */,
 				4F6EFE082BA45A42007B14EC /* Base */,
 				4F6EFE012BA35472007B14EC /* Fonts */,
@@ -94,6 +107,7 @@
 				4F6EFDFF2BA353FC007B14EC /* UIFont+Extension.swift */,
 				4F6EFE062BA35D81007B14EC /* UIColor+Extension.swift */,
 				4F6EFE0F2BA73B29007B14EC /* UINavigationController+Extension.swift */,
+				4F6EFE1D2BA8393A007B14EC /* UICollectionView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -111,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				4F6EFE092BA45AA3007B14EC /* BaseViewController.swift */,
+				4F6EFE152BA8340F007B14EC /* BaseView.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -126,6 +141,8 @@
 		4F6EFE0C2BA5655A007B14EC /* PhraseCollection */ = {
 			isa = PBXGroup;
 			children = (
+				4F6EFE1F2BA83B44007B14EC /* Cell */,
+				4F6EFE172BA83460007B14EC /* View */,
 				4F6EFE0D2BA5656D007B14EC /* ViewController */,
 			);
 			path = PhraseCollection;
@@ -134,8 +151,33 @@
 		4F6EFE0D2BA5656D007B14EC /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				4F6EFE112BA833E6007B14EC /* PhraseCollectionViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		4F6EFE172BA83460007B14EC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4F6EFE182BA8346E007B14EC /* PhraseCollectionView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4F6EFE1A2BA83567007B14EC /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				4F6EFE1B2BA8361C007B14EC /* ViewDrawable.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		4F6EFE1F2BA83B44007B14EC /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				4F6EFE212BA83B6D007B14EC /* PCCollectionViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		4FC4EC482BA01315004AD6E6 /* Test */ = {
@@ -229,11 +271,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F6EFE1E2BA8393A007B14EC /* UICollectionView+Extension.swift in Sources */,
 				4F4F03FB2B99890D003B88DF /* AppDelegate.swift in Sources */,
+				4F6EFE1C2BA8361C007B14EC /* ViewDrawable.swift in Sources */,
 				4F4F03FD2B99890D003B88DF /* SceneDelegate.swift in Sources */,
 				4F6EFE002BA353FC007B14EC /* UIFont+Extension.swift in Sources */,
+				4F6EFE222BA83B6D007B14EC /* PCCollectionViewCell.swift in Sources */,
 				4FC4EC472BA0130D004AD6E6 /* VisionKitViewController.swift in Sources */,
+				4F6EFE192BA8346E007B14EC /* PhraseCollectionView.swift in Sources */,
 				4F6EFE102BA73B29007B14EC /* UINavigationController+Extension.swift in Sources */,
+				4F6EFE122BA833E6007B14EC /* PhraseCollectionViewController.swift in Sources */,
+				4F6EFE162BA8340F007B14EC /* BaseView.swift in Sources */,
 				4F6EFE072BA35D81007B14EC /* UIColor+Extension.swift in Sources */,
 				4F6EFE0A2BA45AA3007B14EC /* BaseViewController.swift in Sources */,
 			);
