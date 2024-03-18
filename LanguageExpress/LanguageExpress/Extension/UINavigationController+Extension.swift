@@ -19,6 +19,5 @@ extension UINavigationController {
         navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .always
         navigationItem.backButtonTitle = ""
-        
     }
 }
