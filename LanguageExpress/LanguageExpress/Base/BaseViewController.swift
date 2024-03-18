@@ -11,7 +11,6 @@ class BaseViewController: UIViewController, ViewDrawable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
         configureHierarchy()
         configureLayout()
         configureView()
