@@ -11,12 +11,26 @@ final class PhraseCollectionViewController: BaseViewController {
     
     private let mainView = PhraseCollectionView()
     
+    private let viewModel = PhraseCollectionViewModel()
+    var input: PhraseCollectionViewModel.Input!
+    var output: PhraseCollectionViewModel.Output!
+    
     override func loadView() {
         view = mainView
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        bindViewModel()
+    }
+    
+    func bindViewModel() {
+        input = PhraseCollectionViewModel.Input(
+            viewDidAppearEvent: Observable(nil),
+            phraseCollectionViewCellDidSelectItemAtEvent: Observable(-1)
+        )
+        
+        output = viewModel.transform(from: input)
     }
     
     override func configureNavigationBar() {
