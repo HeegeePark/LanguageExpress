@@ -73,6 +73,10 @@ extension PhraseCollectionViewController: UICollectionViewDelegate, UICollection
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "phraseCollection", for: indexPath) as! PCCollectionViewCell
+        
+        let collection = output.collections.value[indexPath.item]
+        cell.bindData(data: collection)
+        
         return cell
     }
     

@@ -41,7 +41,16 @@ final class PCCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure() {
+    func bindData(data: Collection) {
+        nameLabel.text = data.name
+        let completionRate = RealmManager.shared.completionRate(collection: data)
+        let completionRateToPercentage = String(Int(completionRate * 100))
+        completionRateLabel.text = "\(completionRateToPercentage)% 마스터 완료!"
+        completionRateProgressView.progress = completionRate
+        completionRateProgressView.progressTintColor = UIColor(hex: data.color)
+    }
+    
+    private func configure() {
         [nameLabel, completionRateLabel, completionRateProgressView].forEach {
             contentView.addSubview($0)
         }

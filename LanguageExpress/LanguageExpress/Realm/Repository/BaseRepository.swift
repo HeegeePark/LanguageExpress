@@ -27,6 +27,10 @@ class BaseRepository<T: Object> {
         return Array(realm.objects(Model.self))
     }
     
+    func fetchFiltered(list: List<Model>, key: String, value: String) -> [Model] {
+        return Array(list.filter("\(key) == '\(value)'"))
+    }
+    
     func updateItem(id: ObjectId, updated: Model) {
     }
     
