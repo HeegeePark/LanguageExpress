@@ -45,6 +45,9 @@ final class PhraseCollectionViewController: BaseViewController {
         }
         
         output.phraseListToPush.bind { phrases in
+            guard !phrases.isEmpty else {
+                return
+            }
             // TODO: 구문 화면 이동
             print(phrases)
         }
