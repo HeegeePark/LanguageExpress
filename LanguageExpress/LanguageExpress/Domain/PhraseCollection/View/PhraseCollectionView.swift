@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class PhraseCollectionView: BaseView {
+final class PhraseCollectionView: BaseView {
     private let titleLabel = {
         let lb = UILabel()
         lb.text = "문장 모음집"

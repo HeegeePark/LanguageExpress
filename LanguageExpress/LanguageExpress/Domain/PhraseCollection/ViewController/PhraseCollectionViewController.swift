@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PhraseCollectionViewController: BaseViewController {
+final class PhraseCollectionViewController: BaseViewController {
     
     private let mainView = PhraseCollectionView()
     

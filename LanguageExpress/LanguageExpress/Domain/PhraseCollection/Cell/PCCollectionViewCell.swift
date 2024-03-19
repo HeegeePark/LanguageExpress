@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PCCollectionViewCell: UICollectionViewCell {
+final class PCCollectionViewCell: UICollectionViewCell {
     private let nameLabel = {
         let lb = UILabel()
         lb.text = "컬렉션 이름"
