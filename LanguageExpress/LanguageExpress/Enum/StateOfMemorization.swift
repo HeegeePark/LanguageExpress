@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum StateOfMemorization: Int  {
+enum StateOfMemorization: String  {
     case hard
     case ambiguous
     case completed
