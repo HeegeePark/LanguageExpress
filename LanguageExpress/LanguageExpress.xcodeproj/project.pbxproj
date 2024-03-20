@@ -11,6 +11,13 @@
 		4F4F03FD2B99890D003B88DF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4F03FC2B99890D003B88DF /* SceneDelegate.swift */; };
 		4F4F04042B99890F003B88DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F4F04032B99890F003B88DF /* Assets.xcassets */; };
 		4F4F04072B99890F003B88DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F4F04052B99890F003B88DF /* LaunchScreen.storyboard */; };
+		4F69CB532BAA55D700319F83 /* AddPhraseCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F69CB522BAA55D700319F83 /* AddPhraseCollectionView.swift */; };
+		4F69CB552BAA55EF00319F83 /* AddPhraseCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F69CB542BAA55EF00319F83 /* AddPhraseCollectionViewController.swift */; };
+		4F69CB572BAA568000319F83 /* CustomTextAreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F69CB562BAA568000319F83 /* CustomTextAreaView.swift */; };
+		4F69CB592BAA5F0700319F83 /* ColorSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F69CB582BAA5F0700319F83 /* ColorSelectView.swift */; };
+		4F69CB5C2BAA7E9D00319F83 /* AddPhraseCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F69CB5B2BAA7E9D00319F83 /* AddPhraseCollectionViewModel.swift */; };
+		4F69CB5F2BAAA16700319F83 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 4F69CB5E2BAAA16700319F83 /* Toast */; };
+		4F69CB612BAAA23500319F83 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F69CB602BAAA23500319F83 /* Message.swift */; };
 		4F6EFDF22BA2BA03007B14EC /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4F6EFDF12BA2BA03007B14EC /* SnapKit */; };
 		4F6EFDF52BA2BAD2007B14EC /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 4F6EFDF42BA2BAD2007B14EC /* Realm */; };
 		4F6EFDF72BA2BAD2007B14EC /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4F6EFDF62BA2BAD2007B14EC /* RealmSwift */; };
@@ -19,6 +26,26 @@
 		4F6EFE042BA35490007B14EC /* Sejong hospital Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4F6EFE022BA35490007B14EC /* Sejong hospital Bold.otf */; };
 		4F6EFE052BA35490007B14EC /* Sejong hospital Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4F6EFE032BA35490007B14EC /* Sejong hospital Light.otf */; };
 		4F6EFE072BA35D81007B14EC /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6EFE062BA35D81007B14EC /* UIColor+Extension.swift */; };
+		4F6EFE0A2BA45AA3007B14EC /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6EFE092BA45AA3007B14EC /* BaseViewController.swift */; };
+		4F6EFE102BA73B29007B14EC /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6EFE0F2BA73B29007B14EC /* UINavigationController+Extension.swift */; };
+		4F6EFE122BA833E6007B14EC /* PhraseCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6EFE112BA833E6007B14EC /* PhraseCollectionViewController.swift */; };
+		4F6EFE162BA8340F007B14EC /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6EFE152BA8340F007B14EC /* BaseView.swift */; };
+		4F6EFE192BA8346E007B14EC /* PhraseCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6EFE182BA8346E007B14EC /* PhraseCollectionView.swift */; };
+		4F6EFE1C2BA8361C007B14EC /* ViewDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6EFE1B2BA8361C007B14EC /* ViewDrawable.swift */; };
+		4F6EFE1E2BA8393A007B14EC /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6EFE1D2BA8393A007B14EC /* UICollectionView+Extension.swift */; };
+		4F6EFE222BA83B6D007B14EC /* PCCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6EFE212BA83B6D007B14EC /* PCCollectionViewCell.swift */; };
+		4F6EFE242BA90306007B14EC /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6EFE232BA90306007B14EC /* UIView+Extension.swift */; };
+		4F6EFE312BA95BEE007B14EC /* PhraseCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6EFE302BA95BEE007B14EC /* PhraseCollectionViewModel.swift */; };
+		4F6EFE332BA95C7E007B14EC /* ViewModelAvailable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6EFE322BA95C7E007B14EC /* ViewModelAvailable.swift */; };
+		4F6EFE362BA95D21007B14EC /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6EFE352BA95D21007B14EC /* Observable.swift */; };
+		4F6EFE3A2BA96368007B14EC /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6EFE392BA96368007B14EC /* Collection.swift */; };
+		4F6EFE3C2BA964D3007B14EC /* Phrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6EFE3B2BA964D3007B14EC /* Phrase.swift */; };
+		4F6EFE3F2BA96849007B14EC /* StateOfMemorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6EFE3E2BA96849007B14EC /* StateOfMemorization.swift */; };
+		4F6EFE412BA96B98007B14EC /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6EFE402BA96B98007B14EC /* Tag.swift */; };
+		4F6EFE442BA96D53007B14EC /* BaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6EFE432BA96D53007B14EC /* BaseRepository.swift */; };
+		4F6EFE462BA96DF1007B14EC /* CollectionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6EFE452BA96DF1007B14EC /* CollectionRepository.swift */; };
+		4F6EFE482BA96E85007B14EC /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6EFE472BA96E85007B14EC /* RealmManager.swift */; };
+		4F6EFE4A2BA9AC04007B14EC /* PhraseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6EFE492BA9AC04007B14EC /* PhraseRepository.swift */; };
 		4FC4EC472BA0130D004AD6E6 /* VisionKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC4EC462BA0130D004AD6E6 /* VisionKitViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,10 +56,36 @@
 		4F4F04032B99890F003B88DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4F4F04062B99890F003B88DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4F4F04082B99890F003B88DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4F69CB522BAA55D700319F83 /* AddPhraseCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhraseCollectionView.swift; sourceTree = "<group>"; };
+		4F69CB542BAA55EF00319F83 /* AddPhraseCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhraseCollectionViewController.swift; sourceTree = "<group>"; };
+		4F69CB562BAA568000319F83 /* CustomTextAreaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextAreaView.swift; sourceTree = "<group>"; };
+		4F69CB582BAA5F0700319F83 /* ColorSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSelectView.swift; sourceTree = "<group>"; };
+		4F69CB5B2BAA7E9D00319F83 /* AddPhraseCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhraseCollectionViewModel.swift; sourceTree = "<group>"; };
+		4F69CB602BAAA23500319F83 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		4F6EFDFF2BA353FC007B14EC /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		4F6EFE022BA35490007B14EC /* Sejong hospital Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sejong hospital Bold.otf"; sourceTree = "<group>"; };
 		4F6EFE032BA35490007B14EC /* Sejong hospital Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sejong hospital Light.otf"; sourceTree = "<group>"; };
 		4F6EFE062BA35D81007B14EC /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		4F6EFE092BA45AA3007B14EC /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		4F6EFE0F2BA73B29007B14EC /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
+		4F6EFE112BA833E6007B14EC /* PhraseCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseCollectionViewController.swift; sourceTree = "<group>"; };
+		4F6EFE152BA8340F007B14EC /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		4F6EFE182BA8346E007B14EC /* PhraseCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseCollectionView.swift; sourceTree = "<group>"; };
+		4F6EFE1B2BA8361C007B14EC /* ViewDrawable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewDrawable.swift; sourceTree = "<group>"; };
+		4F6EFE1D2BA8393A007B14EC /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
+		4F6EFE212BA83B6D007B14EC /* PCCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCCollectionViewCell.swift; sourceTree = "<group>"; };
+		4F6EFE232BA90306007B14EC /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		4F6EFE302BA95BEE007B14EC /* PhraseCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseCollectionViewModel.swift; sourceTree = "<group>"; };
+		4F6EFE322BA95C7E007B14EC /* ViewModelAvailable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelAvailable.swift; sourceTree = "<group>"; };
+		4F6EFE352BA95D21007B14EC /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		4F6EFE392BA96368007B14EC /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
+		4F6EFE3B2BA964D3007B14EC /* Phrase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Phrase.swift; sourceTree = "<group>"; };
+		4F6EFE3E2BA96849007B14EC /* StateOfMemorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateOfMemorization.swift; sourceTree = "<group>"; };
+		4F6EFE402BA96B98007B14EC /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		4F6EFE432BA96D53007B14EC /* BaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRepository.swift; sourceTree = "<group>"; };
+		4F6EFE452BA96DF1007B14EC /* CollectionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionRepository.swift; sourceTree = "<group>"; };
+		4F6EFE472BA96E85007B14EC /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		4F6EFE492BA9AC04007B14EC /* PhraseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseRepository.swift; sourceTree = "<group>"; };
 		4FC4EC462BA0130D004AD6E6 /* VisionKitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionKitViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -44,6 +97,7 @@
 				4F6EFDF72BA2BAD2007B14EC /* RealmSwift in Frameworks */,
 				4F6EFDFA2BA2BBC0007B14EC /* Tabman in Frameworks */,
 				4F6EFDF52BA2BAD2007B14EC /* Realm in Frameworks */,
+				4F69CB5F2BAAA16700319F83 /* Toast in Frameworks */,
 				4F6EFDF22BA2BA03007B14EC /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -70,6 +124,11 @@
 		4F4F03F92B99890D003B88DF /* LanguageExpress */ = {
 			isa = PBXGroup;
 			children = (
+				4F6EFE3D2BA96808007B14EC /* Enum */,
+				4F6EFE372BA9632D007B14EC /* Realm */,
+				4F6EFE1A2BA83567007B14EC /* Protocol */,
+				4F6EFE0B2BA56553007B14EC /* Feature */,
+				4F6EFE082BA45A42007B14EC /* Base */,
 				4F6EFE012BA35472007B14EC /* Fonts */,
 				4F6EFDFE2BA353EC007B14EC /* Extension */,
 				4FC4EC482BA01315004AD6E6 /* Test */,
@@ -82,11 +141,35 @@
 			path = LanguageExpress;
 			sourceTree = "<group>";
 		};
+		4F69CB502BAA555000319F83 /* PhraseCollectionList */ = {
+			isa = PBXGroup;
+			children = (
+				4F6EFE1F2BA83B44007B14EC /* Cell */,
+				4F6EFE302BA95BEE007B14EC /* PhraseCollectionViewModel.swift */,
+				4F6EFE182BA8346E007B14EC /* PhraseCollectionView.swift */,
+				4F6EFE112BA833E6007B14EC /* PhraseCollectionViewController.swift */,
+			);
+			path = PhraseCollectionList;
+			sourceTree = "<group>";
+		};
+		4F69CB512BAA558B00319F83 /* AddPhraseCollection */ = {
+			isa = PBXGroup;
+			children = (
+				4F69CB522BAA55D700319F83 /* AddPhraseCollectionView.swift */,
+				4F69CB542BAA55EF00319F83 /* AddPhraseCollectionViewController.swift */,
+				4F69CB5B2BAA7E9D00319F83 /* AddPhraseCollectionViewModel.swift */,
+			);
+			path = AddPhraseCollection;
+			sourceTree = "<group>";
+		};
 		4F6EFDFE2BA353EC007B14EC /* Extension */ = {
 			isa = PBXGroup;
 			children = (
 				4F6EFDFF2BA353FC007B14EC /* UIFont+Extension.swift */,
 				4F6EFE062BA35D81007B14EC /* UIColor+Extension.swift */,
+				4F6EFE0F2BA73B29007B14EC /* UINavigationController+Extension.swift */,
+				4F6EFE1D2BA8393A007B14EC /* UICollectionView+Extension.swift */,
+				4F6EFE232BA90306007B14EC /* UIView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -98,6 +181,99 @@
 				4F6EFE032BA35490007B14EC /* Sejong hospital Light.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		4F6EFE082BA45A42007B14EC /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				4F6EFE092BA45AA3007B14EC /* BaseViewController.swift */,
+				4F6EFE152BA8340F007B14EC /* BaseView.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		4F6EFE0B2BA56553007B14EC /* Feature */ = {
+			isa = PBXGroup;
+			children = (
+				4F6EFE342BA95D19007B14EC /* Common */,
+				4F6EFE0C2BA5655A007B14EC /* PhraseCollection */,
+			);
+			path = Feature;
+			sourceTree = "<group>";
+		};
+		4F6EFE0C2BA5655A007B14EC /* PhraseCollection */ = {
+			isa = PBXGroup;
+			children = (
+				4F69CB502BAA555000319F83 /* PhraseCollectionList */,
+				4F69CB512BAA558B00319F83 /* AddPhraseCollection */,
+			);
+			path = PhraseCollection;
+			sourceTree = "<group>";
+		};
+		4F6EFE1A2BA83567007B14EC /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				4F6EFE1B2BA8361C007B14EC /* ViewDrawable.swift */,
+				4F6EFE322BA95C7E007B14EC /* ViewModelAvailable.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		4F6EFE1F2BA83B44007B14EC /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				4F6EFE212BA83B6D007B14EC /* PCCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		4F6EFE342BA95D19007B14EC /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				4F6EFE352BA95D21007B14EC /* Observable.swift */,
+				4F69CB562BAA568000319F83 /* CustomTextAreaView.swift */,
+				4F69CB582BAA5F0700319F83 /* ColorSelectView.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		4F6EFE372BA9632D007B14EC /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				4F6EFE422BA96D46007B14EC /* Repository */,
+				4F6EFE382BA96355007B14EC /* Model */,
+				4F6EFE472BA96E85007B14EC /* RealmManager.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		4F6EFE382BA96355007B14EC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4F6EFE392BA96368007B14EC /* Collection.swift */,
+				4F6EFE3B2BA964D3007B14EC /* Phrase.swift */,
+				4F6EFE402BA96B98007B14EC /* Tag.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4F6EFE3D2BA96808007B14EC /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				4F6EFE3E2BA96849007B14EC /* StateOfMemorization.swift */,
+				4F69CB602BAAA23500319F83 /* Message.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
+		4F6EFE422BA96D46007B14EC /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				4F6EFE432BA96D53007B14EC /* BaseRepository.swift */,
+				4F6EFE452BA96DF1007B14EC /* CollectionRepository.swift */,
+				4F6EFE492BA9AC04007B14EC /* PhraseRepository.swift */,
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 		4FC4EC482BA01315004AD6E6 /* Test */ = {
@@ -129,6 +305,7 @@
 				4F6EFDF42BA2BAD2007B14EC /* Realm */,
 				4F6EFDF62BA2BAD2007B14EC /* RealmSwift */,
 				4F6EFDF92BA2BBC0007B14EC /* Tabman */,
+				4F69CB5E2BAAA16700319F83 /* Toast */,
 			);
 			productName = LanguageExpress;
 			productReference = 4F4F03F72B99890D003B88DF /* LanguageExpress.app */;
@@ -162,6 +339,7 @@
 				4F6EFDF02BA2BA03007B14EC /* XCRemoteSwiftPackageReference "SnapKit" */,
 				4F6EFDF32BA2BAD2007B14EC /* XCRemoteSwiftPackageReference "realm-swift" */,
 				4F6EFDF82BA2BBC0007B14EC /* XCRemoteSwiftPackageReference "Tabman" */,
+				4F69CB5D2BAAA16700319F83 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 			);
 			productRefGroup = 4F4F03F82B99890D003B88DF /* Products */;
 			projectDirPath = "";
@@ -191,11 +369,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F6EFE332BA95C7E007B14EC /* ViewModelAvailable.swift in Sources */,
+				4F6EFE1E2BA8393A007B14EC /* UICollectionView+Extension.swift in Sources */,
+				4F6EFE4A2BA9AC04007B14EC /* PhraseRepository.swift in Sources */,
+				4F69CB5C2BAA7E9D00319F83 /* AddPhraseCollectionViewModel.swift in Sources */,
+				4F69CB552BAA55EF00319F83 /* AddPhraseCollectionViewController.swift in Sources */,
 				4F4F03FB2B99890D003B88DF /* AppDelegate.swift in Sources */,
+				4F6EFE412BA96B98007B14EC /* Tag.swift in Sources */,
+				4F6EFE1C2BA8361C007B14EC /* ViewDrawable.swift in Sources */,
 				4F4F03FD2B99890D003B88DF /* SceneDelegate.swift in Sources */,
+				4F6EFE462BA96DF1007B14EC /* CollectionRepository.swift in Sources */,
+				4F6EFE442BA96D53007B14EC /* BaseRepository.swift in Sources */,
 				4F6EFE002BA353FC007B14EC /* UIFont+Extension.swift in Sources */,
+				4F6EFE222BA83B6D007B14EC /* PCCollectionViewCell.swift in Sources */,
 				4FC4EC472BA0130D004AD6E6 /* VisionKitViewController.swift in Sources */,
+				4F6EFE192BA8346E007B14EC /* PhraseCollectionView.swift in Sources */,
+				4F6EFE3C2BA964D3007B14EC /* Phrase.swift in Sources */,
+				4F6EFE3A2BA96368007B14EC /* Collection.swift in Sources */,
+				4F6EFE242BA90306007B14EC /* UIView+Extension.swift in Sources */,
+				4F6EFE3F2BA96849007B14EC /* StateOfMemorization.swift in Sources */,
+				4F69CB572BAA568000319F83 /* CustomTextAreaView.swift in Sources */,
+				4F69CB612BAAA23500319F83 /* Message.swift in Sources */,
+				4F69CB532BAA55D700319F83 /* AddPhraseCollectionView.swift in Sources */,
+				4F6EFE102BA73B29007B14EC /* UINavigationController+Extension.swift in Sources */,
+				4F69CB592BAA5F0700319F83 /* ColorSelectView.swift in Sources */,
+				4F6EFE482BA96E85007B14EC /* RealmManager.swift in Sources */,
+				4F6EFE122BA833E6007B14EC /* PhraseCollectionViewController.swift in Sources */,
+				4F6EFE362BA95D21007B14EC /* Observable.swift in Sources */,
+				4F6EFE162BA8340F007B14EC /* BaseView.swift in Sources */,
 				4F6EFE072BA35D81007B14EC /* UIColor+Extension.swift in Sources */,
+				4F6EFE0A2BA45AA3007B14EC /* BaseViewController.swift in Sources */,
+				4F6EFE312BA95BEE007B14EC /* PhraseCollectionViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,6 +622,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		4F69CB5D2BAAA16700319F83 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.0;
+			};
+		};
 		4F6EFDF02BA2BA03007B14EC /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -445,6 +657,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		4F69CB5E2BAAA16700319F83 /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4F69CB5D2BAAA16700319F83 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			productName = Toast;
+		};
 		4F6EFDF12BA2BA03007B14EC /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 4F6EFDF02BA2BA03007B14EC /* XCRemoteSwiftPackageReference "SnapKit" */;
