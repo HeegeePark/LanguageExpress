@@ -27,4 +27,10 @@ final class RealmManager {
         let completed = phraseRepository.fetchFiltered(list: all, key: "stateOfMemorizationRawValue", value: StateOfMemorization.completed.rawValue)
         return Float(completed.count) / Float(all.count)
     }
+    
+    func addCollection(name: String, color: String) {
+        collectionRepository.createItem(
+            Collection(name: name, color: color)
+        )
+    }
 }

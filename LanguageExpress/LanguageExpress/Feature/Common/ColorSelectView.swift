@@ -17,7 +17,7 @@ final class ColorSelectView: BaseView {
         return lb
     }()
     
-    private let reloadButton = {
+    private lazy var reloadButton = {
         let btn = UIButton()
         btn.setCornerRadius()
         btn.setImage(UIImage(systemName: "arrow.triangle.2.circlepath"), for: .normal)
@@ -25,6 +25,16 @@ final class ColorSelectView: BaseView {
         btn.addTarget(self, action: #selector(reloadButtonTapped), for: .touchUpInside)
         return btn
     }()
+    
+    var colorChanged: ((String) -> Void)?
+    
+    var currentColor: String = "" {
+        didSet {
+            reloadButton.backgroundColor = UIColor(hex: currentColor)
+            colorChanged?(currentColor)
+            //        colorCodeTextField.text = random
+        }
+    }
     
     // TODO: 사용자 입력 컬러코드 텍스트필드
 //    private let colorCodeTextField = {
@@ -36,22 +46,20 @@ final class ColorSelectView: BaseView {
 //        return tf
 //    }()
     
-    private var randomCode: String {
-        let digits = (0..<6).map { _ in
-            String(format: "%X", arc4random_uniform(16))
-        }.joined()
-        
-        return "#" + digits
-    }
-    
     @objc private func reloadButtonTapped() {
         updateRandom()
     }
     
     private func updateRandom() {
-        let random = randomCode
-        reloadButton.backgroundColor = UIColor(hex: random)
-//        colorCodeTextField.text = random
+        currentColor = randomCode()
+    }
+    
+    private func randomCode() -> String {
+        let digits = (0..<6).map { _ in
+            String(format: "%X", arc4random_uniform(16))
+        }.joined()
+        
+        return "#" + digits
     }
     
     override func configureHierarchy() {
@@ -82,8 +90,4 @@ final class ColorSelectView: BaseView {
     override func configureView() {
         updateRandom()
     }
-}
-
-extension ColorSelectView: UITextFieldDelegate {
-    
 }

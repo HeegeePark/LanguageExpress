@@ -24,12 +24,13 @@ final class CustomTextAreaView: BaseView {
         return lb
     }()
     
-    private let textField = {
+    private lazy var textField = {
         let tf = UITextField()
         tf.font = .sfPro15Regular
         tf.setCornerRadius(.small)
         tf.layer.borderWidth = 2
         tf.layer.borderColor = UIColor.strokeGray.cgColor
+        tf.delegate = self
         return tf
     }()
     
@@ -38,6 +39,8 @@ final class CustomTextAreaView: BaseView {
             optionalLabel.isHidden = !showOptionalLabel
         }
     }
+    
+    var textFieldValueChanged: ((String) -> Void)?
     
     func setTitle(title: String) {
         titleLabel.text = title
@@ -65,5 +68,11 @@ final class CustomTextAreaView: BaseView {
             make.height.equalTo(50)
             make.top.equalTo(titleLabel.snp.bottom).offset(10)
         }
+    }
+}
+
+extension CustomTextAreaView: UITextFieldDelegate {
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        textFieldValueChanged?(textField.text ?? "")
     }
 }

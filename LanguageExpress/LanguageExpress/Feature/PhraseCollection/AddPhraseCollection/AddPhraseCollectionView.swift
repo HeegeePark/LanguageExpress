@@ -7,18 +7,35 @@
 
 import UIKit
 
+protocol AddPhraseCollectionViewDelegate: UIViewController {
+    func nameChanged(name: String)
+    func colorChanged(color: String)
+}
+
 final class AddPhraseCollectionView: BaseView {
-    private let nameAreaView = {
+    weak var delegate: AddPhraseCollectionViewDelegate?
+    
+    private lazy var nameAreaView = {
         let view = CustomTextAreaView()
         view.setTitle(title: "컬렉션 이름")
         view.showOptionalLabel = false
+        view.textFieldValueChanged = { [weak self] text in
+            self?.delegate?.nameChanged(name: text)
+        }
         return view
     }()
     
-    private let colorCodeSelectView = {
+    private lazy var colorCodeSelectView = {
         let view = ColorSelectView()
+        view.colorChanged = { [weak self] color in
+            self?.delegate?.colorChanged(color: color)
+        }
         return view
     }()
+    
+    func currentColor() -> String {
+        return colorCodeSelectView.currentColor
+    }
     
     override func configureHierarchy() {
         [nameAreaView, colorCodeSelectView].forEach {
