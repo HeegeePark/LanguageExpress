@@ -55,7 +55,17 @@ final class PhraseCollectionViewController: BaseViewController {
     
     override func configureNavigationBar() {
         super.configureNavigationBar()
-        navigationItem.title = "\n외국어 급행열차 뿌뿌 🚇"
+//        navigationItem.title = "\n외국어 급행열차 뿌뿌 🚇"
+        
+        let addCollection = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addCollectionTapped))
+        
+        navigationItem.rightBarButtonItem = addCollection
+    }
+    
+    @objc private func addCollectionTapped() {
+        // TODO: 시트로 띄우기
+        let addCollectionVC = UINavigationController(rootViewController: AddPhraseCollectionViewController())
+        self.present(addCollectionVC, animated: true)
     }
     
     override func configureView() {
