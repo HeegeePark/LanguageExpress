@@ -32,6 +32,15 @@ final class PCCollectionViewCell: UICollectionViewCell {
         return pv
     }()
     
+    private let chevronButton = {
+        let btn = UIButton()
+        btn.setImage(UIImage(systemName: "chevron.right.circle.fill"),
+                     for: .normal)
+        btn.backgroundColor = .white
+        btn.tintColor = .black
+        return btn
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
@@ -51,7 +60,7 @@ final class PCCollectionViewCell: UICollectionViewCell {
     }
     
     private func configure() {
-        [nameLabel, completionRateLabel, completionRateProgressView].forEach {
+        [nameLabel, completionRateLabel, completionRateProgressView, chevronButton].forEach {
             contentView.addSubview($0)
         }
         
@@ -66,10 +75,16 @@ final class PCCollectionViewCell: UICollectionViewCell {
         }
         
         completionRateProgressView.snp.makeConstraints { make in
-            make.leading.equalTo(nameLabel)
+            make.horizontalEdges.equalTo(nameLabel)
             make.top.equalTo(completionRateLabel.snp.bottom).offset(8)
-            make.width.equalTo(120)
             make.height.equalTo(6)
+        }
+        
+        chevronButton.snp.makeConstraints { make in
+            make.top.equalTo(completionRateProgressView.snp.bottom).offset(6)
+            make.bottom.trailing.equalToSuperview().inset(8)
+            make.leading.greaterThanOrEqualToSuperview().inset(8)
+            make.size.equalTo(24)
         }
         
         contentView.backgroundColor = .white
