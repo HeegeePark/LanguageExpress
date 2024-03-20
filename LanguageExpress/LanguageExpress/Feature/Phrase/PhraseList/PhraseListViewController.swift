@@ -25,7 +25,6 @@ final class PhraseListViewController: BaseViewController {
     func bindViewModel(collection: Collection) {
         input = PhraseListViewModel.Input(
             bindViewModelEvent: Observable(collection),
-            tagButtonTappedEvent: Observable(""),
             phraseCollectionViewCellDidSelectItemAtEvent: Observable(-1)
         )
         
@@ -33,12 +32,37 @@ final class PhraseListViewController: BaseViewController {
         
         output.collectionName.bind { name in
             guard !name.isEmpty else { return }
-            self.navigationItem.setTitleView(title: name)
+            self.configureNavigationBar()
+            self.navigationItem.title = name
         }
         
         output.phrases.bind { phrases in
             // TODO: 컬렉션뷰 데이터 바인딩
             print(phrases)
         }
+    }
+    
+    override func configureView() {
+        mainView.phraseCollectionView.dataSource = self
+        mainView.phraseCollectionView.delegate = self
+    }
+    
+    override func configureNavigationBar() {
+        super.configureNavigationBar()
+    }
+}
+
+extension PhraseListViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return output.phrases.value.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "phraseList", for: indexPath) as! PhraseListCollectionViewCell
+        
+        let phrase = output.phrases.value[indexPath.item]
+        cell.bindData(phrase: phrase)
+        
+        return cell
     }
 }

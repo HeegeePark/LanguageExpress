@@ -29,6 +29,7 @@ class BaseViewController: UIViewController, ViewDrawable {
     
     func configureNavigationBar() {
         navigationController?.configureNavigationBarAppearance()
+        navigationItem.backButtonTitle = ""
     }
     
     func showToast(_ message: String) {

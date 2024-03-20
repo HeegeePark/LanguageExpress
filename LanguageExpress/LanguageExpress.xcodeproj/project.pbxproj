@@ -23,6 +23,7 @@
 		4F69CB6A2BAB1BDF00319F83 /* TitleViewLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F69CB692BAB1BDF00319F83 /* TitleViewLabel.swift */; };
 		4F69CB6C2BAB1D3500319F83 /* UINavigationItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F69CB6B2BAB1D3500319F83 /* UINavigationItem+Extension.swift */; };
 		4F69CB6E2BAB4E0900319F83 /* PhraseListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F69CB6D2BAB4E0800319F83 /* PhraseListViewModel.swift */; };
+		4F69CB712BAB565B00319F83 /* PhraseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F69CB702BAB565B00319F83 /* PhraseCollectionViewCell.swift */; };
 		4F6EFDF22BA2BA03007B14EC /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4F6EFDF12BA2BA03007B14EC /* SnapKit */; };
 		4F6EFDF52BA2BAD2007B14EC /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 4F6EFDF42BA2BAD2007B14EC /* Realm */; };
 		4F6EFDF72BA2BAD2007B14EC /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4F6EFDF62BA2BAD2007B14EC /* RealmSwift */; };
@@ -72,6 +73,7 @@
 		4F69CB692BAB1BDF00319F83 /* TitleViewLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleViewLabel.swift; sourceTree = "<group>"; };
 		4F69CB6B2BAB1D3500319F83 /* UINavigationItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationItem+Extension.swift"; sourceTree = "<group>"; };
 		4F69CB6D2BAB4E0800319F83 /* PhraseListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseListViewModel.swift; sourceTree = "<group>"; };
+		4F69CB702BAB565B00319F83 /* PhraseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseCollectionViewCell.swift; sourceTree = "<group>"; };
 		4F6EFDFF2BA353FC007B14EC /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		4F6EFE022BA35490007B14EC /* Sejong hospital Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sejong hospital Bold.otf"; sourceTree = "<group>"; };
 		4F6EFE032BA35490007B14EC /* Sejong hospital Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sejong hospital Light.otf"; sourceTree = "<group>"; };
@@ -183,11 +185,20 @@
 		4F69CB642BAB170000319F83 /* PhraseList */ = {
 			isa = PBXGroup;
 			children = (
+				4F69CB6F2BAB563B00319F83 /* Cell */,
 				4F69CB652BAB174A00319F83 /* PhraseListViewController.swift */,
 				4F69CB672BAB175F00319F83 /* PhraseListView.swift */,
 				4F69CB6D2BAB4E0800319F83 /* PhraseListViewModel.swift */,
 			);
 			path = PhraseList;
+			sourceTree = "<group>";
+		};
+		4F69CB6F2BAB563B00319F83 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				4F69CB702BAB565B00319F83 /* PhraseCollectionViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		4F6EFDFE2BA353EC007B14EC /* Extension */ = {
@@ -422,6 +433,7 @@
 				4F6EFE242BA90306007B14EC /* UIView+Extension.swift in Sources */,
 				4F6EFE3F2BA96849007B14EC /* StateOfMemorization.swift in Sources */,
 				4F69CB572BAA568000319F83 /* CustomTextAreaView.swift in Sources */,
+				4F69CB712BAB565B00319F83 /* PhraseCollectionViewCell.swift in Sources */,
 				4F69CB612BAAA23500319F83 /* Message.swift in Sources */,
 				4F69CB532BAA55D700319F83 /* AddPhraseCollectionView.swift in Sources */,
 				4F6EFE102BA73B29007B14EC /* UINavigationController+Extension.swift in Sources */,

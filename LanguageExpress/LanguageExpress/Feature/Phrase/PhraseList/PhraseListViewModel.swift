@@ -10,7 +10,7 @@ import Foundation
 final class PhraseListViewModel: ViewModelAvailable {
     struct Input {
         var bindViewModelEvent: Observable<Collection>
-        var tagButtonTappedEvent: Observable<String>
+//        var tagButtonTappedEvent: Observable<String>
         var phraseCollectionViewCellDidSelectItemAtEvent: Observable<Int>
     }
     
