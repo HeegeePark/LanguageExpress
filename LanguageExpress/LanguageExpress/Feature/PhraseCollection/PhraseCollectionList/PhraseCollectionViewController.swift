@@ -44,12 +44,14 @@ final class PhraseCollectionViewController: BaseViewController {
             self.mainView.pcCollectionView.reloadData()
         }
         
-        output.phraseListToPush.bind { phrases in
-            guard !phrases.isEmpty else {
+        output.collectionToPush.bind { collection in
+            guard let collection else {
                 return
             }
-            // TODO: 구문 화면 이동
-            print(phrases)
+            
+            let vc = PhraseListViewController()
+            vc.bindViewModel(collection: collection)
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
     

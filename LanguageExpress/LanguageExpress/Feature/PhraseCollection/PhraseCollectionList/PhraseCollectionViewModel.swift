@@ -15,7 +15,7 @@ final class PhraseCollectionViewModel: ViewModelAvailable {
     
     struct Output {
         var collections: Observable<[Collection]> = Observable([])
-        var phraseListToPush: Observable<[Phrase]> = Observable([])
+        var collectionToPush: Observable<Collection?> = Observable(nil)
     }
     
     func transform(from input: Input) -> Output {
@@ -28,7 +28,7 @@ final class PhraseCollectionViewModel: ViewModelAvailable {
         input.phraseCollectionViewCellDidSelectItemAtEvent.bind { idx in
             let count = output.collections.value.count
             guard 0..<count ~= idx else { return }
-            self.loadPhraseList(collectionIndex: idx, output: output)
+            self.loadCollection(collectionIndex: idx, output: output)
         }
         
         return output
@@ -38,8 +38,8 @@ final class PhraseCollectionViewModel: ViewModelAvailable {
         output.collections.value = RealmManager.shared.loadCollection()
     }
     
-    func loadPhraseList(collectionIndex idx: Int, output: Output) {
+    func loadCollection(collectionIndex idx: Int, output: Output) {
         let phrases = output.collections.value[idx].phrases
-        output.phraseListToPush.value = Array(phrases)
+        output.collectionToPush.value = output.collections.value[idx]
     }
 }
