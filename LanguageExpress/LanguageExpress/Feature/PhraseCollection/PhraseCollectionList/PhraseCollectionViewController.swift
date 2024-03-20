@@ -63,8 +63,8 @@ final class PhraseCollectionViewController: BaseViewController {
     }
     
     @objc private func addCollectionTapped() {
-        // TODO: 시트로 띄우기
         let addCollectionVC = UINavigationController(rootViewController: AddPhraseCollectionViewController())
+        addCollectionVC.modalPresentationStyle = .fullScreen
         self.present(addCollectionVC, animated: true)
     }
     
