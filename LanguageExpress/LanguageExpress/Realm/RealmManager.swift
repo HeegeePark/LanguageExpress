@@ -20,6 +20,9 @@ final class RealmManager {
     }
     
     func completionRate(collection: Collection) -> Float {
+        guard !collection.phrases.isEmpty else {
+            return 0
+        }
         let all = collection.phrases
         let completed = phraseRepository.fetchFiltered(list: all, key: "stateOfMemorizationRawValue", value: StateOfMemorization.completed.rawValue)
         return Float(completed.count) / Float(all.count)
