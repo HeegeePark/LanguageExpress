@@ -11,13 +11,6 @@ final class PhraseListView: BaseView {
     // TODO: tag scrollview
     let phraseCollectionView = {
         let cv = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
-        // TODO: modern collectionView로 dynamic 대응
-//        cv.setLayout(
-//            inset: UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20),
-//            spacing: 20,
-//            ratio: 0.5,
-//            colCount: 1
-//        )
         cv.backgroundColor = .clear
         cv.showsVerticalScrollIndicator = false
         cv.register(PhraseListCollectionViewCell.self, forCellWithReuseIdentifier: "phraseList")

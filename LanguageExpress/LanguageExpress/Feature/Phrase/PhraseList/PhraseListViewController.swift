@@ -37,8 +37,7 @@ final class PhraseListViewController: BaseViewController {
         }
         
         output.phrases.bind { phrases in
-            // TODO: 컬렉션뷰 데이터 바인딩
-            print(phrases)
+            self.mainView.phraseCollectionView.reloadData()
         }
     }
     
