@@ -13,6 +13,7 @@ final class TagInputView: BaseView {
         let view = CustomTextAreaView()
         view.setTitle(title: "태그")
         view.showOptionalLabel = true
+        view.setTextFieldPlaceholder(text: "최대 3개 설정 가능")
         view.textFieldValueChanged = { [weak self] text in
             self?.currentTextFieldText = text
         }
@@ -56,7 +57,6 @@ final class TagInputView: BaseView {
         }
         
         guard selectedTags.count < 3 else {
-            // TODO: "태그는 최대 3개까지 설정 가능합니다." 토스트
             return
         }
         

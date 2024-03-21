@@ -51,6 +51,10 @@ final class CustomTextAreaView: BaseView {
         textField.text?.removeAll()
     }
     
+    func setTextFieldPlaceholder(text: String) {
+        textField.placeholder = text
+    }
+    
     override func configureHierarchy() {
         [titleLabel, optionalLabel, textField].forEach {
             self.addSubview($0)
