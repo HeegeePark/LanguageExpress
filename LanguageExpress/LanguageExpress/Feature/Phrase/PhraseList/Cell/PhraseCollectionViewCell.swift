@@ -179,28 +179,3 @@ final class PhraseListCollectionViewCell: UICollectionViewCell {
         contentView.setCornerRadius()
     }
 }
-
-#if canImport(SwiftUI) && DEBUG
-import SwiftUI
-
-struct TableViewCellRepresentable: UIViewRepresentable {
-    typealias UIViewType = UIView
-    
-    let cell = PhraseListCollectionViewCell()
-    
-    func makeUIView(context: Context) -> UIView {
-        return cell
-    }
-    
-    func updateUIView(_ uiView: UIView, context: Context) {
-    }
-}
-
-struct TableViewCell_Previews: PreviewProvider {
-    static var previews: some View{
-        TableViewCellRepresentable()
-            .frame(width: UIScreen.main.bounds.width, height: 100)
-            .previewLayout(.sizeThatFits)
-    }
-}
-#endif
