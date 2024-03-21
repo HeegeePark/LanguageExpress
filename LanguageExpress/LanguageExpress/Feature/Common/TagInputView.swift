@@ -44,7 +44,6 @@ final class TagInputView: BaseView {
     
     private var selectedTags: Set<String> = Set() {
         didSet {
-            // TODO: 상위뷰에 업데이트
             selectedTagsUpdated?(Array(selectedTags))
         }
     }
