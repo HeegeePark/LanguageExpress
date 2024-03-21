@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Floaty
 
 final class PhraseListViewController: BaseViewController {
     private let mainView = PhraseListView()
@@ -44,6 +45,9 @@ final class PhraseListViewController: BaseViewController {
     override func configureView() {
         mainView.phraseCollectionView.dataSource = self
         mainView.phraseCollectionView.delegate = self
+        mainView.setFloaty(vc: self) { [weak self] vcToPresent in
+            self?.present(vcToPresent, animated: true)
+        }
     }
     
     override func configureNavigationBar() {
@@ -63,5 +67,13 @@ extension PhraseListViewController: UICollectionViewDataSource, UICollectionView
         cell.bindData(phrase: phrase)
         
         return cell
+    }
+}
+
+extension PhraseListViewController: FloatyDelegate {
+    func floatyWillOpen(_ floaty: Floaty) {
+    }
+    
+    func floatyWillClose(_ floaty: Floaty) {
     }
 }

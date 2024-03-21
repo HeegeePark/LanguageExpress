@@ -1,6 +1,15 @@
 {
   "pins" : [
     {
+      "identity" : "floaty",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/kciter/Floaty.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "d0e637db60828d49e403ff0b7dc11b1458e67095"
+      }
+    },
+    {
       "identity" : "realm-core",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/realm/realm-core.git",
@@ -15,7 +24,7 @@
       "location" : "https://github.com/realm/realm-swift.git",
       "state" : {
         "branch" : "master",
-        "revision" : "c5726fa6f2bd2caf1f3b599b52c98203134454e8"
+        "revision" : "33a1eee6ebe4f6a3475c78e8900b7c41c1d74296"
       }
     },
     {

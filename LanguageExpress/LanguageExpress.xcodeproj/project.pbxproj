@@ -24,6 +24,9 @@
 		4F69CB6C2BAB1D3500319F83 /* UINavigationItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F69CB6B2BAB1D3500319F83 /* UINavigationItem+Extension.swift */; };
 		4F69CB6E2BAB4E0900319F83 /* PhraseListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F69CB6D2BAB4E0800319F83 /* PhraseListViewModel.swift */; };
 		4F69CB712BAB565B00319F83 /* PhraseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F69CB702BAB565B00319F83 /* PhraseCollectionViewCell.swift */; };
+		4F69CB752BAB92BA00319F83 /* Floaty in Frameworks */ = {isa = PBXBuildFile; productRef = 4F69CB742BAB92BA00319F83 /* Floaty */; };
+		4F69CB792BAC44D700319F83 /* FloatyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F69CB782BAC44D700319F83 /* FloatyFactory.swift */; };
+		4F69CB7C2BAC62BF00319F83 /* AddPhraseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F69CB7B2BAC62BF00319F83 /* AddPhraseViewController.swift */; };
 		4F6EFDF22BA2BA03007B14EC /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4F6EFDF12BA2BA03007B14EC /* SnapKit */; };
 		4F6EFDF52BA2BAD2007B14EC /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 4F6EFDF42BA2BAD2007B14EC /* Realm */; };
 		4F6EFDF72BA2BAD2007B14EC /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4F6EFDF62BA2BAD2007B14EC /* RealmSwift */; };
@@ -73,6 +76,8 @@
 		4F69CB6B2BAB1D3500319F83 /* UINavigationItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationItem+Extension.swift"; sourceTree = "<group>"; };
 		4F69CB6D2BAB4E0800319F83 /* PhraseListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseListViewModel.swift; sourceTree = "<group>"; };
 		4F69CB702BAB565B00319F83 /* PhraseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseCollectionViewCell.swift; sourceTree = "<group>"; };
+		4F69CB782BAC44D700319F83 /* FloatyFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatyFactory.swift; sourceTree = "<group>"; };
+		4F69CB7B2BAC62BF00319F83 /* AddPhraseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhraseViewController.swift; sourceTree = "<group>"; };
 		4F6EFDFF2BA353FC007B14EC /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		4F6EFE022BA35490007B14EC /* Sejong hospital Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sejong hospital Bold.otf"; sourceTree = "<group>"; };
 		4F6EFE032BA35490007B14EC /* Sejong hospital Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sejong hospital Light.otf"; sourceTree = "<group>"; };
@@ -105,6 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F69CB752BAB92BA00319F83 /* Floaty in Frameworks */,
 				4F6EFDF72BA2BAD2007B14EC /* RealmSwift in Frameworks */,
 				4F6EFDF52BA2BAD2007B14EC /* Realm in Frameworks */,
 				4F69CB5F2BAAA16700319F83 /* Toast in Frameworks */,
@@ -176,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				4F69CB642BAB170000319F83 /* PhraseList */,
+				4F69CB7A2BAC629D00319F83 /* AddPhrase */,
 			);
 			path = Phrase;
 			sourceTree = "<group>";
@@ -197,6 +204,14 @@
 				4F69CB702BAB565B00319F83 /* PhraseCollectionViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		4F69CB7A2BAC629D00319F83 /* AddPhrase */ = {
+			isa = PBXGroup;
+			children = (
+				4F69CB7B2BAC62BF00319F83 /* AddPhraseViewController.swift */,
+			);
+			path = AddPhrase;
 			sourceTree = "<group>";
 		};
 		4F6EFDFE2BA353EC007B14EC /* Extension */ = {
@@ -273,6 +288,7 @@
 				4F69CB562BAA568000319F83 /* CustomTextAreaView.swift */,
 				4F69CB582BAA5F0700319F83 /* ColorSelectView.swift */,
 				4F69CB692BAB1BDF00319F83 /* TitleViewLabel.swift */,
+				4F69CB782BAC44D700319F83 /* FloatyFactory.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -345,6 +361,7 @@
 				4F6EFDF42BA2BAD2007B14EC /* Realm */,
 				4F6EFDF62BA2BAD2007B14EC /* RealmSwift */,
 				4F69CB5E2BAAA16700319F83 /* Toast */,
+				4F69CB742BAB92BA00319F83 /* Floaty */,
 			);
 			productName = LanguageExpress;
 			productReference = 4F4F03F72B99890D003B88DF /* LanguageExpress.app */;
@@ -378,6 +395,7 @@
 				4F6EFDF02BA2BA03007B14EC /* XCRemoteSwiftPackageReference "SnapKit" */,
 				4F6EFDF32BA2BAD2007B14EC /* XCRemoteSwiftPackageReference "realm-swift" */,
 				4F69CB5D2BAAA16700319F83 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+				4F69CB732BAB92BA00319F83 /* XCRemoteSwiftPackageReference "Floaty" */,
 			);
 			productRefGroup = 4F4F03F82B99890D003B88DF /* Products */;
 			projectDirPath = "";
@@ -417,6 +435,7 @@
 				4F6EFE412BA96B98007B14EC /* Tag.swift in Sources */,
 				4F69CB6C2BAB1D3500319F83 /* UINavigationItem+Extension.swift in Sources */,
 				4F6EFE1C2BA8361C007B14EC /* ViewDrawable.swift in Sources */,
+				4F69CB792BAC44D700319F83 /* FloatyFactory.swift in Sources */,
 				4F4F03FD2B99890D003B88DF /* SceneDelegate.swift in Sources */,
 				4F6EFE462BA96DF1007B14EC /* CollectionRepository.swift in Sources */,
 				4F6EFE442BA96D53007B14EC /* BaseRepository.swift in Sources */,
@@ -429,6 +448,7 @@
 				4F6EFE242BA90306007B14EC /* UIView+Extension.swift in Sources */,
 				4F6EFE3F2BA96849007B14EC /* StateOfMemorization.swift in Sources */,
 				4F69CB572BAA568000319F83 /* CustomTextAreaView.swift in Sources */,
+				4F69CB7C2BAC62BF00319F83 /* AddPhraseViewController.swift in Sources */,
 				4F69CB712BAB565B00319F83 /* PhraseCollectionViewCell.swift in Sources */,
 				4F69CB612BAAA23500319F83 /* Message.swift in Sources */,
 				4F69CB532BAA55D700319F83 /* AddPhraseCollectionView.swift in Sources */,
@@ -590,6 +610,7 @@
 				DEVELOPMENT_TEAM = HAA376DX53;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LanguageExpress/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "언어급행";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -621,6 +642,7 @@
 				DEVELOPMENT_TEAM = HAA376DX53;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LanguageExpress/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "언어급행";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -674,6 +696,14 @@
 				minimumVersion = 5.1.0;
 			};
 		};
+		4F69CB732BAB92BA00319F83 /* XCRemoteSwiftPackageReference "Floaty" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kciter/Floaty.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		4F6EFDF02BA2BA03007B14EC /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -697,6 +727,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4F69CB5D2BAAA16700319F83 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
 			productName = Toast;
+		};
+		4F69CB742BAB92BA00319F83 /* Floaty */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4F69CB732BAB92BA00319F83 /* XCRemoteSwiftPackageReference "Floaty" */;
+			productName = Floaty;
 		};
 		4F6EFDF12BA2BA03007B14EC /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;

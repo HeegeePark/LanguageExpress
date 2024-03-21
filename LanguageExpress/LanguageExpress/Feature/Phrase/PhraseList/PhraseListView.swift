@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Floaty
 
 final class PhraseListView: BaseView {
     // TODO: tag scrollview
@@ -16,6 +17,17 @@ final class PhraseListView: BaseView {
         cv.register(PhraseListCollectionViewCell.self, forCellWithReuseIdentifier: "phraseList")
         return cv
     }()
+    
+    private lazy var floatingButton = Floaty()
+    
+    func setFloaty(vc: UIViewController & FloatyDelegate,
+                   handlerToPresent: @escaping (UIViewController) -> Void) {
+        print(#function)
+        floatingButton = FloatyFactory.makeFloaty(vc: vc) { vcToPresent in
+            handlerToPresent(vcToPresent)
+        }
+        self.addSubview(floatingButton)
+    }
     
     static private func createLayout() -> UICollectionViewLayout {
         let layout = UICollectionViewCompositionalLayout { _, _ in
