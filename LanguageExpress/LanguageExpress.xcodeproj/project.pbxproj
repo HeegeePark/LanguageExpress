@@ -33,6 +33,7 @@
 		4F69CB862BACADD700319F83 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F69CB852BACADD700319F83 /* TagView.swift */; };
 		4F69CB882BACB0E000319F83 /* AddPhraseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F69CB872BACB0E000319F83 /* AddPhraseViewModel.swift */; };
 		4F69CB8A2BACBEF800319F83 /* TagRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F69CB892BACBEF800319F83 /* TagRepository.swift */; };
+		4F69CB8C2BACDE3600319F83 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F69CB8B2BACDE3600319F83 /* UITextField+Extension.swift */; };
 		4F6EFDF22BA2BA03007B14EC /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4F6EFDF12BA2BA03007B14EC /* SnapKit */; };
 		4F6EFDF52BA2BAD2007B14EC /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 4F6EFDF42BA2BAD2007B14EC /* Realm */; };
 		4F6EFDF72BA2BAD2007B14EC /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4F6EFDF62BA2BAD2007B14EC /* RealmSwift */; };
@@ -90,6 +91,7 @@
 		4F69CB852BACADD700319F83 /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
 		4F69CB872BACB0E000319F83 /* AddPhraseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhraseViewModel.swift; sourceTree = "<group>"; };
 		4F69CB892BACBEF800319F83 /* TagRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagRepository.swift; sourceTree = "<group>"; };
+		4F69CB8B2BACDE3600319F83 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
 		4F6EFDFF2BA353FC007B14EC /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		4F6EFE022BA35490007B14EC /* Sejong hospital Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sejong hospital Bold.otf"; sourceTree = "<group>"; };
 		4F6EFE032BA35490007B14EC /* Sejong hospital Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sejong hospital Light.otf"; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 				4F6EFE232BA90306007B14EC /* UIView+Extension.swift */,
 				4F69CB6B2BAB1D3500319F83 /* UINavigationItem+Extension.swift */,
 				4F69CB832BACAB4C00319F83 /* String+Extension.swift */,
+				4F69CB8B2BACDE3600319F83 /* UITextField+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -462,6 +465,7 @@
 				4F6EFE442BA96D53007B14EC /* BaseRepository.swift in Sources */,
 				4F6EFE002BA353FC007B14EC /* UIFont+Extension.swift in Sources */,
 				4F6EFE222BA83B6D007B14EC /* PCCollectionViewCell.swift in Sources */,
+				4F69CB8C2BACDE3600319F83 /* UITextField+Extension.swift in Sources */,
 				4FC4EC472BA0130D004AD6E6 /* VisionKitViewController.swift in Sources */,
 				4F6EFE192BA8346E007B14EC /* PhraseCollectionView.swift in Sources */,
 				4F6EFE3C2BA964D3007B14EC /* Phrase.swift in Sources */,

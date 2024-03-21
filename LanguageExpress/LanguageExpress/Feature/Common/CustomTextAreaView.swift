@@ -30,6 +30,7 @@ final class CustomTextAreaView: BaseView {
         tf.setCornerRadius(.small)
         tf.layer.borderWidth = 2
         tf.layer.borderColor = UIColor.strokeGray.cgColor
+        tf.addLeftPadding()
         tf.delegate = self
         return tf
     }()
