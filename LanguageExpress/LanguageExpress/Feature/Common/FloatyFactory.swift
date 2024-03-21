@@ -53,18 +53,6 @@ final class FloatyFactory: FloatyCreator {
             return item
         }()
         fab.addItem(item: addPhraseByOCRItem)
-        
-        let closeItem = {
-            let item = FloatyItem()
-            item.buttonColor = .accent
-            item.tintColor = .primary
-            item.icon = UIImage(systemName: "xmark")
-            item.buttonColor = .accent
-            item.titleLabel.font = .systemFont(ofSize: 15, weight: .semibold)
-            item.titleLabel.textAlignment = .right
-            return item
-        }()
-        fab.addItem(item: closeItem)
 
         return fab
     }

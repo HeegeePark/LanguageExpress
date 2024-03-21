@@ -46,6 +46,10 @@ final class CustomTextAreaView: BaseView {
         titleLabel.text = title
     }
     
+    func resetTextField() {
+        textField.text?.removeAll()
+    }
+    
     override func configureHierarchy() {
         [titleLabel, optionalLabel, textField].forEach {
             self.addSubview($0)
@@ -58,14 +62,14 @@ final class CustomTextAreaView: BaseView {
         }
         
         optionalLabel.snp.makeConstraints { make in
-            make.leading.equalTo(titleLabel.snp.trailing).offset(10)
+            make.leading.equalTo(titleLabel.snp.trailing).offset(6)
             make.trailing.equalTo(self.safeAreaLayoutGuide).priority(.low)
             make.bottom.equalTo(titleLabel)
         }
         
         textField.snp.makeConstraints { make in
             make.horizontalEdges.bottom.equalTo(self.safeAreaLayoutGuide)
-            make.height.equalTo(50)
+            make.height.equalTo(40)
             make.top.equalTo(titleLabel.snp.bottom).offset(10)
         }
     }
