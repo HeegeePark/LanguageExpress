@@ -52,5 +52,7 @@ final class RealmManager {
         collectionRepository.updatePhrase(item: collection, phrase: phraseModel)
     }
     
-    
+    func toggleIsBookMark(phrase: Phrase) {
+        phraseRepository.updateIsBookMark(item: phrase)
+    }
 }

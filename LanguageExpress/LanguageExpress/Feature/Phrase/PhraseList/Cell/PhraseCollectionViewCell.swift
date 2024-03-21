@@ -51,12 +51,12 @@ final class PhraseListCollectionViewCell: UICollectionViewCell {
         return btn
     }()
     
-    private lazy var bookmarkButton = {
+    private lazy var bookMarkButton = {
         let btn = UIButton()
         btn.setImage(UIImage(systemName: "bookmark"),
                      for: .normal)
         btn.tintColor = .accent
-        // TODO: 북마크 클로저
+        btn.addTarget(self, action: #selector(bookMarkButtonTapped), for: .touchUpInside)
         return btn
     }()
     
@@ -68,6 +68,12 @@ final class PhraseListCollectionViewCell: UICollectionViewCell {
         // TODO: 발음듣기 클로저
         return btn
     }()
+    
+    var bookMarkButtonTapHandler: (() -> Void)?
+    
+    @objc private func bookMarkButtonTapped() {
+        bookMarkButtonTapHandler?()
+    }
     
     private let inset: CGFloat = 8
     
@@ -101,7 +107,7 @@ final class PhraseListCollectionViewCell: UICollectionViewCell {
         }
         
         let bookmarkImage = phrase.isBookMark ? "bookmark.fill": "bookmark"
-        bookmarkButton.setImage(UIImage(systemName: bookmarkImage), for: .normal)
+        bookMarkButton.setImage(UIImage(systemName: bookmarkImage), for: .normal)
     }
     
     private func updateLabelLayout(label: UILabel) {
@@ -130,8 +136,8 @@ final class PhraseListCollectionViewCell: UICollectionViewCell {
             }
         default:    // stateOfMemorizationButton.titleLabel!
             stateOfMemorizationButton.snp.remakeConstraints { make in
-                make.centerY.equalTo(bookmarkButton)
-                make.trailing.equalTo(bookmarkButton.snp.leading).offset(-8)
+                make.centerY.equalTo(bookMarkButton)
+                make.trailing.equalTo(bookMarkButton.snp.leading).offset(-8)
                 make.height.equalTo(20)
                 make.width.equalTo(size.width + inset * 2)
             }
@@ -139,7 +145,7 @@ final class PhraseListCollectionViewCell: UICollectionViewCell {
     }
     
     private func configure() {
-        [phraseLabel, meaningLabel, memoLabel, stateOfMemorizationButton, bookmarkButton, ttsButton].forEach {
+        [phraseLabel, meaningLabel, memoLabel, stateOfMemorizationButton, bookMarkButton, ttsButton].forEach {
             contentView.addSubview($0)
         }
         
@@ -160,12 +166,12 @@ final class PhraseListCollectionViewCell: UICollectionViewCell {
         }
         
         stateOfMemorizationButton.snp.makeConstraints { make in
-            make.centerY.equalTo(bookmarkButton)
-            make.trailing.equalTo(bookmarkButton.snp.leading).offset(-8)
+            make.centerY.equalTo(bookMarkButton)
+            make.trailing.equalTo(bookMarkButton.snp.leading).offset(-8)
             make.height.equalTo(20)
         }
         
-        bookmarkButton.snp.makeConstraints { make in
+        bookMarkButton.snp.makeConstraints { make in
             make.top.trailing.equalTo(contentView.safeAreaLayoutGuide).inset(inset)
             make.size.equalTo(25)
         }

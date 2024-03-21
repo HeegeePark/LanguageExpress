@@ -32,6 +32,7 @@ final class PhraseListViewController: BaseViewController {
         input = PhraseListViewModel.Input(
             bindViewModelEvent: Observable(collection), viewDidAppearEvent: Observable(nil),
             phraseCollectionViewCellDidSelectItemAtEvent: Observable(-1),
+            phraseCollectionViewCellBookMarkButtonTappedEvent: Observable(-1),
             addFloatingButtonTappedEvent: Observable(nil)
         )
         
@@ -53,6 +54,11 @@ final class PhraseListViewController: BaseViewController {
             let nav = UINavigationController(rootViewController: addVC)
             nav.modalPresentationStyle = .fullScreen
             self.present(nav, animated: true)
+        }
+        
+        output.successToToggleIsBookMarkTrigger.bind { event in
+            guard event != nil else { return }
+            self.mainView.phraseCollectionView.reloadData()
         }
     }
     
@@ -76,6 +82,10 @@ extension PhraseListViewController: UICollectionViewDataSource, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "phraseList", for: indexPath) as! PhraseListCollectionViewCell
+        
+        cell.bookMarkButtonTapHandler = {
+            self.input.phraseCollectionViewCellBookMarkButtonTappedEvent.value = indexPath.item
+        }
         
         let phrase = output.phrases.value[indexPath.item]
         cell.bindData(phrase: phrase)

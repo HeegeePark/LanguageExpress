@@ -13,6 +13,7 @@ final class PhraseListViewModel: ViewModelAvailable {
         var viewDidAppearEvent: Observable<Void?>
 //        var tagButtonTappedEvent: Observable<String>
         var phraseCollectionViewCellDidSelectItemAtEvent: Observable<Int>
+        var phraseCollectionViewCellBookMarkButtonTappedEvent: Observable<Int>
         var addFloatingButtonTappedEvent: Observable<Void?>
     }
     
@@ -20,6 +21,7 @@ final class PhraseListViewModel: ViewModelAvailable {
         var collection: Observable<Collection?> = Observable(nil)
         var phrases: Observable<[Phrase]> = Observable([])
         var presentAddPhraseTrigger: Observable<Void?> = Observable(nil)
+        var successToToggleIsBookMarkTrigger: Observable<Void?> = Observable(nil)
     }
 
     func transform(from input: Input) -> Output {
@@ -37,6 +39,16 @@ final class PhraseListViewModel: ViewModelAvailable {
             // TODO: 태그 버튼에 쓸 전체 태그 불러오기
         }
         
+        input.phraseCollectionViewCellDidSelectItemAtEvent.bind { idx in
+            // TODO: meaningLabel isHidden 컨트롤
+        }
+        
+        input.phraseCollectionViewCellBookMarkButtonTappedEvent.bind { idx in
+            guard 0..<output.phrases.value.count ~= idx else { return }
+            let phrase = output.phrases.value[idx]
+            self.toggleIsBookMark(phrase: phrase, output: output)
+        }
+        
         input.addFloatingButtonTappedEvent.bind { event in
             guard event != nil else { return }
             output.presentAddPhraseTrigger.value = ()
@@ -51,5 +63,10 @@ final class PhraseListViewModel: ViewModelAvailable {
     
     func loadPhraseList(collection: Collection, output: Output) {
         output.phrases.value = Array(collection.phrases)
+    }
+    
+    func toggleIsBookMark(phrase: Phrase, output: Output) {
+        RealmManager.shared.toggleIsBookMark(phrase: phrase)
+        output.successToToggleIsBookMarkTrigger.value = ()
     }
 }

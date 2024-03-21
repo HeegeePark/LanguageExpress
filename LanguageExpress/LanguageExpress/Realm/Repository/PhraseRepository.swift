@@ -20,4 +20,14 @@ final class PhraseRepository: BaseRepository<Phrase> {
             print("error")
         }
     }
+    
+    func updateIsBookMark(item: Phrase) {
+        do {
+            try realm.write {
+                item.isBookMark.toggle()
+            }
+        } catch {
+            print("error")
+        }
+    }
 }
