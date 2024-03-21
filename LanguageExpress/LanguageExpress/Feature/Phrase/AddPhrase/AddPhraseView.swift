@@ -8,11 +8,10 @@
 import UIKit
 
 protocol AddPhraseViewDelegate: UIViewController {
-    func phraseChanged(name: String)
+    func phraseChanged(phrase: String)
     func meaningChanged(meaning: String)
     func memoChanged(memo: String)
     func tagChanged(tags: [String])
-    func collectionSelected(collection: Collection)
 }
 
 final class AddPhraseView: BaseView {
@@ -23,7 +22,7 @@ final class AddPhraseView: BaseView {
         view.setTitle(title: "표현/구문/문장")
         view.showOptionalLabel = false
         view.textFieldValueChanged = { [weak self] text in
-            self?.delegate?.phraseChanged(name: text)
+            self?.delegate?.phraseChanged(phrase: text)
         }
         return view
     }()
@@ -33,7 +32,7 @@ final class AddPhraseView: BaseView {
         view.setTitle(title: "뜻")
         view.showOptionalLabel = false
         view.textFieldValueChanged = { [weak self] text in
-            self?.delegate?.phraseChanged(name: text)
+            self?.delegate?.meaningChanged(meaning: text)
         }
         return view
     }()
@@ -43,13 +42,16 @@ final class AddPhraseView: BaseView {
         view.setTitle(title: "메모")
         view.showOptionalLabel = true
         view.textFieldValueChanged = { [weak self] text in
-            self?.delegate?.phraseChanged(name: text)
+            self?.delegate?.memoChanged(memo: text)
         }
         return view
     }()
     
-    private let tagInputView = {
+    private lazy var tagInputView = {
         let view = TagInputView()
+        view.selectedTagsUpdated = { [weak self] tags in
+            self?.delegate?.tagChanged(tags: tags)
+        }
         return view
     }()
     

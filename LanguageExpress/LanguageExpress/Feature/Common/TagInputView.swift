@@ -40,13 +40,16 @@ final class TagInputView: BaseView {
         return view
     }()
     
-    var currentTextFieldText: String = ""
+    private var currentTextFieldText: String = ""
     
-    var selectedTags: Set<String> = Set() {
+    private var selectedTags: Set<String> = Set() {
         didSet {
             // TODO: 상위뷰에 업데이트
+            selectedTagsUpdated?(Array(selectedTags))
         }
     }
+    
+    var selectedTagsUpdated: (([String]) -> Void)?
     
     @objc private func addButtonTapped() {
         guard !currentTextFieldText.isEmpty else {
@@ -57,8 +60,11 @@ final class TagInputView: BaseView {
             // TODO: "태그는 최대 3개까지 설정 가능합니다." 토스트
             return
         }
-        selectedTags.insert(currentTextFieldText)
-        addTagView(title: currentTextFieldText)
+        
+        if !selectedTags.contains(currentTextFieldText) {
+            selectedTags.insert(currentTextFieldText)
+            addTagView(title: currentTextFieldText)
+        }
         tagInputAreaView.resetTextField()
     }
     

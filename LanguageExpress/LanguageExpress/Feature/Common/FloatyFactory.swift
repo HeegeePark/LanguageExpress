@@ -9,12 +9,12 @@ import UIKit
 import Floaty
 
 protocol FloatyCreator {
-    static func makeFloaty(vc: UIViewController & FloatyDelegate, _ completionHandelr: @escaping (UIViewController) -> Void) -> Floaty
+    static func makeFloaty(vc: UIViewController & FloatyDelegate, _ completionHandelr: @escaping (Int) -> Void) -> Floaty
 }
 
 // 여러 화면에서 커스텀 플로팅 버튼을 쓸 것을 감안한 factory
 final class FloatyFactory: FloatyCreator {
-    static func makeFloaty(vc: UIViewController & FloatyDelegate, _ completionHandelr: @escaping (UIViewController) -> Void) -> Floaty {
+    static func makeFloaty(vc: UIViewController & FloatyDelegate, _ completionHandelr: @escaping (Int) -> Void) -> Floaty {
         let fab = Floaty()
         fab.buttonColor = .primary
         fab.plusColor = .white
@@ -30,9 +30,7 @@ final class FloatyFactory: FloatyCreator {
             item.titleLabel.textAlignment = .right
             item.icon = UIImage(systemName: "pencil")
             item.handler = { item in
-                let addVC = UINavigationController(rootViewController: AddPhraseViewController())
-                addVC.modalPresentationStyle = .fullScreen
-                completionHandelr(addVC)
+                completionHandelr(0)
                 fab.close()
             }
             return item

@@ -12,27 +12,34 @@ final class PhraseListViewModel: ViewModelAvailable {
         var bindViewModelEvent: Observable<Collection>
 //        var tagButtonTappedEvent: Observable<String>
         var phraseCollectionViewCellDidSelectItemAtEvent: Observable<Int>
+        var addFloatingButtonTappedEvent: Observable<Void?>
     }
     
     struct Output {
-        var collectionName: Observable<String> = Observable("")
+        var collection: Observable<Collection?> = Observable(nil)
         var phrases: Observable<[Phrase]> = Observable([])
+        var presentAddPhraseTrigger: Observable<Void?> = Observable(nil)
     }
 
     func transform(from input: Input) -> Output {
         let output = Output()
         
         input.bindViewModelEvent.bind { collection in
-            self.loadCollectionName(collection: collection, output: output)
+            self.loadCollection(collection: collection, output: output)
             self.loadPhraseList(collection: collection, output: output)
             // TODO: 태그 버튼에 쓸 전체 태그 불러오기
+        }
+        
+        input.addFloatingButtonTappedEvent.bind { event in
+            guard event != nil else { return }
+            output.presentAddPhraseTrigger.value = ()
         }
         
         return output
     }
     
-    func loadCollectionName(collection: Collection, output: Output) {
-        output.collectionName.value = collection.name
+    func loadCollection(collection: Collection, output: Output) {
+        output.collection.value = collection
     }
     
     func loadPhraseList(collection: Collection, output: Output) {

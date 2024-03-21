@@ -46,20 +46,20 @@ final class AddPhraseCollectionViewModel: ViewModelAvailable {
         return output
     }
     
-    func updateCollectionName(name: String, output: Output) {
+    private func updateCollectionName(name: String, output: Output) {
         output.collectionName.value = name
     }
     
-    func updateCollectionColor(color: String, output: Output) {
+    private func updateCollectionColor(color: String, output: Output) {
         output.collectionColor.value = color
     }
     
-    func validateToAddCollection(output: Output) -> Bool {
+    private func validateToAddCollection(output: Output) -> Bool {
         return !output.collectionName.value.isEmpty &&
                 !output.collectionColor.value.isEmpty
     }
     
-    func addCollection(output: Output) {
+    private func addCollection(output: Output) {
         let name = output.collectionName.value
         let color = output.collectionColor.value
         RealmManager.shared.addCollection(name: name, color: color)

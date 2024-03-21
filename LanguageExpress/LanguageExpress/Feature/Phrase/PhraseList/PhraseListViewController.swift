@@ -26,27 +26,36 @@ final class PhraseListViewController: BaseViewController {
     func bindViewModel(collection: Collection) {
         input = PhraseListViewModel.Input(
             bindViewModelEvent: Observable(collection),
-            phraseCollectionViewCellDidSelectItemAtEvent: Observable(-1)
+            phraseCollectionViewCellDidSelectItemAtEvent: Observable(-1),
+            addFloatingButtonTappedEvent: Observable(nil)
         )
         
         output = viewModel.transform(from: input)
         
-        output.collectionName.bind { name in
-            guard !name.isEmpty else { return }
+        output.collection.bind { collection in
+            guard let collection else { return }
             self.configureNavigationBar()
-            self.navigationItem.title = name
+            self.navigationItem.title = collection.name
         }
         
         output.phrases.bind { phrases in
             self.mainView.phraseCollectionView.reloadData()
+        }
+        
+        output.presentAddPhraseTrigger.bind { _ in
+            let addVC = AddPhraseViewController()
+            addVC.bindViewModel(collection: collection)
+            let nav = UINavigationController(rootViewController: addVC)
+            nav.modalPresentationStyle = .fullScreen
+            self.present(nav, animated: true)
         }
     }
     
     override func configureView() {
         mainView.phraseCollectionView.dataSource = self
         mainView.phraseCollectionView.delegate = self
-        mainView.setFloaty(vc: self) { [weak self] vcToPresent in
-            self?.present(vcToPresent, animated: true)
+        mainView.setFloaty(vc: self) { [weak self] sender in
+            self?.input.addFloatingButtonTappedEvent.value = ()
         }
     }
     

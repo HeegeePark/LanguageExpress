@@ -9,4 +9,15 @@ import Foundation
 import RealmSwift
 
 final class PhraseRepository: BaseRepository<Phrase> {
+    private let realm = try! Realm()
+    
+    func updateTag(item: Phrase, tag: Tag) {
+        do {
+            try realm.write {
+                item.tags.append(tag)
+            }
+        } catch {
+            print("error")
+        }
+    }
 }

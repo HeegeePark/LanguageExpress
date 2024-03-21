@@ -21,10 +21,9 @@ final class PhraseListView: BaseView {
     private lazy var floatingButton = Floaty()
     
     func setFloaty(vc: UIViewController & FloatyDelegate,
-                   handlerToPresent: @escaping (UIViewController) -> Void) {
-        print(#function)
-        floatingButton = FloatyFactory.makeFloaty(vc: vc) { vcToPresent in
-            handlerToPresent(vcToPresent)
+                   handlerToPresent: @escaping (Int) -> Void) {
+        floatingButton = FloatyFactory.makeFloaty(vc: vc) { sender in
+            handlerToPresent(sender)
         }
         self.addSubview(floatingButton)
     }

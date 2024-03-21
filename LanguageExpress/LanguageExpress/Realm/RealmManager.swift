@@ -14,6 +14,7 @@ final class RealmManager {
     
     private let collectionRepository = CollectionRepository()
     private let phraseRepository = PhraseRepository()
+    private let tagRepository = TagRepository()
     
     func loadCollection() -> [Collection] {
         return collectionRepository.fetch()
@@ -33,4 +34,23 @@ final class RealmManager {
             Collection(name: name, color: color)
         )
     }
+    
+    func addPhrase(at collection: Collection, phrase: String, meaning: String, memo: String, tags: [String]) {
+        // phrase create
+        let phraseModel = Phrase(phrase: phrase,
+                                 meaning: meaning,
+                                 memo: !memo.isEmpty ? memo: nil)
+        phraseRepository.createItem(phraseModel)
+        
+        // phrase에 tag append
+        tags.forEach {
+            let tag = tagRepository.loadTag(title: $0)
+            phraseRepository.updateTag(item: phraseModel, tag: tag)
+        }
+        
+        // collection에 phrase append
+        collectionRepository.updatePhrase(item: collection, phrase: phraseModel)
+    }
+    
+    
 }
