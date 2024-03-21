@@ -63,8 +63,8 @@ final class TagInputView: BaseView {
         if !selectedTags.contains(currentTextFieldText) {
             selectedTags.insert(currentTextFieldText)
             addTagView(title: currentTextFieldText)
+            tagInputAreaView.resetTextField()
         }
-        tagInputAreaView.resetTextField()
     }
     
     private func addTagView(title: String) {
@@ -75,6 +75,12 @@ final class TagInputView: BaseView {
         tagView.snp.makeConstraints {
             let inset: CGFloat = 8
             $0.width.equalTo(inset * 2 + width)
+        }
+        
+        tagView.removeButtonTappedHandler = {
+            self.tagStackView.removeArrangedSubview(tagView)
+            tagView.removeFromSuperview()
+            self.selectedTags.remove(title)
         }
     }
     

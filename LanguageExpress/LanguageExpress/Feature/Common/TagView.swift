@@ -18,15 +18,22 @@ final class TagView: BaseView {
         return view
     }()
     
-    private let removeButton = {
+    private lazy var removeButton = {
         let view = UIButton()
         var imageConfig = UIImage.SymbolConfiguration(pointSize: 10, weight: .semibold)
         let image = UIImage(systemName: "xmark", withConfiguration: imageConfig)
         view.setImage(image, for: .normal)
         view.tintColor = .white
         view.backgroundColor = .primary
+        view.addTarget(self, action: #selector(removeButtonTapped), for: .touchUpInside)
         return view
     }()
+    
+    var removeButtonTappedHandler: (() -> Void)?
+    
+    @objc private func removeButtonTapped() {
+        removeButtonTappedHandler?()
+    }
     
     func setTitle(_ title: String) {
         titleView.text = "#" + title.whiteSpaceRemoved
