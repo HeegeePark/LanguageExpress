@@ -23,9 +23,14 @@ final class PhraseListViewController: BaseViewController {
         super.viewDidLoad()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        input.viewDidAppearEvent.value = ()
+    }
+    
     func bindViewModel(collection: Collection) {
         input = PhraseListViewModel.Input(
-            bindViewModelEvent: Observable(collection),
+            bindViewModelEvent: Observable(collection), viewDidAppearEvent: Observable(nil),
             phraseCollectionViewCellDidSelectItemAtEvent: Observable(-1),
             addFloatingButtonTappedEvent: Observable(nil)
         )
