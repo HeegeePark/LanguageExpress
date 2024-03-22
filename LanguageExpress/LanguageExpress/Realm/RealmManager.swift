@@ -61,4 +61,8 @@ final class RealmManager {
         let stateToChangeRawvalue = current.nextTypeRawvalue
         phraseRepository.updateStateOfMemorizationRawValue(item: phrase, rawvalue: stateToChangeRawvalue)
     }
+    
+    func deletePhrase(phrase: Phrase) {
+        phraseRepository.deleteItem(object: phrase)
+    }
 }

@@ -33,7 +33,8 @@ final class PhraseListViewController: BaseViewController {
             bindViewModelEvent: Observable(collection), viewDidAppearEvent: Observable(nil),
             phraseCollectionViewCellDidSelectItemAtEvent: Observable(-1),
             phraseCollectionViewCellBookMarkButtonTappedEvent: Observable(-1), phraseCollectionViewCellStateOfMemorizationButtonTappedEvent: Observable(-1),
-            addFloatingButtonTappedEvent: Observable(nil)
+            addFloatingButtonTappedEvent: Observable(nil),
+            deletePhraseAlertConfirmEvent: Observable(-1)
         )
         
         output = viewModel.transform(from: input)
@@ -71,9 +72,34 @@ final class PhraseListViewController: BaseViewController {
     override func configureView() {
         mainView.phraseCollectionView.dataSource = self
         mainView.phraseCollectionView.delegate = self
+        registerLongPressGesture()
         mainView.setFloaty(vc: self) { [weak self] sender in
             self?.input.addFloatingButtonTappedEvent.value = ()
         }
+    }
+    
+    private func registerLongPressGesture() {
+        let gesture = UILongPressGestureRecognizer()
+        gesture.addTarget(self, action: #selector(collectionViewlongPressed))
+        mainView.phraseCollectionView.addGestureRecognizer(gesture)
+    }
+    
+    @objc private func collectionViewlongPressed(_ sender: UILongPressGestureRecognizer) {
+        if sender.state == UIGestureRecognizer.State.began {
+            let touchPoint = sender.location(in: mainView.phraseCollectionView)
+            if let indexPath = mainView.phraseCollectionView.indexPathForItem(at: touchPoint) {
+                showDeletePhraseAlert(at: indexPath.item)
+            }
+        }
+    }
+    
+    private func showDeletePhraseAlert(at idx: Int) {
+        AlertBuilder(viewController: self)
+            .setMessage(Message.deletePhraseAlert)
+            .addActionConfirm("삭제") {
+                self.input.deletePhraseAlertConfirmEvent.value = idx
+            }
+            .show()
     }
     
     override func configureNavigationBar() {

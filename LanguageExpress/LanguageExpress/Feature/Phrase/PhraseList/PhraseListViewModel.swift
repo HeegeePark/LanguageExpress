@@ -16,6 +16,7 @@ final class PhraseListViewModel: ViewModelAvailable {
         var phraseCollectionViewCellBookMarkButtonTappedEvent: Observable<Int>
         var phraseCollectionViewCellStateOfMemorizationButtonTappedEvent: Observable<Int>
         var addFloatingButtonTappedEvent: Observable<Void?>
+        var deletePhraseAlertConfirmEvent: Observable<Int>
     }
     
     struct Output {
@@ -62,6 +63,13 @@ final class PhraseListViewModel: ViewModelAvailable {
             output.presentAddPhraseTrigger.value = ()
         }
         
+        input.deletePhraseAlertConfirmEvent.bind { idx in
+            guard 0..<output.phrases.value.count ~= idx else { return }
+            let phrase = output.phrases.value[idx]
+            self.deletePhrase(phrase: phrase, output: output)
+            self.loadPhraseList(collection: output.collection.value!, output: output)
+        }
+        
         return output
     }
     
@@ -81,5 +89,9 @@ final class PhraseListViewModel: ViewModelAvailable {
     func changeStateOfMemorization(phrase: Phrase, output: Output) {
         RealmManager.shared.changeStateOfMemorization(phrase: phrase)
         output.successToChangeStateOfMemorizationTrigger.value = ()
+    }
+    
+    func deletePhrase(phrase: Phrase, output: Output) {
+        RealmManager.shared.deletePhrase(phrase: phrase)
     }
 }

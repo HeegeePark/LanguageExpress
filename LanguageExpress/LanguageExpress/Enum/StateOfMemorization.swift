@@ -26,11 +26,11 @@ enum StateOfMemorization: Int, CaseIterable  {
     var color: UIColor {
         switch self {
         case .hard:
-            return .accent
+            return .deactiveGray
         case .ambiguous:
             return .subtitle
         case .completed:
-            return .strokeGray
+            return .accent
         }
     }
     
