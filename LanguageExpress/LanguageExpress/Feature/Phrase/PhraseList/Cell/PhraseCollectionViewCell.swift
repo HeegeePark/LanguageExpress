@@ -36,7 +36,6 @@ final class PhraseListCollectionViewCell: UICollectionViewCell {
         return lb
     }()
     
-    // TODO: 암기 여부
     private lazy var stateOfMemorizationButton = {
         let btn = UIButton()
         btn.titleLabel?.font = .sfPro12Bold
@@ -61,7 +60,7 @@ final class PhraseListCollectionViewCell: UICollectionViewCell {
         btn.setImage(UIImage(systemName: "speaker.wave.2.fill"),
                      for: .normal)
         btn.tintColor = .primary
-        // TODO: 발음듣기 클로저
+        btn.addTarget(self, action: #selector(ttsButtonTapped), for: .touchUpInside)
         return btn
     }()
     
@@ -74,6 +73,10 @@ final class PhraseListCollectionViewCell: UICollectionViewCell {
     
     @objc private func stateOfMemorizationButtonTapped() {
         stateOfMemorizationButtonTapHandler?()
+    }
+    
+    @objc private func ttsButtonTapped() {
+        TTSManager.shared.play(phraseLabel.text!)
     }
     
     private let inset: CGFloat = 8
