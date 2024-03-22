@@ -106,11 +106,11 @@ final class PhraseListCollectionViewCell: UICollectionViewCell {
             memoLabel.isHidden = true
         }
         
+        updateStateOfMemorizationButton(state: StateOfMemorization(rawValue: phrase.stateOfMemorizationRawValue)!)
+        
         [phraseLabel, meaningLabel, memoLabel, stateOfMemorizationButton.titleLabel!].forEach {
             updateLabelLayout(label: $0)
         }
-        
-        updateStateOfMemorizationButton(state: StateOfMemorization(rawValue: phrase.stateOfMemorizationRawValue)!)
         
         let bookmarkImage = phrase.isBookMark ? "bookmark.fill": "bookmark"
         bookMarkButton.setImage(UIImage(systemName: bookmarkImage), for: .normal)
