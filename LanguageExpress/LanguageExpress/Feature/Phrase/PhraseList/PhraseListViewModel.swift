@@ -14,6 +14,7 @@ final class PhraseListViewModel: ViewModelAvailable {
 //        var tagButtonTappedEvent: Observable<String>
         var phraseCollectionViewCellDidSelectItemAtEvent: Observable<Int>
         var phraseCollectionViewCellBookMarkButtonTappedEvent: Observable<Int>
+        var phraseCollectionViewCellStateOfMemorizationButtonTappedEvent: Observable<Int>
         var addFloatingButtonTappedEvent: Observable<Void?>
     }
     
@@ -22,6 +23,7 @@ final class PhraseListViewModel: ViewModelAvailable {
         var phrases: Observable<[Phrase]> = Observable([])
         var presentAddPhraseTrigger: Observable<Void?> = Observable(nil)
         var successToToggleIsBookMarkTrigger: Observable<Void?> = Observable(nil)
+        var successToChangeStateOfMemorizationTrigger: Observable<Void?> = Observable(nil)
     }
 
     func transform(from input: Input) -> Output {
@@ -49,6 +51,12 @@ final class PhraseListViewModel: ViewModelAvailable {
             self.toggleIsBookMark(phrase: phrase, output: output)
         }
         
+        input.phraseCollectionViewCellStateOfMemorizationButtonTappedEvent.bind { idx in
+            guard 0..<output.phrases.value.count ~= idx else { return }
+            let phrase = output.phrases.value[idx]
+            self.changeStateOfMemorization(phrase: phrase, output: output)
+        }
+        
         input.addFloatingButtonTappedEvent.bind { event in
             guard event != nil else { return }
             output.presentAddPhraseTrigger.value = ()
@@ -68,5 +76,10 @@ final class PhraseListViewModel: ViewModelAvailable {
     func toggleIsBookMark(phrase: Phrase, output: Output) {
         RealmManager.shared.toggleIsBookMark(phrase: phrase)
         output.successToToggleIsBookMarkTrigger.value = ()
+    }
+    
+    func changeStateOfMemorization(phrase: Phrase, output: Output) {
+        RealmManager.shared.changeStateOfMemorization(phrase: phrase)
+        output.successToChangeStateOfMemorizationTrigger.value = ()
     }
 }

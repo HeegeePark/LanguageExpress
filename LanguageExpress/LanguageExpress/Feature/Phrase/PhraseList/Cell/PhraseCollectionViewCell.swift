@@ -39,14 +39,10 @@ final class PhraseListCollectionViewCell: UICollectionViewCell {
     // TODO: 암기 여부
     private lazy var stateOfMemorizationButton = {
         let btn = UIButton()
-        let state = StateOfMemorization.hard
-        btn.setTitle(state.title, for: .normal)
         btn.titleLabel?.font = .sfPro12Bold
         btn.setTitleColor(.white, for: .normal)
-        btn.backgroundColor = state.color.withAlphaComponent(0.5)
-        btn.layer.borderColor = state.color.cgColor
         btn.layer.borderWidth = 2
-        // TODO: 클릭 이벤트(암기정도 변경)
+        btn.addTarget(self, action: #selector(stateOfMemorizationButtonTapped), for: .touchUpInside)
         btn.setCornerRadius(.small)
         return btn
     }()
@@ -70,9 +66,14 @@ final class PhraseListCollectionViewCell: UICollectionViewCell {
     }()
     
     var bookMarkButtonTapHandler: (() -> Void)?
+    var stateOfMemorizationButtonTapHandler: (() -> Void)?
     
     @objc private func bookMarkButtonTapped() {
         bookMarkButtonTapHandler?()
+    }
+    
+    @objc private func stateOfMemorizationButtonTapped() {
+        stateOfMemorizationButtonTapHandler?()
     }
     
     private let inset: CGFloat = 8
@@ -106,8 +107,16 @@ final class PhraseListCollectionViewCell: UICollectionViewCell {
             updateLabelLayout(label: $0)
         }
         
+        updateStateOfMemorizationButton(state: StateOfMemorization(rawValue: phrase.stateOfMemorizationRawValue)!)
+        
         let bookmarkImage = phrase.isBookMark ? "bookmark.fill": "bookmark"
         bookMarkButton.setImage(UIImage(systemName: bookmarkImage), for: .normal)
+    }
+    
+    private func updateStateOfMemorizationButton(state: StateOfMemorization) {
+        stateOfMemorizationButton.backgroundColor = state.color.withAlphaComponent(0.5)
+        stateOfMemorizationButton.layer.borderColor = state.color.cgColor
+        stateOfMemorizationButton.setTitle(state.title, for: .normal)
     }
     
     private func updateLabelLayout(label: UILabel) {

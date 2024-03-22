@@ -32,7 +32,7 @@ final class PhraseListViewController: BaseViewController {
         input = PhraseListViewModel.Input(
             bindViewModelEvent: Observable(collection), viewDidAppearEvent: Observable(nil),
             phraseCollectionViewCellDidSelectItemAtEvent: Observable(-1),
-            phraseCollectionViewCellBookMarkButtonTappedEvent: Observable(-1),
+            phraseCollectionViewCellBookMarkButtonTappedEvent: Observable(-1), phraseCollectionViewCellStateOfMemorizationButtonTappedEvent: Observable(-1),
             addFloatingButtonTappedEvent: Observable(nil)
         )
         
@@ -60,6 +60,12 @@ final class PhraseListViewController: BaseViewController {
             guard event != nil else { return }
             self.mainView.phraseCollectionView.reloadData()
         }
+        
+        output.successToChangeStateOfMemorizationTrigger.bind { event in
+            guard event != nil else { return }
+            self.mainView.phraseCollectionView.reloadData()
+            print("success")
+        }
     }
     
     override func configureView() {
@@ -85,6 +91,10 @@ extension PhraseListViewController: UICollectionViewDataSource, UICollectionView
         
         cell.bookMarkButtonTapHandler = {
             self.input.phraseCollectionViewCellBookMarkButtonTappedEvent.value = indexPath.item
+        }
+        
+        cell.stateOfMemorizationButtonTapHandler = {
+            self.input.phraseCollectionViewCellStateOfMemorizationButtonTappedEvent.value = indexPath.item
         }
         
         let phrase = output.phrases.value[indexPath.item]

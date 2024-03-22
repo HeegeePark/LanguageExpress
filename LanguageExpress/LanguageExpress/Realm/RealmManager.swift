@@ -25,7 +25,7 @@ final class RealmManager {
             return 0
         }
         let all = collection.phrases
-        let completed = phraseRepository.fetchFiltered(list: all, key: "stateOfMemorizationRawValue", value: StateOfMemorization.completed.rawValue)
+        let completed = phraseRepository.fetchCompleted(list: all)
         return Float(completed.count) / Float(all.count)
     }
     
@@ -54,5 +54,11 @@ final class RealmManager {
     
     func toggleIsBookMark(phrase: Phrase) {
         phraseRepository.updateIsBookMark(item: phrase)
+    }
+    
+    func changeStateOfMemorization(phrase: Phrase) {
+        let current = StateOfMemorization(rawValue: phrase.stateOfMemorizationRawValue)!
+        let stateToChangeRawvalue = current.nextTypeRawvalue
+        phraseRepository.updateStateOfMemorizationRawValue(item: phrase, rawvalue: stateToChangeRawvalue)
     }
 }

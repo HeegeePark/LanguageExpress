@@ -11,6 +11,10 @@ import RealmSwift
 final class PhraseRepository: BaseRepository<Phrase> {
     private let realm = try! Realm()
     
+    func fetchCompleted(list: List<Phrase>) -> [Phrase] {
+        return Array(list.filter("stateOfMemorizationRawValue == %i", StateOfMemorization.completed.rawValue))
+    }
+    
     func updateTag(item: Phrase, tag: Tag) {
         do {
             try realm.write {
@@ -25,6 +29,16 @@ final class PhraseRepository: BaseRepository<Phrase> {
         do {
             try realm.write {
                 item.isBookMark.toggle()
+            }
+        } catch {
+            print("error")
+        }
+    }
+    
+    func updateStateOfMemorizationRawValue(item: Phrase, rawvalue: Int) {
+        do {
+            try realm.write {
+                item.stateOfMemorizationRawValue = rawvalue
             }
         } catch {
             print("error")
