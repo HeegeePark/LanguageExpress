@@ -18,7 +18,7 @@ final class PhraseCollectionViewController: BaseViewController {
     override func loadView() {
         view = mainView
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
@@ -58,7 +58,7 @@ final class PhraseCollectionViewController: BaseViewController {
     
     override func configureNavigationBar() {
         super.configureNavigationBar()
-//        navigationItem.title = "\n외국어 급행열차 뿌뿌 🚇"
+        //        navigationItem.title = "\n외국어 급행열차 뿌뿌 🚇"
         
         let addCollection = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addCollectionTapped))
         
@@ -105,7 +105,11 @@ final class PhraseCollectionViewController: BaseViewController {
 
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource
 
-extension PhraseCollectionViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension PhraseCollectionViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return output.collections.value.count
     }
@@ -117,6 +121,21 @@ extension PhraseCollectionViewController: UICollectionViewDelegate, UICollection
         cell.bindData(data: collection)
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: 0, height: 90)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        guard kind == UICollectionView.elementKindSectionHeader,
+              let header = collectionView.dequeueReusableSupplementaryView(
+                ofKind: kind,
+                withReuseIdentifier: "customHeader",
+                for: indexPath
+              ) as? PCCollectionHeaderView else {return UICollectionReusableView()}
+        
+        return header
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
