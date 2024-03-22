@@ -31,7 +31,8 @@ final class PhraseCollectionViewController: BaseViewController {
     func bindViewModel() {
         input = PhraseCollectionViewModel.Input(
             viewDidAppearEvent: Observable(nil),
-            phraseCollectionViewCellDidSelectItemAtEvent: Observable(-1)
+            phraseCollectionViewCellDidSelectItemAtEvent: Observable(-1),
+            deleteCollectionAlertConfirmEvent: Observable(-1)
         )
         
         output = viewModel.transform(from: input)
@@ -73,6 +74,32 @@ final class PhraseCollectionViewController: BaseViewController {
     override func configureView() {
         mainView.pcCollectionView.delegate = self
         mainView.pcCollectionView.dataSource = self
+        registerLongPressGesture()
+    }
+    
+    private func registerLongPressGesture() {
+        let gesture = UILongPressGestureRecognizer()
+        gesture.addTarget(self, action: #selector(collectionViewlongPressed))
+        gesture.cancelsTouchesInView = false
+        mainView.pcCollectionView.addGestureRecognizer(gesture)
+    }
+    
+    @objc private func collectionViewlongPressed(_ sender: UILongPressGestureRecognizer) {
+        if sender.state == UIGestureRecognizer.State.began {
+            let touchPoint = sender.location(in: mainView.pcCollectionView)
+            if let indexPath = mainView.pcCollectionView.indexPathForItem(at: touchPoint) {
+                showDeletePhraseAlert(at: indexPath.item)
+            }
+        }
+    }
+    
+    private func showDeletePhraseAlert(at idx: Int) {
+        AlertBuilder(viewController: self)
+            .setMessage(Message.deleteCollectionAlert)
+            .addActionConfirm("삭제") {
+                self.input.deleteCollectionAlertConfirmEvent.value = idx
+            }
+            .show()
     }
 }
 
