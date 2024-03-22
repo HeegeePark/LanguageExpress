@@ -9,6 +9,14 @@ import UIKit
 import SnapKit
 
 final class PhraseListCollectionViewCell: UICollectionViewCell {
+    private lazy var stackView = {
+        let view = UIStackView()
+        view.axis = .vertical
+        view.alignment = .fill
+        view.spacing = inset
+        return view
+    }()
+    
     private let phraseLabel = {
         let lb = UILabel()
         lb.text = "영어 구문 영어 구문영어 구문 영어 구문 영어 구문 영어 구문"
@@ -129,21 +137,15 @@ final class PhraseListCollectionViewCell: UICollectionViewCell {
         switch label {
         case phraseLabel:
             phraseLabel.snp.remakeConstraints { make in
-                make.top.leading.equalTo(contentView.safeAreaLayoutGuide).inset(inset)
-                make.trailing.equalTo(stateOfMemorizationButton.snp.leading).offset(-1 * inset)
+                make.top.equalToSuperview()
                 make.height.equalTo(size.height)
             }
         case meaningLabel:
             meaningLabel.snp.remakeConstraints { make in
-                make.horizontalEdges.equalTo(phraseLabel)
-                make.top.equalTo(phraseLabel.snp.bottom).offset(inset)
                 make.height.equalTo(size.height)
             }
         case memoLabel:
             memoLabel.snp.remakeConstraints { make in
-                make.horizontalEdges.equalTo(phraseLabel)
-                make.top.equalTo(meaningLabel.snp.bottom).offset(inset)
-                make.bottom.greaterThanOrEqualTo(contentView.safeAreaLayoutGuide).inset(inset)
                 make.height.equalTo(size.height)
             }
         default:    // stateOfMemorizationButton.titleLabel!
@@ -157,13 +159,21 @@ final class PhraseListCollectionViewCell: UICollectionViewCell {
     }
     
     private func configure() {
-        [phraseLabel, meaningLabel, memoLabel, stateOfMemorizationButton, bookMarkButton, ttsButton].forEach {
+        [stackView, stateOfMemorizationButton, bookMarkButton, ttsButton].forEach {
             contentView.addSubview($0)
+        }
+        [phraseLabel, meaningLabel, memoLabel].forEach {
+            stackView.addArrangedSubview($0)
+        }
+        
+        stackView.snp.makeConstraints { make in
+            make.top.leading.equalToSuperview().inset(inset)
+            make.bottom.equalToSuperview().inset(inset).priority(.low)
+            make.trailing.equalTo(stateOfMemorizationButton.snp.leading).offset(-1 * inset)
         }
         
         phraseLabel.snp.makeConstraints { make in
-            make.top.leading.equalTo(contentView.safeAreaLayoutGuide).inset(inset)
-            make.trailing.equalTo(stateOfMemorizationButton.snp.leading).offset(-1 * inset)
+            make.top.equalToSuperview()
         }
         
         meaningLabel.snp.makeConstraints { make in

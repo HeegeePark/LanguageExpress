@@ -32,7 +32,8 @@ final class PhraseListViewController: BaseViewController {
         input = PhraseListViewModel.Input(
             bindViewModelEvent: Observable(collection), viewDidAppearEvent: Observable(nil),
             phraseCollectionViewCellDidSelectItemAtEvent: Observable(-1),
-            phraseCollectionViewCellBookMarkButtonTappedEvent: Observable(-1), phraseCollectionViewCellStateOfMemorizationButtonTappedEvent: Observable(-1),
+            phraseCollectionViewCellBookMarkButtonTappedEvent: Observable(-1),
+            phraseCollectionViewCellStateOfMemorizationButtonTappedEvent: Observable(-1),
             addFloatingButtonTappedEvent: Observable(nil),
             deletePhraseAlertConfirmEvent: Observable(-1)
         )

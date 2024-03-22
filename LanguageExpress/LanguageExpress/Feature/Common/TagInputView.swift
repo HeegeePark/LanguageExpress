@@ -90,7 +90,7 @@ final class TagInputView: BaseView {
         }
     }
     
-    override func configureView() {
+    override func configureLayout() {
         tagInputAreaView.snp.makeConstraints { make in
             make.top.leading.equalToSuperview()
         }
@@ -109,7 +109,7 @@ final class TagInputView: BaseView {
         }
     }
     
-    override func configureLayout() {
+    override func configureView() {
         backgroundColor = .clear
     }
 }

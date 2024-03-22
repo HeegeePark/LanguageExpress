@@ -33,16 +33,16 @@ final class PhraseListView: BaseView {
             let groupMargin: CGFloat = 8
             let itemMargin: CGFloat = 8
             
-            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
+            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(488))
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
             item.contentInsets = .init(top: itemMargin, leading: itemMargin, bottom: itemMargin, trailing: itemMargin)
             
-            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(140))
+            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(488))
             let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
             group.contentInsets = .init(top: groupMargin, leading: groupMargin, bottom: groupMargin, trailing: groupMargin)
             
             let layoutSection = NSCollectionLayoutSection(group: group)
-            layoutSection.interGroupSpacing = 5
+            layoutSection.interGroupSpacing = 20
             return layoutSection
         }
         
