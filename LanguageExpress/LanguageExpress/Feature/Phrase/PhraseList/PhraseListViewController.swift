@@ -66,7 +66,6 @@ final class PhraseListViewController: BaseViewController {
         output.successToChangeStateOfMemorizationTrigger.bind { event in
             guard event != nil else { return }
             self.mainView.phraseCollectionView.reloadData()
-            print("success")
         }
     }
     
@@ -128,6 +127,11 @@ extension PhraseListViewController: UICollectionViewDataSource, UICollectionView
         cell.bindData(phrase: phrase)
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // TODO: 뜻, 메모 on/off
+//        input.phraseCollectionViewCellDidSelectItemAtEvent.value = indexPath.item
     }
 }
 
