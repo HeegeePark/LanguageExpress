@@ -33,7 +33,7 @@ final class PhraseListViewController: BaseViewController {
             phraseCollectionViewCellDidSelectItemAtEvent: Observable(-1),
             phraseCollectionViewCellBookMarkButtonTappedEvent: Observable(-1),
             phraseCollectionViewCellStateOfMemorizationButtonTappedEvent: Observable(-1),
-            addFloatingButtonTappedEvent: Observable(nil),
+            addFloatingButtonTappedEvent: Observable(-1),
             deletePhraseAlertConfirmEvent: Observable(-1)
         )
         
@@ -49,10 +49,19 @@ final class PhraseListViewController: BaseViewController {
             self.mainView.phraseCollectionView.reloadData()
         }
         
-        output.presentAddPhraseTrigger.bind { _ in
+        output.presentAddPhraseTrigger.bind { event in
+            guard event != nil else { return }
             let addVC = AddPhraseViewController()
             addVC.bindViewModel(collection: collection)
             let nav = UINavigationController(rootViewController: addVC)
+            nav.modalPresentationStyle = .fullScreen
+            self.present(nav, animated: true)
+        }
+        
+        output.presentAddPhraseWithOCRTrigger.bind { event in
+            guard event != nil else { return }
+            let ocrVC = OCRViewController()
+            let nav = UINavigationController(rootViewController: ocrVC)
             nav.modalPresentationStyle = .fullScreen
             self.present(nav, animated: true)
         }
@@ -73,7 +82,7 @@ final class PhraseListViewController: BaseViewController {
         mainView.phraseCollectionView.delegate = self
         registerLongPressGesture()
         mainView.setFloaty(vc: self) { [weak self] sender in
-            self?.input.addFloatingButtonTappedEvent.value = ()
+            self?.input.addFloatingButtonTappedEvent.value = sender
         }
     }
     
