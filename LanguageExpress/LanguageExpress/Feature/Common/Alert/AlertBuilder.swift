@@ -13,6 +13,7 @@ final class AlertBuilder {
     
     private var alertTitle: String?
     private var message: String?
+    private var showCancel: Bool = true
     private var addActionConfirm: AddAction?
     
     init(viewController: UIViewController) {
@@ -21,6 +22,11 @@ final class AlertBuilder {
     
     func setMessage(_ text: String) -> AlertBuilder {
         message = text
+        return self
+    }
+    
+    func addActionCancel(_ showCancel: Bool) -> AlertBuilder {
+        self.showCancel = showCancel
         return self
     }
     
@@ -34,8 +40,8 @@ final class AlertBuilder {
         alertViewController.modalPresentationStyle = .overFullScreen
         alertViewController.modalTransitionStyle = .crossDissolve
         
-        alertViewController.alertTitle = alertTitle
         alertViewController.message = message
+        alertViewController.showCancel = showCancel
         alertViewController.addActionConfirm = addActionConfirm
         
         baseViewController.present(alertViewController, animated: true)

@@ -9,9 +9,9 @@ import UIKit
 import SnapKit
 
 final class CustomAlertViewController: BaseViewController {
-    var alertTitle: String?
     var message: String?
     var addActionConfirm: AddAction?
+    var showCancel: Bool = true
     
     private var alertView = {
         let view = UIView()
@@ -34,7 +34,7 @@ final class CustomAlertViewController: BaseViewController {
         button.setTitleColor(.deactiveGray, for: .normal)
         button.titleLabel?.font = .sfPro12Bold
         button.setTitle("취소", for: .normal)
-        button.setCornerRadius(.medium)
+        button.setCornerRadius(.large)
         button.layer.borderColor = UIColor.deactiveGray.cgColor
         button.layer.borderWidth = 1
         button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
@@ -46,7 +46,7 @@ final class CustomAlertViewController: BaseViewController {
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = .sfPro12Bold
         button.setTitle(addActionConfirm?.text, for: .normal)
-        button.setCornerRadius(.medium)
+        button.setCornerRadius(.large)
         button.layer.borderColor = UIColor.primary.cgColor
         button.layer.borderWidth = 1
         button.backgroundColor = .primary
@@ -85,7 +85,7 @@ final class CustomAlertViewController: BaseViewController {
         
         cancelButton.snp.makeConstraints { make in
             make.leading.equalToSuperview().inset(20)
-            make.height.equalTo(30)
+            make.height.equalTo(40)
             make.top.equalTo(messageLabel.snp.bottom).offset(20)
             make.bottom.equalToSuperview().inset(30)
             make.width.equalTo(125)
@@ -94,13 +94,26 @@ final class CustomAlertViewController: BaseViewController {
         confirmButton.snp.makeConstraints { make in
             make.leading.equalTo(cancelButton.snp.trailing).offset(10)
             make.trailing.equalToSuperview().inset(20)
-            make.height.equalTo(30)
+            make.height.equalTo(40)
             make.top.equalTo(cancelButton)
             make.bottom.equalToSuperview().inset(30)
         }
     }
     
+    private func remakeConfirmButtonLayout() {
+        confirmButton.snp.remakeConstraints { make in
+            make.horizontalEdges.equalTo(messageLabel)
+            make.height.equalTo(40)
+            make.top.equalTo(messageLabel.snp.bottom).offset(20)
+            make.bottom.equalToSuperview().inset(30)
+        }
+    }
+    
     override func configureView() {
-        view.backgroundColor = .systemBackground.withAlphaComponent(0.5)
+        view.backgroundColor = .deactiveGray.withAlphaComponent(0.5)
+        if !showCancel {
+            cancelButton.isHidden = !showCancel
+            remakeConfirmButtonLayout()
+        }
     }
 }
