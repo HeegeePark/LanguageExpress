@@ -84,8 +84,8 @@ final class AddPhraseViewModel: ViewModelAvailable {
     }
     
     private func validateToAddPhrase(output: Output) -> Bool {
-        return !output.phrase.value.isEmpty &&
-                !output.meaning.value.isEmpty
+        return !output.phrase.value.whiteSpaceRemoved.isEmpty &&
+        !output.meaning.value.whiteSpaceRemoved.isEmpty
     }
     
     private func addPhrase(output: Output) {

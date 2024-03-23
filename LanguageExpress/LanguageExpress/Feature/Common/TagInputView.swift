@@ -52,7 +52,8 @@ final class TagInputView: BaseView {
     var selectedTagsUpdated: (([String]) -> Void)?
     
     @objc private func addButtonTapped() {
-        guard !currentTextFieldText.isEmpty else {
+        guard !currentTextFieldText.whiteSpaceRemoved.isEmpty else {
+            tagInputAreaView.resetTextField()
             return
         }
         
