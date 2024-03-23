@@ -32,7 +32,8 @@ final class PhraseCollectionViewController: BaseViewController {
         input = PhraseCollectionViewModel.Input(
             viewDidAppearEvent: Observable(nil),
             phraseCollectionViewCellDidSelectItemAtEvent: Observable(-1),
-            deleteCollectionAlertConfirmEvent: Observable(-1)
+            deleteCollectionAlertConfirmEvent: Observable(-1),
+            addFloatingButtonTappedEvent: Observable(nil)
         )
         
         output = viewModel.transform(from: input)
@@ -51,26 +52,26 @@ final class PhraseCollectionViewController: BaseViewController {
             vc.bindViewModel(collection: collection)
             self.navigationController?.pushViewController(vc, animated: true)
         }
+        
+        output.addCollectionToPush.bind { event in
+            guard event != nil else { return }
+            let addCollectionVC = UINavigationController(rootViewController: AddPhraseCollectionViewController())
+            addCollectionVC.modalPresentationStyle = .fullScreen
+            self.present(addCollectionVC, animated: true)
+        }
     }
     
     override func configureNavigationBar() {
         super.configureNavigationBar()
         //        navigationItem.title = "\n외국어 급행열차 뿌뿌 🚇"
-        
-        let addCollection = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addCollectionTapped))
-        
-        navigationItem.rightBarButtonItem = addCollection
-    }
-    
-    @objc private func addCollectionTapped() {
-        let addCollectionVC = UINavigationController(rootViewController: AddPhraseCollectionViewController())
-        addCollectionVC.modalPresentationStyle = .fullScreen
-        self.present(addCollectionVC, animated: true)
     }
     
     override func configureView() {
         mainView.pcCollectionView.delegate = self
         mainView.pcCollectionView.dataSource = self
+        mainView.setFloaty(vc: self) { [weak self] sender in
+            self?.input.addFloatingButtonTappedEvent.value = ()
+        }
         registerLongPressGesture()
     }
     
@@ -111,7 +112,7 @@ extension PhraseCollectionViewController: UICollectionViewDelegate, UICollection
         if output.collections.value.isEmpty {
             collectionView.setEmptyView(
                 title: "모음집이 없어요!",
-                message: "우측상단의 추가 버튼을 눌러 모음집을 만들어봐요 :)",
+                message: "우측하단의 추가 버튼을 눌러 모음집을 만들어봐요 :)",
                 image: .collectionEmpty
             )
         } else {

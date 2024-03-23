@@ -8,18 +8,12 @@
 import UIKit
 import Floaty
 
-protocol FloatyCreator {
-    static func makeFloaty(vc: UIViewController & FloatyDelegate, _ completionHandelr: @escaping (Int) -> Void) -> Floaty
-}
-
-// 여러 화면에서 커스텀 플로팅 버튼을 쓸 것을 감안한 factory
-final class FloatyFactory: FloatyCreator {
-    static func makeFloaty(vc: UIViewController & FloatyDelegate, _ completionHandelr: @escaping (Int) -> Void) -> Floaty {
+final class PhraseFloatyFactory: FloatyCreator {
+    static func makeFloaty(vc: UIViewController, _ completionHandelr: @escaping (Int) -> Void) -> Floaty {
         let fab = Floaty()
         fab.buttonColor = .primary
         fab.plusColor = .white
         fab.openAnimationType = .slideUp
-        fab.fabDelegate = vc
         
         let addPhraseItem = {
             let item = FloatyItem()

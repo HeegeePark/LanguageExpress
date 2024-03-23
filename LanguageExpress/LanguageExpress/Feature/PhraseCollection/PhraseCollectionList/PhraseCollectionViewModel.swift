@@ -12,11 +12,13 @@ final class PhraseCollectionViewModel: ViewModelAvailable {
         var viewDidAppearEvent: Observable<Void?>
         var phraseCollectionViewCellDidSelectItemAtEvent: Observable<Int>
         var deleteCollectionAlertConfirmEvent: Observable<Int>
+        var addFloatingButtonTappedEvent: Observable<Void?>
     }
     
     struct Output {
         var collections: Observable<[Collection]> = Observable([])
         var collectionToPush: Observable<Collection?> = Observable(nil)
+        var addCollectionToPush: Observable<Void?> = Observable(nil)
     }
     
     func transform(from input: Input) -> Output {
@@ -38,6 +40,11 @@ final class PhraseCollectionViewModel: ViewModelAvailable {
             let collection = output.collections.value[idx]
             self.deleteCollection(collection: collection, output: output)
             self.loadCollectionFromRealm(output: output)
+        }
+        
+        input.addFloatingButtonTappedEvent.bind { event in
+            guard event != nil else { return }
+            output.addCollectionToPush.value = ()
         }
         
         return output

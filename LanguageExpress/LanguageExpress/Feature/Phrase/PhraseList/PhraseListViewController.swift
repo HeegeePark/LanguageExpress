@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Floaty
 
 final class PhraseListViewController: BaseViewController {
     private let mainView = PhraseListView()
@@ -141,13 +140,5 @@ extension PhraseListViewController: UICollectionViewDataSource, UICollectionView
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // TODO: 뜻, 메모 on/off
 //        input.phraseCollectionViewCellDidSelectItemAtEvent.value = indexPath.item
-    }
-}
-
-extension PhraseListViewController: FloatyDelegate {
-    func floatyWillOpen(_ floaty: Floaty) {
-    }
-    
-    func floatyWillClose(_ floaty: Floaty) {
     }
 }

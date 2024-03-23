@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Floaty
 
 final class PhraseCollectionView: BaseView {
     lazy var pcCollectionView = {
@@ -23,6 +24,16 @@ final class PhraseCollectionView: BaseView {
         cv.register(PCCollectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "customHeader")
         return cv
     }()
+    
+    private lazy var floatingButton = Floaty()
+    
+    func setFloaty(vc: UIViewController,
+                   handlerToPresent: @escaping (Int) -> Void) {
+        floatingButton = CollectionFloatyFactory.makeFloaty(vc: vc) { sender in
+            handlerToPresent(sender)
+        }
+        self.addSubview(floatingButton)
+    }
     
     override func configureHierarchy() {
         self.addSubview(pcCollectionView)
