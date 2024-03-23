@@ -39,9 +39,6 @@ final class PhraseCollectionViewController: BaseViewController {
         
         output.collections.bind { collections in
             // TODO: 기본 모음집 default로 구현
-            guard !collections.isEmpty else {
-                return
-            }
             self.mainView.pcCollectionView.reloadData()
         }
         
@@ -111,6 +108,16 @@ extension PhraseCollectionViewController: UICollectionViewDelegate, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if output.collections.value.isEmpty {
+            collectionView.setEmptyView(
+                title: "모음집이 없어요!",
+                message: "우측상단의 추가 버튼을 눌러 모음집을 만들어봐요 :)",
+                image: .collectionEmpty
+            )
+        } else {
+            collectionView.restore()
+        }
+        
         return output.collections.value.count
     }
     

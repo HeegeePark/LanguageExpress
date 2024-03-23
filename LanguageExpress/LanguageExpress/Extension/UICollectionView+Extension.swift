@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 extension UICollectionView {
     // 컬렌션뷰 레이아웃 설정
@@ -20,5 +21,65 @@ extension UICollectionView {
         layout.minimumLineSpacing = spacing
         layout.minimumInteritemSpacing = spacing
         self.collectionViewLayout = layout
+    }
+    
+    // emptyView 설정
+    func setEmptyView(title: String, message: String, image: UIImage) {
+        let emptyView: UIView = {
+            let view = UIView(frame: CGRect(x: self.center.x, y: self.center.y, width: self.bounds.width, height: self.bounds.height))
+            return view
+        }()
+        
+        let imageView = {
+            let view = UIImageView()
+            view.image = image
+            view.contentMode = .scaleAspectFit
+            return view
+        }()
+        
+        let titleLabel = {
+            let view = UILabel()
+            view.text = title
+            view.textColor = .headerNavy
+            view.font = .sfPro18Bold
+            return view
+        }()
+        
+        let messageLabel = {
+            let view = UILabel()
+            view.text = message
+            view.textColor = .lightGray
+            view.font = .sfPro15Regular
+            view.numberOfLines = 0
+            view.textAlignment = .center
+            return view
+        }()
+        
+        emptyView.addSubview(imageView)
+        emptyView.addSubview(titleLabel)
+        emptyView.addSubview(messageLabel)
+        
+        titleLabel.snp.makeConstraints { make in
+            make.centerY.equalTo(emptyView.snp.centerY)
+            make.centerX.equalTo(emptyView.snp.centerX)
+        }
+        
+        messageLabel.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(10)
+            make.leading.equalTo(emptyView).offset(20)
+            make.trailing.equalTo(emptyView).offset(-20)
+        }
+        
+        imageView.snp.makeConstraints { make in
+            make.centerX.equalTo(titleLabel)
+            make.bottom.equalTo(titleLabel.snp.top).offset(-10)
+            make.size.equalTo(100)
+        }
+        
+        self.backgroundView = emptyView
+    }
+    
+    func restore() {
+        self.backgroundView = nil
     }
 }

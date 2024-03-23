@@ -109,6 +109,15 @@ final class PhraseListViewController: BaseViewController {
 
 extension PhraseListViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if output.phrases.value.isEmpty {
+            collectionView.setEmptyView(
+                title: "추가된 문장이 없어요",
+                message: "문장을 추가하고 외국어 정복하러 가볼까요?",
+                image: .phraseEmpty
+            )
+        } else {
+            collectionView.restore()
+        }
         return output.phrases.value.count
     }
     
