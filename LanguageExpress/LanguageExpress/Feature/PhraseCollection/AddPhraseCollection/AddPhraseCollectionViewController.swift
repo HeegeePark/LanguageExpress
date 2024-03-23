@@ -52,7 +52,7 @@ final class AddPhraseCollectionViewController: BaseViewController {
         
         let dismiss = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .plain, target: self, action: #selector(dismissButtonTapped))
         
-        let add = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addButtonTapped))
+        let add = UIBarButtonItem(title: "추가", style: .plain, target: self, action: #selector(addButtonTapped))
         
         navigationItem.leftBarButtonItem = dismiss
         navigationItem.rightBarButtonItem = add

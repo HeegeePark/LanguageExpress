@@ -13,12 +13,6 @@ extension UINavigationController {
         let appearance = UINavigationBarAppearance()
         appearance.configureWithDefaultBackground()
         appearance.backgroundColor = .white
-        
-        appearance.largeTitleTextAttributes = [.font: UIFont.sjHospital26Light,
-                                               .foregroundColor: UIColor.headerNavy]
-        navigationBar.tintColor = .accent
-//        navigationBar.prefersLargeTitles = true
-//        navigationItem.largeTitleDisplayMode = .always
-        navigationItem.backButtonTitle = ""
+        navigationBar.tintColor = .primary
     }
 }

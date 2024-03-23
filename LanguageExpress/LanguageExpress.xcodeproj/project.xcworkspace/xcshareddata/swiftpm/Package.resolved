@@ -1,12 +1,12 @@
 {
   "pins" : [
     {
-      "identity" : "pageboy",
+      "identity" : "floaty",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/uias/Pageboy",
+      "location" : "https://github.com/kciter/Floaty.git",
       "state" : {
-        "revision" : "5522aa6ae88633f6c23cf504e9cd684e963822f1",
-        "version" : "4.0.2"
+        "branch" : "master",
+        "revision" : "d0e637db60828d49e403ff0b7dc11b1458e67095"
       }
     },
     {
@@ -24,7 +24,7 @@
       "location" : "https://github.com/realm/realm-swift.git",
       "state" : {
         "branch" : "master",
-        "revision" : "c5726fa6f2bd2caf1f3b599b52c98203134454e8"
+        "revision" : "33a1eee6ebe4f6a3475c78e8900b7c41c1d74296"
       }
     },
     {
@@ -34,15 +34,6 @@
       "state" : {
         "revision" : "2842e6e84e82eb9a8dac0100ca90d9444b0307f4",
         "version" : "5.7.1"
-      }
-    },
-    {
-      "identity" : "tabman",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/uias/Tabman.git",
-      "state" : {
-        "revision" : "e32c0d821b03566ed966753f941113883f268da0",
-        "version" : "3.0.2"
       }
     },
     {

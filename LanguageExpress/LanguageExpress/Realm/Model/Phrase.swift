@@ -14,7 +14,7 @@ class Phrase: Object {
     @Persisted var meaning: String   // 구문 뜻
     @Persisted var memo: String?   // 메모
     @Persisted var date: Date   // 등록 날짜
-    @Persisted var stateOfMemorizationRawValue: String // 암기 정도 enum rawvalue
+    @Persisted var stateOfMemorizationRawValue: Int // 암기 정도 enum rawvalue
     @Persisted var isBookMark: Bool   // 북마크 여부
     @Persisted var tags: List<Tag>    // 태그 리스트
     

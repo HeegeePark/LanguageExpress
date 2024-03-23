@@ -30,6 +30,7 @@ final class CustomTextAreaView: BaseView {
         tf.setCornerRadius(.small)
         tf.layer.borderWidth = 2
         tf.layer.borderColor = UIColor.strokeGray.cgColor
+        tf.addLeftPadding()
         tf.delegate = self
         return tf
     }()
@@ -46,6 +47,14 @@ final class CustomTextAreaView: BaseView {
         titleLabel.text = title
     }
     
+    func resetTextField() {
+        textField.text?.removeAll()
+    }
+    
+    func setTextFieldPlaceholder(text: String) {
+        textField.placeholder = text
+    }
+    
     override func configureHierarchy() {
         [titleLabel, optionalLabel, textField].forEach {
             self.addSubview($0)
@@ -58,14 +67,14 @@ final class CustomTextAreaView: BaseView {
         }
         
         optionalLabel.snp.makeConstraints { make in
-            make.leading.equalTo(titleLabel.snp.trailing).offset(10)
+            make.leading.equalTo(titleLabel.snp.trailing).offset(6)
             make.trailing.equalTo(self.safeAreaLayoutGuide).priority(.low)
             make.bottom.equalTo(titleLabel)
         }
         
         textField.snp.makeConstraints { make in
             make.horizontalEdges.bottom.equalTo(self.safeAreaLayoutGuide)
-            make.height.equalTo(50)
+            make.height.equalTo(40)
             make.top.equalTo(titleLabel.snp.bottom).offset(10)
         }
     }

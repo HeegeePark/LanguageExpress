@@ -11,11 +11,14 @@ final class PhraseCollectionViewModel: ViewModelAvailable {
     struct Input {
         var viewDidAppearEvent: Observable<Void?>
         var phraseCollectionViewCellDidSelectItemAtEvent: Observable<Int>
+        var deleteCollectionAlertConfirmEvent: Observable<Int>
+        var addFloatingButtonTappedEvent: Observable<Void?>
     }
     
     struct Output {
         var collections: Observable<[Collection]> = Observable([])
-        var phraseListToPush: Observable<[Phrase]> = Observable([])
+        var collectionToPush: Observable<Collection?> = Observable(nil)
+        var addCollectionToPush: Observable<Void?> = Observable(nil)
     }
     
     func transform(from input: Input) -> Output {
@@ -28,7 +31,20 @@ final class PhraseCollectionViewModel: ViewModelAvailable {
         input.phraseCollectionViewCellDidSelectItemAtEvent.bind { idx in
             let count = output.collections.value.count
             guard 0..<count ~= idx else { return }
-            self.loadPhraseList(collectionIndex: idx, output: output)
+            self.loadCollection(collectionIndex: idx, output: output)
+        }
+        
+        input.deleteCollectionAlertConfirmEvent.bind { idx in
+            let count = output.collections.value.count
+            guard 0..<count ~= idx else { return }
+            let collection = output.collections.value[idx]
+            self.deleteCollection(collection: collection, output: output)
+            self.loadCollectionFromRealm(output: output)
+        }
+        
+        input.addFloatingButtonTappedEvent.bind { event in
+            guard event != nil else { return }
+            output.addCollectionToPush.value = ()
         }
         
         return output
@@ -38,8 +54,11 @@ final class PhraseCollectionViewModel: ViewModelAvailable {
         output.collections.value = RealmManager.shared.loadCollection()
     }
     
-    func loadPhraseList(collectionIndex idx: Int, output: Output) {
-        let phrases = output.collections.value[idx].phrases
-        output.phraseListToPush.value = Array(phrases)
+    func loadCollection(collectionIndex idx: Int, output: Output) {
+        output.collectionToPush.value = output.collections.value[idx]
+    }
+    
+    func deleteCollection(collection: Collection, output: Output) {
+        RealmManager.shared.deleteCollection(collection: collection)
     }
 }

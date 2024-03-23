@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum StateOfMemorization: String  {
+enum StateOfMemorization: Int, CaseIterable  {
     case hard
     case ambiguous
     case completed
@@ -26,11 +26,19 @@ enum StateOfMemorization: String  {
     var color: UIColor {
         switch self {
         case .hard:
-            return .accent
+            return .deactiveGray
         case .ambiguous:
             return .subtitle
         case .completed:
-            return .strokeGray
+            return .accent
         }
+    }
+    
+    private var count: Int {
+        return Self.allCases.count
+    }
+    
+    var nextTypeRawvalue: Int {
+        return (self.rawValue + 1) % count
     }
 }
