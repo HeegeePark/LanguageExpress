@@ -63,6 +63,10 @@ final class RealmManager {
     }
     
     func deleteCollection(collection: Collection) {
+        // collection에 포함된 phrase 지우기
+        collection.phrases.forEach { phrase in
+            phraseRepository.deleteItem(object: phrase)
+        }
         collectionRepository.deleteItem(object: collection)
     }
     
