@@ -15,7 +15,7 @@ final class CustomAlertViewController: BaseViewController {
     
     private var alertView = {
         let view = UIView()
-        view.layer.cornerRadius = 16
+        view.setCornerRadius(.medium)
         view.backgroundColor = .secondarySystemBackground
         return view
     }()
@@ -77,6 +77,7 @@ final class CustomAlertViewController: BaseViewController {
             make.width.equalTo(300)
             make.center.equalToSuperview()
         }
+        
         messageLabel.snp.makeConstraints { make in
             make.width.equalTo(260)
             make.centerX.equalToSuperview()

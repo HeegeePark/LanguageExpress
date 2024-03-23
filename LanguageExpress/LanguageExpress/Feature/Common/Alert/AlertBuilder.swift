@@ -11,7 +11,6 @@ final class AlertBuilder {
     private let baseViewController: UIViewController
     private let alertViewController = CustomAlertViewController()
     
-    private var alertTitle: String?
     private var message: String?
     private var showCancel: Bool = true
     private var addActionConfirm: AddAction?
