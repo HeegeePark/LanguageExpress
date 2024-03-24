@@ -37,18 +37,21 @@ final class OCRView: BaseView {
         return view
     }()
     
+    private var textAreaViews = [UIView]()
+    
     @objc private func photoPickerButtonTapped() {
         delegate?.photoPickerButtonTapped()
     }
     
     func setImage(_ image: UIImage) {
         imageView.image = image
-        photoPickerButton.isEnabled = false
+        imageView.isUserInteractionEnabled = true
     }
     
     func resetImage() {
         imageView.image = nil
-        photoPickerButton.isEnabled = true
+        imageView.isUserInteractionEnabled = false
+        removeTextAreaView()
     }
     
     func drawTextArea(ocr: OCRResult) {
@@ -71,10 +74,18 @@ final class OCRView: BaseView {
         let tapGesture = CustomTapGestureRecognizer(target: self, action: #selector(textAreaTapped))
         tapGesture.text = ocr.text
         recognized.addGestureRecognizer(tapGesture)
+        textAreaViews.append(recognized)
     }
     
     @objc private func textAreaTapped(_ sender: CustomTapGestureRecognizer) {
         print(sender.text!)
+    }
+    
+    private func removeTextAreaView() {
+        textAreaViews.forEach {
+            $0.removeFromSuperview()
+        }
+        textAreaViews.removeAll()
     }
     
     override func configureHierarchy() {
