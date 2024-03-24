@@ -17,8 +17,9 @@ final class OCRViewModel: ViewModelAvailable {
     
     struct Output {
         var presentPhotoPickerTrigger: Observable<Void?> = Observable(nil)
+        var activateIndicatorTrigger: Observable<Bool> = Observable(true)
         var resetImageTrigger: Observable<Void?> = Observable(nil)
-        var textRecognitionTrigger: Observable<Void?> = Observable(nil)
+        var textRecognitionFinishedTrigger: Observable<Void?> = Observable(nil)
     }
     
     func transform(from input: Input) -> Output {
@@ -26,10 +27,12 @@ final class OCRViewModel: ViewModelAvailable {
         
         input.viewDidLoadEvent.bind { _ in
             output.presentPhotoPickerTrigger.value = ()
+            output.activateIndicatorTrigger.value = true
         }
         
         input.photoPickerButtonTappedEvent.bind { _ in
             output.presentPhotoPickerTrigger.value = ()
+            output.activateIndicatorTrigger.value = true
         }
         
         input.resetImageButtonTappedEvent.bind { _ in
@@ -38,7 +41,7 @@ final class OCRViewModel: ViewModelAvailable {
         
         input.imageSelectedEvent.bind { event in
             guard event != nil else { return }
-            output.textRecognitionTrigger.value = ()
+            output.activateIndicatorTrigger.value = true
         }
         
         return output

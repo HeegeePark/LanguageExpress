@@ -40,14 +40,22 @@ final class OCRViewController: BaseViewController {
             self.presentPicker()
         }
         
+        output.activateIndicatorTrigger.bind { isActive in
+            if isActive {
+                self.mainView.presentIndicator()
+            } else {
+                self.mainView.hideIndicator()
+            }
+        }
+        
         output.resetImageTrigger.bind { event in
             guard event != nil else { return }
             self.mainView.resetImage()
         }
         
-        output.textRecognitionTrigger.bind { [weak self] event in
+        output.textRecognitionFinishedTrigger.bind { [weak self] event in
             guard let self, event != nil else { return }
-            // TODO: 지금은 쓰지 않지만, 혹시 몰라 보류
+            self.mainView.hideIndicator()
         }
     }
     
@@ -103,7 +111,9 @@ extension OCRViewController: OCRViewDelegate {
 }
 
 extension OCRViewController: PHPickerViewControllerDelegate {
+    
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        input.imageSelectedEvent.value = ()
         picker.dismiss(animated: true)
         
         let itemProviders = results.map(\.itemProvider)
@@ -135,6 +145,7 @@ extension OCRViewController: PHPickerViewControllerDelegate {
                             results.forEach { result in
                                 self.mainView.drawTextArea(ocr: result)
                             }
+                            self.output.textRecognitionFinishedTrigger.value = ()
                         }
                     }
                 }

@@ -51,6 +51,14 @@ final class OCRView: BaseView {
         }
     }
     
+    func presentIndicator() {
+        self.showIndicator()
+    }
+    
+    func hideIndicator() {
+        self.dismissIndicator()
+    }
+    
     @objc private func photoPickerButtonTapped() {
         delegate?.photoPickerButtonTapped()
     }
