@@ -110,7 +110,7 @@ final class PhraseListViewController: BaseViewController {
             .show()
     }
     
-    override func configureNavigationBar() {
+    override func configureNavigationBar(_ style: NavigationBarStyle = .default) {
         super.configureNavigationBar()
     }
 }

@@ -27,8 +27,8 @@ class BaseViewController: UIViewController, ViewDrawable {
     func configureView() {
     }
     
-    func configureNavigationBar() {
-        navigationController?.configureNavigationBarAppearance()
+    func configureNavigationBar(_ style: NavigationBarStyle = .default) {
+        navigationController?.configureNavigationBarAppearance(style)
         navigationItem.backButtonTitle = ""
     }
     

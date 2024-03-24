@@ -29,7 +29,8 @@ final class OCRViewController: BaseViewController {
         input = OCRViewModel.Input(
             viewDidLoadEvent: Observable(nil),
             photoPickerButtonTappedEvent: Observable(nil),
-            resetImageButtonTappedEvent: Observable(nil)
+            resetImageButtonTappedEvent: Observable(nil),
+            imageSelectedEvent: Observable(nil)
         )
         
         output = viewModel.transform(from: input)
@@ -42,6 +43,16 @@ final class OCRViewController: BaseViewController {
         output.resetImageTrigger.bind { event in
             guard event != nil else { return }
             self.mainView.resetImage()
+        }
+        
+        output.textRecognitionTrigger.bind { [weak self] event in
+            guard let self, event != nil else { return }
+            let imageView = self.mainView.imageView
+            OCRManager.shared.recognizeText(image: imageView.image, imageViewSize: imageView.frame.size) { results in
+                results.forEach { result in
+                    self.mainView.drawTextArea(ocr: result)
+                }
+            }
         }
     }
     
@@ -60,8 +71,8 @@ final class OCRViewController: BaseViewController {
         mainView.delegate = self
     }
     
-    override func configureNavigationBar() {
-        super.configureNavigationBar()
+    override func configureNavigationBar(_ style: NavigationBarStyle = .default) {
+        super.configureNavigationBar(.ocr)
         navigationItem.title = "텍스트 인식"
         
         let dismiss = UIBarButtonItem(
@@ -114,12 +125,12 @@ extension OCRViewController: PHPickerViewControllerDelegate {
         if itemProvider.canLoadObject(ofClass: UIImage.self) {
             itemProvider.loadObject(ofClass: UIImage.self) { [weak self] image, error in
                 
-                guard let self = self,
-                      let image = image as? UIImage else { return }
+                guard let self, let image = image as? UIImage else { return }
                 
                 // loadObject는 비동기 작업이므로 메인스레드로 UI 작업
                 DispatchQueue.main.async {
                     self.mainView.setImage(image)
+                    self.input.imageSelectedEvent.value = ()
                 }
             }
         }
