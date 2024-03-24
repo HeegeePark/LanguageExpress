@@ -47,20 +47,7 @@ final class OCRViewController: BaseViewController {
         
         output.textRecognitionTrigger.bind { [weak self] event in
             guard let self, event != nil else { return }
-            
-            let imageView = self.mainView.imageView
-            OCRManager.shared.recognizeText(image: imageView.image,
-                imageViewSize: imageView.frame.size) { results in
-                guard !results.isEmpty else {
-                    print(results)
-                    self.showToast(Message.emptyTextRecognitionResult)
-                    return
-                }
-                
-                results.forEach { result in
-                    self.mainView.drawTextArea(ocr: result)
-                }
-            }
+            // TODO: 지금은 쓰지 않지만, 혹시 몰라 보류
         }
     }
     
@@ -137,8 +124,19 @@ extension OCRViewController: PHPickerViewControllerDelegate {
                 
                 // loadObject는 비동기 작업이므로 메인스레드로 UI 작업
                 DispatchQueue.main.async {
-                    self.mainView.setImage(image)
-                    self.input.imageSelectedEvent.value = ()
+                    self.mainView.setImage(image) { size in
+                        OCRManager.shared.recognizeText(image: image,
+                            imageViewSize: size) { results in
+                            guard !results.isEmpty else {
+                                self.showToast(Message.emptyTextRecognitionResult)
+                                return
+                            }
+                            
+                            results.forEach { result in
+                                self.mainView.drawTextArea(ocr: result)
+                            }
+                        }
+                    }
                 }
             }
         }

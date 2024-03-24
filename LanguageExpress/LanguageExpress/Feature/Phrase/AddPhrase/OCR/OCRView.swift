@@ -19,7 +19,7 @@ final class CustomTapGestureRecognizer: UITapGestureRecognizer {
 final class OCRView: BaseView {
     weak var delegate: OCRViewDelegate?
     
-    let imageView = {
+    private let imageView = {
         let view = UIImageView()
         view.contentMode = .scaleAspectFit
         view.isUserInteractionEnabled = true
@@ -38,20 +38,31 @@ final class OCRView: BaseView {
     }()
     
     private var textAreaViews = [UIView]()
+    private var image: UIImage? {
+        didSet {
+            if let image {
+                imageView.image = image
+                imageView.isUserInteractionEnabled = true
+            } else {
+                imageView.image = nil
+                imageView.isUserInteractionEnabled = false
+                removeTextAreaView()
+            }
+        }
+    }
     
     @objc private func photoPickerButtonTapped() {
         delegate?.photoPickerButtonTapped()
     }
     
-    func setImage(_ image: UIImage) {
-        imageView.image = image
-        imageView.isUserInteractionEnabled = true
+    func setImage(_ image: UIImage, completionHandler: @escaping (CGSize) -> Void) {
+        self.image = image
+        remkeImageViewLayout()
+        completionHandler(imageView.frame.size)
     }
     
     func resetImage() {
-        imageView.image = nil
-        imageView.isUserInteractionEnabled = false
-        removeTextAreaView()
+        self.image = nil
     }
     
     func drawTextArea(ocr: OCRResult) {
@@ -79,6 +90,20 @@ final class OCRView: BaseView {
     
     @objc private func textAreaTapped(_ sender: CustomTapGestureRecognizer) {
         print(sender.text!)
+    }
+    
+    private func remkeImageViewLayout() {
+        guard let image else { return }
+        let aspectRatio = image.size.width / image.size.height
+        let scaledHeight = imageView.frame.width / aspectRatio
+        
+        imageView.snp.remakeConstraints { make in
+            make.center.equalToSuperview()
+            make.width.equalToSuperview()
+            make.height.equalTo(scaledHeight)
+        }
+        
+        imageView.frame.size = CGSize(width: self.frame.width, height: scaledHeight)
     }
     
     private func removeTextAreaView() {
