@@ -30,7 +30,8 @@ final class AddPhraseViewController: BaseViewController {
             meaningChangedEvent: Observable(""),
             memoChangedEvent: Observable(""),
             tagsChangedEvent: Observable([]),
-            addButtonTappedEvent: Observable(nil)
+            addButtonTappedEvent: Observable(nil),
+            setTextRecognitionResultEvent: Observable("")
         )
         
         output = viewModel.transform(from: input)
@@ -42,8 +43,13 @@ final class AddPhraseViewController: BaseViewController {
         
         output.successToAddPhraseTrigger.bind { event in
             guard event != nil else { return }
-            self.dismiss(animated: true)
+            self.view.window!.rootViewController?.dismiss(animated: true)
         }
+    }
+    
+    func setTextRecognitionResult(result: String) {
+        input.setTextRecognitionResultEvent.value = result
+        self.mainView.setTextRecognitionResult(result: result)
     }
     
     override func configureView() {

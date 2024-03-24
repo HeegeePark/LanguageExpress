@@ -13,6 +13,14 @@ extension UIView {
         self.layer.masksToBounds = true
     }
     
+    func setShadow(color: UIColor = .black, opacity: Float = 0.1, radius: CGFloat = 3) {
+        self.layer.masksToBounds = false
+        self.layer.shadowColor = color.cgColor
+        self.layer.shadowOpacity = opacity
+        self.layer.shadowRadius = radius
+        self.layer.shadowOffset = CGSize(width: 2, height: 2)
+    }
+    
     func showIndicator() {
         let indicator = UIActivityIndicatorView()
         let height = self.bounds.size.height

@@ -61,6 +61,7 @@ final class PhraseListViewController: BaseViewController {
         output.presentAddPhraseWithOCRTrigger.bind { event in
             guard event != nil else { return }
             let ocrVC = OCRViewController()
+            ocrVC.bindViewModel(collection: collection)
             let nav = UINavigationController(rootViewController: ocrVC)
             nav.modalPresentationStyle = .fullScreen
             self.present(nav, animated: true)

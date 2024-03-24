@@ -21,18 +21,18 @@ final class OCRViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        bindViewModel()
-        input.viewDidLoadEvent.value = ()
     }
     
-    private func bindViewModel() {
+    func bindViewModel(collection: Collection) {
         input = OCRViewModel.Input(
-            viewDidLoadEvent: Observable(nil),
+            bindViewModelEvent: Observable(collection),
             photoPickerButtonTappedEvent: Observable(nil),
             resetImageButtonTappedEvent: Observable(nil),
             imageSelectedEvent: Observable(nil),
             selectedWordAppendedEvent: Observable(nil),
-            selectedWordRemovedEvent: Observable(nil)
+            selectedWordRemovedEvent: Observable(nil),
+            doneButtonTappedEvent: Observable(nil),
+            addPhraseCompletionHandlerEvent: Observable("")
         )
         
         output = viewModel.transform(from: input)
@@ -62,8 +62,44 @@ final class OCRViewController: BaseViewController {
         
         output.combinedResult.bind { result in
             guard !result.isEmpty else { return }
-            print(result)
+            self.presentResultSheetVC(result)
         }
+        
+        output.sendCombineResultTrigger.bind { result in
+            guard !result.isEmpty else { return }
+            let addVC = AddPhraseViewController()
+            addVC.bindViewModel(collection: collection)
+            addVC.setTextRecognitionResult(result: result)
+            let nav = UINavigationController(rootViewController: addVC)
+            nav.modalPresentationStyle = .fullScreen
+            self.present(nav, animated: true)
+        }
+    }
+    
+    private func presentResultSheetVC(_ result: String) {
+        let resultSheetVC = ResultSheetViewController()
+        resultSheetVC.setPhrase(result: result)
+        
+        resultSheetVC.addPhraseCompletionHandler = { [weak self] result in
+            guard let self else { return }
+            self.input.addPhraseCompletionHandlerEvent.value = result
+        }
+        
+        let detentIdentifier = UISheetPresentationController.Detent.Identifier("customDetent")
+        let customDetent = UISheetPresentationController.Detent.custom(identifier: detentIdentifier) { _ in
+            let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+            let safeAreaBottom = windowScene?.windows.first?.safeAreaInsets.bottom ?? 0
+            
+            return 150 - safeAreaBottom
+        }
+        
+        if let sheet = resultSheetVC.sheetPresentationController {
+            sheet.detents = [customDetent]
+            sheet.preferredCornerRadius = 30
+            sheet.prefersGrabberVisible = true
+        }
+        
+        present(resultSheetVC, animated: true)
     }
     
     private func presentPicker() {
@@ -112,16 +148,20 @@ final class OCRViewController: BaseViewController {
 }
 
 extension OCRViewController: OCRViewDelegate {
+    func photoPickerButtonTapped() {
+        input.photoPickerButtonTappedEvent.value = ()
+    }
+    
+    func doneButtonTapped() {
+        input.doneButtonTappedEvent.value = ()
+    }
+    
     func selectedWordAppended(wordInfo: WordInfo) {
         input.selectedWordAppendedEvent.value = wordInfo
     }
     
     func selectedWordRemoved(wordInfo: WordInfo) {
         input.selectedWordRemovedEvent.value = wordInfo
-    }
-    
-    func photoPickerButtonTapped() {
-        input.photoPickerButtonTappedEvent.value = ()
     }
 }
 
@@ -167,6 +207,7 @@ extension OCRViewController: PHPickerViewControllerDelegate {
                                 self.mainView.drawTextArea(ocr: result, idx: idx)
                             }
                             self.output.textRecognitionFinishedTrigger.value = ()
+                            self.mainView.activateDoneButton()
                         }
                     }
                 }

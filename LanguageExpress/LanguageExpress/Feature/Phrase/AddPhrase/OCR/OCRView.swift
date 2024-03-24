@@ -10,6 +10,7 @@ import SnapKit
 
 protocol OCRViewDelegate: UIViewController {
     func photoPickerButtonTapped()
+    func doneButtonTapped()
     func selectedWordAppended(wordInfo: WordInfo)
     func selectedWordRemoved(wordInfo: WordInfo)
 }
@@ -32,6 +33,18 @@ final class OCRView: BaseView {
         view.backgroundColor = .primary
         view.setCornerRadius(.medium)
         view.addTarget(self, action: #selector(photoPickerButtonTapped), for: .touchUpInside)
+        return view
+    }()
+    
+    private lazy var doneButton = {
+        let view = UIButton()
+        let imageConfig = UIImage.SymbolConfiguration(pointSize: 30, weight: .semibold)
+        let image = UIImage(systemName: "text.viewfinder", withConfiguration: imageConfig)
+        view.setImage(image, for: .normal)
+        view.tintColor = .white
+        view.backgroundColor = .accent
+        view.setShadow()
+        view.addTarget(self, action: #selector(doneButtonTapped), for: .touchUpInside)
         return view
     }()
     
@@ -61,6 +74,10 @@ final class OCRView: BaseView {
         delegate?.photoPickerButtonTapped()
     }
     
+    @objc private func doneButtonTapped() {
+        delegate?.doneButtonTapped()
+    }
+    
     func setImage(_ image: UIImage, completionHandler: @escaping (CGSize) -> Void) {
         self.image = image
         remkeImageViewLayout()
@@ -69,6 +86,7 @@ final class OCRView: BaseView {
     
     func resetImage() {
         self.image = nil
+        doneButton.isHidden = true
     }
     
     func drawTextArea(ocr: OCRResult, idx: Int) {
@@ -89,6 +107,10 @@ final class OCRView: BaseView {
         recognized.delegate = self
         imageView.addSubview(recognized)
         textAreaViews.append(recognized)
+    }
+    
+    func activateDoneButton() {
+        doneButton.isHidden = false
     }
     
     private func remkeImageViewLayout() {
@@ -112,9 +134,15 @@ final class OCRView: BaseView {
         textAreaViews.removeAll()
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        doneButton.setCornerRadius(.circle(doneButton))
+    }
+    
     override func configureHierarchy() {
         self.addSubview(photoPickerButton)
         self.addSubview(imageView)
+        self.addSubview(doneButton)
     }
     
     override func configureLayout() {
@@ -128,10 +156,16 @@ final class OCRView: BaseView {
             make.horizontalEdges.equalTo(self.safeAreaLayoutGuide).inset(30)
             make.height.equalTo(50)
         }
+        
+        doneButton.snp.makeConstraints { make in
+            make.bottom.trailing.equalTo(self.safeAreaLayoutGuide).inset(20)
+            make.size.equalTo(50)
+        }
     }
     
     override func configureView() {
         self.backgroundColor = .white
+        doneButton.isHidden = true
     }
 }
 

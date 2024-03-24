@@ -12,6 +12,7 @@
 		4F4F04042B99890F003B88DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F4F04032B99890F003B88DF /* Assets.xcassets */; };
 		4F4F04072B99890F003B88DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F4F04052B99890F003B88DF /* LaunchScreen.storyboard */; };
 		4F53CE0B2BB06ACB005A83FA /* OCRTextAreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F53CE0A2BB06ACB005A83FA /* OCRTextAreaView.swift */; };
+		4F53CE0D2BB09DF1005A83FA /* ResultSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F53CE0C2BB09DF1005A83FA /* ResultSheetViewController.swift */; };
 		4F69CB532BAA55D700319F83 /* AddPhraseCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F69CB522BAA55D700319F83 /* AddPhraseCollectionView.swift */; };
 		4F69CB552BAA55EF00319F83 /* AddPhraseCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F69CB542BAA55EF00319F83 /* AddPhraseCollectionViewController.swift */; };
 		4F69CB572BAA568000319F83 /* CustomTextAreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F69CB562BAA568000319F83 /* CustomTextAreaView.swift */; };
@@ -85,6 +86,7 @@
 		4F4F04062B99890F003B88DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4F4F04082B99890F003B88DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F53CE0A2BB06ACB005A83FA /* OCRTextAreaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRTextAreaView.swift; sourceTree = "<group>"; };
+		4F53CE0C2BB09DF1005A83FA /* ResultSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultSheetViewController.swift; sourceTree = "<group>"; };
 		4F69CB522BAA55D700319F83 /* AddPhraseCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhraseCollectionView.swift; sourceTree = "<group>"; };
 		4F69CB542BAA55EF00319F83 /* AddPhraseCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhraseCollectionViewController.swift; sourceTree = "<group>"; };
 		4F69CB562BAA568000319F83 /* CustomTextAreaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextAreaView.swift; sourceTree = "<group>"; };
@@ -302,6 +304,7 @@
 				4F69CBAA2BAF4B2A00319F83 /* OCRView.swift */,
 				4F69CBAC2BAF569B00319F83 /* OCRViewModel.swift */,
 				4F53CE0A2BB06ACB005A83FA /* OCRTextAreaView.swift */,
+				4F53CE0C2BB09DF1005A83FA /* ResultSheetViewController.swift */,
 			);
 			path = OCR;
 			sourceTree = "<group>";
@@ -562,6 +565,7 @@
 				4F6EFE102BA73B29007B14EC /* UINavigationController+Extension.swift in Sources */,
 				4F69CB662BAB174A00319F83 /* PhraseListViewController.swift in Sources */,
 				4F69CB9F2BAECC3A00319F83 /* CollectionFloatyFactory.swift in Sources */,
+				4F53CE0D2BB09DF1005A83FA /* ResultSheetViewController.swift in Sources */,
 				4F69CB682BAB175F00319F83 /* PhraseListView.swift in Sources */,
 				4F69CB592BAA5F0700319F83 /* ColorSelectView.swift in Sources */,
 				4F6EFE482BA96E85007B14EC /* RealmManager.swift in Sources */,

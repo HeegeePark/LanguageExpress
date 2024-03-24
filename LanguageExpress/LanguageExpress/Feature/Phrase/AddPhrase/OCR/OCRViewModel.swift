@@ -9,27 +9,32 @@ import Foundation
 
 final class OCRViewModel: ViewModelAvailable {
     struct Input {
-        var viewDidLoadEvent: Observable<Void?>
+        var bindViewModelEvent: Observable<Collection>
         var photoPickerButtonTappedEvent: Observable<Void?>
         var resetImageButtonTappedEvent: Observable<Void?>
         var imageSelectedEvent: Observable<Void?>
         var selectedWordAppendedEvent: Observable<WordInfo?>
         var selectedWordRemovedEvent: Observable<WordInfo?>
+        var doneButtonTappedEvent: Observable<Void?>
+        var addPhraseCompletionHandlerEvent: Observable<String>
     }
     
     struct Output {
+        var collection: Observable<Collection?> = Observable(nil)
         var presentPhotoPickerTrigger: Observable<Void?> = Observable(nil)
         var activateIndicatorTrigger: Observable<Bool> = Observable(false)
         var resetImageTrigger: Observable<Void?> = Observable(nil)
         var textRecognitionFinishedTrigger: Observable<Void?> = Observable(nil)
         var selectedWords: Observable<Set<WordInfo>> = Observable([])
         var combinedResult: Observable<String> = Observable("")
+        var sendCombineResultTrigger: Observable<String> = Observable("")
     }
     
     func transform(from input: Input) -> Output {
         let output = Output()
         
-        input.viewDidLoadEvent.bind { _ in
+        input.bindViewModelEvent.bind { collection in
+            self.loadCollection(collection: collection, output: output)
             output.presentPhotoPickerTrigger.value = ()
         }
         
@@ -49,16 +54,28 @@ final class OCRViewModel: ViewModelAvailable {
         input.selectedWordAppendedEvent.bind { wordInfo in
             guard let wordInfo else { return }
             self.appendSelectedWord(wordInfo: wordInfo, output: output)
-            self.updateCombinedResult(output: output)
         }
         
         input.selectedWordRemovedEvent.bind { wordInfo in
             guard let wordInfo else { return }
             self.removeSelectedWord(wordInfo: wordInfo, output: output)
+        }
+        
+        input.doneButtonTappedEvent.bind { event in
+            guard event != nil else { return }
             self.updateCombinedResult(output: output)
         }
         
+        input.addPhraseCompletionHandlerEvent.bind { result in
+            guard !result.isEmpty else { return }
+            output.sendCombineResultTrigger.value = output.combinedResult.value
+        }
+        
         return output
+    }
+    
+    private func loadCollection(collection: Collection, output: Output) {
+        output.collection.value = collection
     }
     
     private func appendSelectedWord(wordInfo: WordInfo, output: Output) {
