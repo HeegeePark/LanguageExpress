@@ -8,11 +8,60 @@
 import UIKit
 
 extension UINavigationController {
-    // TODO: 네비게이션 바 높이 늘리기
-    func configureNavigationBarAppearance() {
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithDefaultBackground()
-        appearance.backgroundColor = .white
-        navigationBar.tintColor = .primary
+    func configureNavigationBarAppearance(_ style: NavigationBarStyle = .default) {
+        navigationBar.tintColor = style.tintColor
+        navigationBar.standardAppearance = style.appearance
+        navigationBar.compactAppearance = style.appearance
+        navigationBar.scrollEdgeAppearance = style.appearance
+        navigationBar.compactScrollEdgeAppearance = style.appearance
+    }
+}
+
+enum NavigationBarStyle {
+    case `default`
+    case main
+    case ocr
+    
+    var appearance: UINavigationBarAppearance {
+        switch self {
+        case .default:
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithTransparentBackground()
+            appearance.backgroundColor = .white
+            appearance.titleTextAttributes = titleTextAttributes
+            appearance.shadowImage = UIImage()  // 선 제거
+            return appearance
+        case .main:
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithTransparentBackground()
+            appearance.backgroundColor = .mainBackground
+            appearance.titleTextAttributes = titleTextAttributes
+            appearance.shadowImage = UIImage()  // 선 제거
+            return appearance
+        case .ocr:
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithTransparentBackground()
+            appearance.backgroundColor = .primary
+            appearance.titleTextAttributes = titleTextAttributes
+            appearance.shadowImage = UIImage()  // 선 제거
+            return appearance
+        }
+    }
+    
+    var titleTextAttributes: [NSAttributedString.Key : Any] {
+        return [
+            .foregroundColor: tintColor
+        ]
+    }
+    
+    var tintColor: UIColor {
+        switch self {
+        case .default:
+            return .primary
+        case.main:
+            return .primary
+        case .ocr:
+            return .white
+        }
     }
 }
