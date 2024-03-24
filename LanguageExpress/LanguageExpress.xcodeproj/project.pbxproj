@@ -11,6 +11,7 @@
 		4F4F03FD2B99890D003B88DF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4F03FC2B99890D003B88DF /* SceneDelegate.swift */; };
 		4F4F04042B99890F003B88DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F4F04032B99890F003B88DF /* Assets.xcassets */; };
 		4F4F04072B99890F003B88DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F4F04052B99890F003B88DF /* LaunchScreen.storyboard */; };
+		4F53CE0B2BB06ACB005A83FA /* OCRTextAreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F53CE0A2BB06ACB005A83FA /* OCRTextAreaView.swift */; };
 		4F69CB532BAA55D700319F83 /* AddPhraseCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F69CB522BAA55D700319F83 /* AddPhraseCollectionView.swift */; };
 		4F69CB552BAA55EF00319F83 /* AddPhraseCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F69CB542BAA55EF00319F83 /* AddPhraseCollectionViewController.swift */; };
 		4F69CB572BAA568000319F83 /* CustomTextAreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F69CB562BAA568000319F83 /* CustomTextAreaView.swift */; };
@@ -83,6 +84,7 @@
 		4F4F04032B99890F003B88DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4F4F04062B99890F003B88DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4F4F04082B99890F003B88DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4F53CE0A2BB06ACB005A83FA /* OCRTextAreaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRTextAreaView.swift; sourceTree = "<group>"; };
 		4F69CB522BAA55D700319F83 /* AddPhraseCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhraseCollectionView.swift; sourceTree = "<group>"; };
 		4F69CB542BAA55EF00319F83 /* AddPhraseCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhraseCollectionViewController.swift; sourceTree = "<group>"; };
 		4F69CB562BAA568000319F83 /* CustomTextAreaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextAreaView.swift; sourceTree = "<group>"; };
@@ -299,6 +301,7 @@
 				4F69CBA82BAF4A4B00319F83 /* OCRViewController.swift */,
 				4F69CBAA2BAF4B2A00319F83 /* OCRView.swift */,
 				4F69CBAC2BAF569B00319F83 /* OCRViewModel.swift */,
+				4F53CE0A2BB06ACB005A83FA /* OCRTextAreaView.swift */,
 			);
 			path = OCR;
 			sourceTree = "<group>";
@@ -543,6 +546,7 @@
 				4F6EFE192BA8346E007B14EC /* PhraseCollectionView.swift in Sources */,
 				4F69CBAD2BAF569B00319F83 /* OCRViewModel.swift in Sources */,
 				4F69CBA12BAED7DB00319F83 /* TipBarButtonItem.swift in Sources */,
+				4F53CE0B2BB06ACB005A83FA /* OCRTextAreaView.swift in Sources */,
 				4F6EFE3C2BA964D3007B14EC /* Phrase.swift in Sources */,
 				4F6EFE3A2BA96368007B14EC /* Collection.swift in Sources */,
 				4F69CB842BACAB4C00319F83 /* String+Extension.swift in Sources */,

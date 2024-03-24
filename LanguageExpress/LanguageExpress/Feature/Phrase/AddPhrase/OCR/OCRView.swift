@@ -10,10 +10,8 @@ import SnapKit
 
 protocol OCRViewDelegate: UIViewController {
     func photoPickerButtonTapped()
-}
-
-final class CustomTapGestureRecognizer: UITapGestureRecognizer {
-    var text: String?
+    func selectedWordAppended(wordInfo: WordInfo)
+    func selectedWordRemoved(wordInfo: WordInfo)
 }
 
 final class OCRView: BaseView {
@@ -37,7 +35,7 @@ final class OCRView: BaseView {
         return view
     }()
     
-    private var textAreaViews = [UIView]()
+    private var textAreaViews = [OCRTextAreaView]()
     private var image: UIImage? {
         didSet {
             if let image {
@@ -73,7 +71,7 @@ final class OCRView: BaseView {
         self.image = nil
     }
     
-    func drawTextArea(ocr: OCRResult) {
+    func drawTextArea(ocr: OCRResult, idx: Int) {
         // boundingBox는 전처리된 이미지 기반 정규화된 사이즈에
         // Quartz 좌표계를 따름(왼쪽 하단 모서리가 (0,0))
         // UIKit 좌표계와 이미지뷰 크기에 맞는 rect 구하기
@@ -86,18 +84,11 @@ final class OCRView: BaseView {
             height: ocr.bbox.height
         )
         
-        let recognized = UIView(frame: invertedRect)
+        let recognized = OCRTextAreaView(frame: invertedRect)
+        recognized.setResult(text: ocr.text, idx: idx)
+        recognized.delegate = self
         imageView.addSubview(recognized)
-        recognized.backgroundColor = .red.withAlphaComponent(0.3)
-        
-        let tapGesture = CustomTapGestureRecognizer(target: self, action: #selector(textAreaTapped))
-        tapGesture.text = ocr.text
-        recognized.addGestureRecognizer(tapGesture)
         textAreaViews.append(recognized)
-    }
-    
-    @objc private func textAreaTapped(_ sender: CustomTapGestureRecognizer) {
-        print(sender.text!)
     }
     
     private func remkeImageViewLayout() {
@@ -141,5 +132,15 @@ final class OCRView: BaseView {
     
     override func configureView() {
         self.backgroundColor = .white
+    }
+}
+
+extension OCRView: OCRTextAreaViewDelegate {
+    func viewSelected(wordInfo: WordInfo, isSelect: Bool) {
+        if isSelect {
+            delegate?.selectedWordAppended(wordInfo: wordInfo)
+        } else {
+            delegate?.selectedWordRemoved(wordInfo: wordInfo)
+        }
     }
 }

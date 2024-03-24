@@ -30,7 +30,9 @@ final class OCRViewController: BaseViewController {
             viewDidLoadEvent: Observable(nil),
             photoPickerButtonTappedEvent: Observable(nil),
             resetImageButtonTappedEvent: Observable(nil),
-            imageSelectedEvent: Observable(nil)
+            imageSelectedEvent: Observable(nil),
+            selectedWordAppendedEvent: Observable(nil),
+            selectedWordRemovedEvent: Observable(nil)
         )
         
         output = viewModel.transform(from: input)
@@ -56,6 +58,11 @@ final class OCRViewController: BaseViewController {
         output.textRecognitionFinishedTrigger.bind { [weak self] event in
             guard let self, event != nil else { return }
             self.mainView.hideIndicator()
+        }
+        
+        output.combinedResult.bind { result in
+            guard !result.isEmpty else { return }
+            print(result)
         }
     }
     
@@ -87,7 +94,7 @@ final class OCRViewController: BaseViewController {
         navigationItem.leftBarButtonItem = dismiss
         
         let resetImage = UIBarButtonItem(
-            title: "reset",
+            title: "리셋",
             style: .plain,
             target: self,
             action: #selector(resetImageButtonTapped)
@@ -105,6 +112,14 @@ final class OCRViewController: BaseViewController {
 }
 
 extension OCRViewController: OCRViewDelegate {
+    func selectedWordAppended(wordInfo: WordInfo) {
+        input.selectedWordAppendedEvent.value = wordInfo
+    }
+    
+    func selectedWordRemoved(wordInfo: WordInfo) {
+        input.selectedWordRemovedEvent.value = wordInfo
+    }
+    
     func photoPickerButtonTapped() {
         input.photoPickerButtonTappedEvent.value = ()
     }
@@ -148,8 +163,8 @@ extension OCRViewController: PHPickerViewControllerDelegate {
                                 return
                             }
                             
-                            results.forEach { result in
-                                self.mainView.drawTextArea(ocr: result)
+                            results.enumerated().forEach { (idx, result) in
+                                self.mainView.drawTextArea(ocr: result, idx: idx)
                             }
                             self.output.textRecognitionFinishedTrigger.value = ()
                         }
