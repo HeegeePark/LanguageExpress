@@ -76,7 +76,8 @@ final class OCRManager {
             do {
                 var possibleLanguages: Array<String> = []
                 possibleLanguages = try request.supportedRecognitionLanguages()
-                print(possibleLanguages)
+                // TODO: 지원 언어 추가해도 정확도가 높지 않아서 차후 정확도 높이기 대응할 것.
+                request.recognitionLanguages = possibleLanguages
             } catch {
                 print("Error getting the supported languages.")
             }
