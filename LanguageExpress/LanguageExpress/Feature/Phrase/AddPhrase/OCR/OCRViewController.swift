@@ -113,13 +113,18 @@ extension OCRViewController: OCRViewDelegate {
 extension OCRViewController: PHPickerViewControllerDelegate {
     
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
-        input.imageSelectedEvent.value = ()
-        picker.dismiss(animated: true)
+        picker.dismiss(animated: true) {
+            // 취소했을 때
+            if results.isEmpty {
+                self.mainView.hideIndicator()
+            }
+        }
         
         let itemProviders = results.map(\.itemProvider)
         
         if !itemProviders.isEmpty {
             displayImage(itemProviders)
+            input.imageSelectedEvent.value = ()
         }
     }
     
@@ -139,6 +144,7 @@ extension OCRViewController: PHPickerViewControllerDelegate {
                             imageViewSize: size) { results in
                             guard !results.isEmpty else {
                                 self.showToast(Message.emptyTextRecognitionResult)
+                                self.output.textRecognitionFinishedTrigger.value = ()
                                 return
                             }
                             
