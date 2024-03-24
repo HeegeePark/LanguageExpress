@@ -13,6 +13,9 @@
 		4F4F04072B99890F003B88DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F4F04052B99890F003B88DF /* LaunchScreen.storyboard */; };
 		4F53CE0B2BB06ACB005A83FA /* OCRTextAreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F53CE0A2BB06ACB005A83FA /* OCRTextAreaView.swift */; };
 		4F53CE0D2BB09DF1005A83FA /* ResultSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F53CE0C2BB09DF1005A83FA /* ResultSheetViewController.swift */; };
+		4F53CE192BB0D695005A83FA /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F53CE182BB0D694005A83FA /* TabBarController.swift */; };
+		4F53CE1C2BB0D6CB005A83FA /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F53CE1B2BB0D6CB005A83FA /* SettingViewController.swift */; };
+		4F53CE1E2BB0D71A005A83FA /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F53CE1D2BB0D71A005A83FA /* TabBarItem.swift */; };
 		4F69CB532BAA55D700319F83 /* AddPhraseCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F69CB522BAA55D700319F83 /* AddPhraseCollectionView.swift */; };
 		4F69CB552BAA55EF00319F83 /* AddPhraseCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F69CB542BAA55EF00319F83 /* AddPhraseCollectionViewController.swift */; };
 		4F69CB572BAA568000319F83 /* CustomTextAreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F69CB562BAA568000319F83 /* CustomTextAreaView.swift */; };
@@ -87,6 +90,9 @@
 		4F4F04082B99890F003B88DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F53CE0A2BB06ACB005A83FA /* OCRTextAreaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRTextAreaView.swift; sourceTree = "<group>"; };
 		4F53CE0C2BB09DF1005A83FA /* ResultSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultSheetViewController.swift; sourceTree = "<group>"; };
+		4F53CE182BB0D694005A83FA /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		4F53CE1B2BB0D6CB005A83FA /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		4F53CE1D2BB0D71A005A83FA /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
 		4F69CB522BAA55D700319F83 /* AddPhraseCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhraseCollectionView.swift; sourceTree = "<group>"; };
 		4F69CB542BAA55EF00319F83 /* AddPhraseCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhraseCollectionViewController.swift; sourceTree = "<group>"; };
 		4F69CB562BAA568000319F83 /* CustomTextAreaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextAreaView.swift; sourceTree = "<group>"; };
@@ -197,6 +203,23 @@
 				4F4F04082B99890F003B88DF /* Info.plist */,
 			);
 			path = LanguageExpress;
+			sourceTree = "<group>";
+		};
+		4F53CE172BB0D67F005A83FA /* TapBar */ = {
+			isa = PBXGroup;
+			children = (
+				4F53CE182BB0D694005A83FA /* TabBarController.swift */,
+				4F53CE1D2BB0D71A005A83FA /* TabBarItem.swift */,
+			);
+			path = TapBar;
+			sourceTree = "<group>";
+		};
+		4F53CE1A2BB0D6AC005A83FA /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				4F53CE1B2BB0D6CB005A83FA /* SettingViewController.swift */,
+			);
+			path = Setting;
 			sourceTree = "<group>";
 		};
 		4F69CB502BAA555000319F83 /* PhraseCollectionList */ = {
@@ -348,6 +371,7 @@
 				4F6EFE342BA95D19007B14EC /* Common */,
 				4F6EFE0C2BA5655A007B14EC /* PhraseCollection */,
 				4F69CB632BAB16ED00319F83 /* Phrase */,
+				4F53CE1A2BB0D6AC005A83FA /* Setting */,
 			);
 			path = Feature;
 			sourceTree = "<group>";
@@ -382,6 +406,7 @@
 		4F6EFE342BA95D19007B14EC /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				4F53CE172BB0D67F005A83FA /* TapBar */,
 				4F69CBA22BAED82800319F83 /* Tip */,
 				4F69CB9B2BAECBD000319F83 /* Floaty */,
 				4F69CB912BAD3CF100319F83 /* Alert */,
@@ -529,6 +554,7 @@
 				4F69CB7E2BAC69A400319F83 /* AddPhraseView.swift in Sources */,
 				4F69CB552BAA55EF00319F83 /* AddPhraseCollectionViewController.swift in Sources */,
 				4F4F03FB2B99890D003B88DF /* AppDelegate.swift in Sources */,
+				4F53CE192BB0D695005A83FA /* TabBarController.swift in Sources */,
 				4F6EFE412BA96B98007B14EC /* Tag.swift in Sources */,
 				4F69CB6C2BAB1D3500319F83 /* UINavigationItem+Extension.swift in Sources */,
 				4F6EFE1C2BA8361C007B14EC /* ViewDrawable.swift in Sources */,
@@ -558,6 +584,7 @@
 				4F6EFE3F2BA96849007B14EC /* StateOfMemorization.swift in Sources */,
 				4F69CB572BAA568000319F83 /* CustomTextAreaView.swift in Sources */,
 				4F69CB7C2BAC62BF00319F83 /* AddPhraseViewController.swift in Sources */,
+				4F53CE1E2BB0D71A005A83FA /* TabBarItem.swift in Sources */,
 				4F69CB9D2BAECBDE00319F83 /* FloatyCreator.swift in Sources */,
 				4F69CB712BAB565B00319F83 /* PhraseCollectionViewCell.swift in Sources */,
 				4F69CB612BAAA23500319F83 /* Message.swift in Sources */,
@@ -576,6 +603,7 @@
 				4F6EFE162BA8340F007B14EC /* BaseView.swift in Sources */,
 				4F69CB882BACB0E000319F83 /* AddPhraseViewModel.swift in Sources */,
 				4F69CB6A2BAB1BDF00319F83 /* TitleViewLabel.swift in Sources */,
+				4F53CE1C2BB0D6CB005A83FA /* SettingViewController.swift in Sources */,
 				4F6EFE072BA35D81007B14EC /* UIColor+Extension.swift in Sources */,
 				4F69CB8F2BAD09E400319F83 /* TTSManager.swift in Sources */,
 				4F6EFE0A2BA45AA3007B14EC /* BaseViewController.swift in Sources */,
