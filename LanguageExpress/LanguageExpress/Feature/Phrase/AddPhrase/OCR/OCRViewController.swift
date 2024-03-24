@@ -47,8 +47,16 @@ final class OCRViewController: BaseViewController {
         
         output.textRecognitionTrigger.bind { [weak self] event in
             guard let self, event != nil else { return }
+            
             let imageView = self.mainView.imageView
-            OCRManager.shared.recognizeText(image: imageView.image, imageViewSize: imageView.frame.size) { results in
+            OCRManager.shared.recognizeText(image: imageView.image,
+                imageViewSize: imageView.frame.size) { results in
+                guard !results.isEmpty else {
+                    print(results)
+                    self.showToast(Message.emptyTextRecognitionResult)
+                    return
+                }
+                
                 results.forEach { result in
                     self.mainView.drawTextArea(ocr: result)
                 }
