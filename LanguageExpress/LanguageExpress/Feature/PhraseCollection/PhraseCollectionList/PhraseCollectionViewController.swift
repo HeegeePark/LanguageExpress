@@ -26,6 +26,7 @@ final class PhraseCollectionViewController: BaseViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         input.viewDidAppearEvent.value = ()
+        configureNavigationBar(.main)
     }
     
     func bindViewModel() {
@@ -61,8 +62,8 @@ final class PhraseCollectionViewController: BaseViewController {
         }
     }
     
-    override func configureNavigationBar() {
-        super.configureNavigationBar()
+    override func configureNavigationBar(_ style: NavigationBarStyle = .default) {
+        super.configureNavigationBar(.main)
         //        navigationItem.title = "\n외국어 급행열차 뿌뿌 🚇"
         
         let tipButton = TipBarButtonItem(baseViewController: self)

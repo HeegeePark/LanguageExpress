@@ -55,6 +55,10 @@ final class AddPhraseView: BaseView {
         return view
     }()
     
+    func setTextRecognitionResult(result: String) {
+        phraseAreaView.setTextFieldText(text: result)
+    }
+    
     override func configureHierarchy() {
         [phraseAreaView, meaningAreaView, memoAreaView, tagInputView].forEach {
             self.addSubview($0)

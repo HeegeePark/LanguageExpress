@@ -45,7 +45,7 @@ final class AddPhraseCollectionViewController: BaseViewController {
         }
     }
     
-    override func configureNavigationBar() {
+    override func configureNavigationBar(_ style: NavigationBarStyle = .default) {
         super.configureNavigationBar()
         
         navigationItem.title = "새 모음집"

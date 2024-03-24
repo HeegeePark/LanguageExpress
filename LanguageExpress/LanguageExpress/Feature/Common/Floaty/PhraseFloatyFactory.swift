@@ -40,7 +40,8 @@ final class PhraseFloatyFactory: FloatyCreator {
             item.titleLabel.textAlignment = .right
             item.icon = UIImage(systemName: "text.viewfinder")
             item.handler = { item in
-                // TODO: phpicker 연결
+                completionHandelr(1)
+                fab.close()
             }
             return item
         }()

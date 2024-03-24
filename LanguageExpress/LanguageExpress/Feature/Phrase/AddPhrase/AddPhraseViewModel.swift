@@ -15,6 +15,7 @@ final class AddPhraseViewModel: ViewModelAvailable {
         var memoChangedEvent: Observable<String>
         var tagsChangedEvent: Observable<[String]>
         var addButtonTappedEvent: Observable<Void?>
+        var setTextRecognitionResultEvent: Observable<String>
     }
     
     struct Output {
@@ -58,6 +59,10 @@ final class AddPhraseViewModel: ViewModelAvailable {
             }
             
             self.addPhrase(output: output)
+        }
+        
+        input.setTextRecognitionResultEvent.bind { phrase in
+            self.updatePhrase(phrase: phrase, output: output)
         }
         
         return output

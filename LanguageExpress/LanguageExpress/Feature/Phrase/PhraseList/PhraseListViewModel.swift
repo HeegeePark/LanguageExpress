@@ -15,7 +15,7 @@ final class PhraseListViewModel: ViewModelAvailable {
         var phraseCollectionViewCellDidSelectItemAtEvent: Observable<Int>
         var phraseCollectionViewCellBookMarkButtonTappedEvent: Observable<Int>
         var phraseCollectionViewCellStateOfMemorizationButtonTappedEvent: Observable<Int>
-        var addFloatingButtonTappedEvent: Observable<Void?>
+        var addFloatingButtonTappedEvent: Observable<Int>
         var deletePhraseAlertConfirmEvent: Observable<Int>
     }
     
@@ -23,6 +23,7 @@ final class PhraseListViewModel: ViewModelAvailable {
         var collection: Observable<Collection?> = Observable(nil)
         var phrases: Observable<[Phrase]> = Observable([])
         var presentAddPhraseTrigger: Observable<Void?> = Observable(nil)
+        var presentAddPhraseWithOCRTrigger: Observable<Void?> = Observable(nil)
         var successToToggleIsBookMarkTrigger: Observable<Void?> = Observable(nil)
         var successToChangeStateOfMemorizationTrigger: Observable<Void?> = Observable(nil)
     }
@@ -58,9 +59,13 @@ final class PhraseListViewModel: ViewModelAvailable {
             self.changeStateOfMemorization(phrase: phrase, output: output)
         }
         
-        input.addFloatingButtonTappedEvent.bind { event in
-            guard event != nil else { return }
-            output.presentAddPhraseTrigger.value = ()
+        input.addFloatingButtonTappedEvent.bind { sender in
+            guard sender >= 0 else { return }
+            if sender == 0 {
+                output.presentAddPhraseTrigger.value = ()
+            } else {
+                output.presentAddPhraseWithOCRTrigger.value = ()
+            }
         }
         
         input.deletePhraseAlertConfirmEvent.bind { idx in

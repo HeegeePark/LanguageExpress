@@ -12,6 +12,34 @@ extension UIView {
         self.layer.cornerRadius = style.cornerRadius
         self.layer.masksToBounds = true
     }
+    
+    func setShadow(color: UIColor = .black, opacity: Float = 0.1, radius: CGFloat = 3) {
+        self.layer.masksToBounds = false
+        self.layer.shadowColor = color.cgColor
+        self.layer.shadowOpacity = opacity
+        self.layer.shadowRadius = radius
+        self.layer.shadowOffset = CGSize(width: 2, height: 2)
+    }
+    
+    func showIndicator() {
+        let indicator = UIActivityIndicatorView()
+        let height = self.bounds.size.height
+        let width = self.bounds.size.width
+        indicator.center = CGPoint(x: width / 2, y: height / 2)
+        indicator.style = .large
+        indicator.tintColor = .white
+        self.addSubview(indicator)
+        indicator.startAnimating()
+    }
+    
+    func dismissIndicator() {
+        for view in self.subviews {
+            if let indicator = view as? UIActivityIndicatorView {
+                indicator.stopAnimating()
+                indicator.removeFromSuperview()
+            }
+        }
+    }
 }
 
 enum CornerRoundStyle {

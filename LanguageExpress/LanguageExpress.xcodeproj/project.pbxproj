@@ -11,6 +11,8 @@
 		4F4F03FD2B99890D003B88DF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4F03FC2B99890D003B88DF /* SceneDelegate.swift */; };
 		4F4F04042B99890F003B88DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F4F04032B99890F003B88DF /* Assets.xcassets */; };
 		4F4F04072B99890F003B88DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F4F04052B99890F003B88DF /* LaunchScreen.storyboard */; };
+		4F53CE0B2BB06ACB005A83FA /* OCRTextAreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F53CE0A2BB06ACB005A83FA /* OCRTextAreaView.swift */; };
+		4F53CE0D2BB09DF1005A83FA /* ResultSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F53CE0C2BB09DF1005A83FA /* ResultSheetViewController.swift */; };
 		4F69CB532BAA55D700319F83 /* AddPhraseCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F69CB522BAA55D700319F83 /* AddPhraseCollectionView.swift */; };
 		4F69CB552BAA55EF00319F83 /* AddPhraseCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F69CB542BAA55EF00319F83 /* AddPhraseCollectionViewController.swift */; };
 		4F69CB572BAA568000319F83 /* CustomTextAreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F69CB562BAA568000319F83 /* CustomTextAreaView.swift */; };
@@ -43,6 +45,10 @@
 		4F69CBA12BAED7DB00319F83 /* TipBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F69CBA02BAED7DB00319F83 /* TipBarButtonItem.swift */; };
 		4F69CBA42BAED97B00319F83 /* TipViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F69CBA32BAED97B00319F83 /* TipViewBuilder.swift */; };
 		4F69CBA62BAED9D300319F83 /* TipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F69CBA52BAED9D300319F83 /* TipViewController.swift */; };
+		4F69CBA92BAF4A4B00319F83 /* OCRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F69CBA82BAF4A4B00319F83 /* OCRViewController.swift */; };
+		4F69CBAB2BAF4B2A00319F83 /* OCRView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F69CBAA2BAF4B2A00319F83 /* OCRView.swift */; };
+		4F69CBAD2BAF569B00319F83 /* OCRViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F69CBAC2BAF569B00319F83 /* OCRViewModel.swift */; };
+		4F69CBAF2BAFE9FC00319F83 /* OCRManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F69CBAE2BAFE9FC00319F83 /* OCRManager.swift */; };
 		4F6EFDF22BA2BA03007B14EC /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4F6EFDF12BA2BA03007B14EC /* SnapKit */; };
 		4F6EFDF52BA2BAD2007B14EC /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 4F6EFDF42BA2BAD2007B14EC /* Realm */; };
 		4F6EFDF72BA2BAD2007B14EC /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4F6EFDF62BA2BAD2007B14EC /* RealmSwift */; };
@@ -70,7 +76,6 @@
 		4F6EFE462BA96DF1007B14EC /* CollectionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6EFE452BA96DF1007B14EC /* CollectionRepository.swift */; };
 		4F6EFE482BA96E85007B14EC /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6EFE472BA96E85007B14EC /* RealmManager.swift */; };
 		4F6EFE4A2BA9AC04007B14EC /* PhraseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6EFE492BA9AC04007B14EC /* PhraseRepository.swift */; };
-		4FC4EC472BA0130D004AD6E6 /* VisionKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FC4EC462BA0130D004AD6E6 /* VisionKitViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +85,8 @@
 		4F4F04032B99890F003B88DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4F4F04062B99890F003B88DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4F4F04082B99890F003B88DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4F53CE0A2BB06ACB005A83FA /* OCRTextAreaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRTextAreaView.swift; sourceTree = "<group>"; };
+		4F53CE0C2BB09DF1005A83FA /* ResultSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultSheetViewController.swift; sourceTree = "<group>"; };
 		4F69CB522BAA55D700319F83 /* AddPhraseCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhraseCollectionView.swift; sourceTree = "<group>"; };
 		4F69CB542BAA55EF00319F83 /* AddPhraseCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhraseCollectionViewController.swift; sourceTree = "<group>"; };
 		4F69CB562BAA568000319F83 /* CustomTextAreaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextAreaView.swift; sourceTree = "<group>"; };
@@ -110,6 +117,10 @@
 		4F69CBA02BAED7DB00319F83 /* TipBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipBarButtonItem.swift; sourceTree = "<group>"; };
 		4F69CBA32BAED97B00319F83 /* TipViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipViewBuilder.swift; sourceTree = "<group>"; };
 		4F69CBA52BAED9D300319F83 /* TipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipViewController.swift; sourceTree = "<group>"; };
+		4F69CBA82BAF4A4B00319F83 /* OCRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRViewController.swift; sourceTree = "<group>"; };
+		4F69CBAA2BAF4B2A00319F83 /* OCRView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRView.swift; sourceTree = "<group>"; };
+		4F69CBAC2BAF569B00319F83 /* OCRViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRViewModel.swift; sourceTree = "<group>"; };
+		4F69CBAE2BAFE9FC00319F83 /* OCRManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRManager.swift; sourceTree = "<group>"; };
 		4F6EFDFF2BA353FC007B14EC /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		4F6EFE022BA35490007B14EC /* Sejong hospital Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sejong hospital Bold.otf"; sourceTree = "<group>"; };
 		4F6EFE032BA35490007B14EC /* Sejong hospital Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sejong hospital Light.otf"; sourceTree = "<group>"; };
@@ -134,7 +145,6 @@
 		4F6EFE452BA96DF1007B14EC /* CollectionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionRepository.swift; sourceTree = "<group>"; };
 		4F6EFE472BA96E85007B14EC /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		4F6EFE492BA9AC04007B14EC /* PhraseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseRepository.swift; sourceTree = "<group>"; };
-		4FC4EC462BA0130D004AD6E6 /* VisionKitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionKitViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,7 +190,6 @@
 				4F6EFE082BA45A42007B14EC /* Base */,
 				4F6EFE012BA35472007B14EC /* Fonts */,
 				4F6EFDFE2BA353EC007B14EC /* Extension */,
-				4FC4EC482BA01315004AD6E6 /* Test */,
 				4F4F03FA2B99890D003B88DF /* AppDelegate.swift */,
 				4F4F03FC2B99890D003B88DF /* SceneDelegate.swift */,
 				4F4F04032B99890F003B88DF /* Assets.xcassets */,
@@ -242,6 +251,7 @@
 		4F69CB7A2BAC629D00319F83 /* AddPhrase */ = {
 			isa = PBXGroup;
 			children = (
+				4F69CBA72BAF4A2200319F83 /* OCR */,
 				4F69CB7B2BAC62BF00319F83 /* AddPhraseViewController.swift */,
 				4F69CB7D2BAC69A400319F83 /* AddPhraseView.swift */,
 				4F69CB872BACB0E000319F83 /* AddPhraseViewModel.swift */,
@@ -253,6 +263,7 @@
 			isa = PBXGroup;
 			children = (
 				4F69CB8E2BAD09E400319F83 /* TTSManager.swift */,
+				4F69CBAE2BAFE9FC00319F83 /* OCRManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -284,6 +295,18 @@
 				4F69CBA52BAED9D300319F83 /* TipViewController.swift */,
 			);
 			path = Tip;
+			sourceTree = "<group>";
+		};
+		4F69CBA72BAF4A2200319F83 /* OCR */ = {
+			isa = PBXGroup;
+			children = (
+				4F69CBA82BAF4A4B00319F83 /* OCRViewController.swift */,
+				4F69CBAA2BAF4B2A00319F83 /* OCRView.swift */,
+				4F69CBAC2BAF569B00319F83 /* OCRViewModel.swift */,
+				4F53CE0A2BB06ACB005A83FA /* OCRTextAreaView.swift */,
+				4F53CE0C2BB09DF1005A83FA /* ResultSheetViewController.swift */,
+			);
+			path = OCR;
 			sourceTree = "<group>";
 		};
 		4F6EFDFE2BA353EC007B14EC /* Extension */ = {
@@ -412,14 +435,6 @@
 			path = Repository;
 			sourceTree = "<group>";
 		};
-		4FC4EC482BA01315004AD6E6 /* Test */ = {
-			isa = PBXGroup;
-			children = (
-				4FC4EC462BA0130D004AD6E6 /* VisionKitViewController.swift */,
-			);
-			path = Test;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -517,20 +532,24 @@
 				4F6EFE412BA96B98007B14EC /* Tag.swift in Sources */,
 				4F69CB6C2BAB1D3500319F83 /* UINavigationItem+Extension.swift in Sources */,
 				4F6EFE1C2BA8361C007B14EC /* ViewDrawable.swift in Sources */,
+				4F69CBAB2BAF4B2A00319F83 /* OCRView.swift in Sources */,
 				4F69CB942BAD3D0A00319F83 /* AlertBuilder.swift in Sources */,
+				4F69CBA92BAF4A4B00319F83 /* OCRViewController.swift in Sources */,
 				4F69CBA62BAED9D300319F83 /* TipViewController.swift in Sources */,
 				4F69CB862BACADD700319F83 /* TagView.swift in Sources */,
 				4F69CB792BAC44D700319F83 /* PhraseFloatyFactory.swift in Sources */,
 				4F4F03FD2B99890D003B88DF /* SceneDelegate.swift in Sources */,
 				4F6EFE462BA96DF1007B14EC /* CollectionRepository.swift in Sources */,
+				4F69CBAF2BAFE9FC00319F83 /* OCRManager.swift in Sources */,
 				4F6EFE442BA96D53007B14EC /* BaseRepository.swift in Sources */,
 				4F6EFE002BA353FC007B14EC /* UIFont+Extension.swift in Sources */,
 				4F69CB962BAD3E5A00319F83 /* CustomAlertViewController.swift in Sources */,
 				4F6EFE222BA83B6D007B14EC /* PCCollectionViewCell.swift in Sources */,
 				4F69CB8C2BACDE3600319F83 /* UITextField+Extension.swift in Sources */,
-				4FC4EC472BA0130D004AD6E6 /* VisionKitViewController.swift in Sources */,
 				4F6EFE192BA8346E007B14EC /* PhraseCollectionView.swift in Sources */,
+				4F69CBAD2BAF569B00319F83 /* OCRViewModel.swift in Sources */,
 				4F69CBA12BAED7DB00319F83 /* TipBarButtonItem.swift in Sources */,
+				4F53CE0B2BB06ACB005A83FA /* OCRTextAreaView.swift in Sources */,
 				4F6EFE3C2BA964D3007B14EC /* Phrase.swift in Sources */,
 				4F6EFE3A2BA96368007B14EC /* Collection.swift in Sources */,
 				4F69CB842BACAB4C00319F83 /* String+Extension.swift in Sources */,
@@ -546,6 +565,7 @@
 				4F6EFE102BA73B29007B14EC /* UINavigationController+Extension.swift in Sources */,
 				4F69CB662BAB174A00319F83 /* PhraseListViewController.swift in Sources */,
 				4F69CB9F2BAECC3A00319F83 /* CollectionFloatyFactory.swift in Sources */,
+				4F53CE0D2BB09DF1005A83FA /* ResultSheetViewController.swift in Sources */,
 				4F69CB682BAB175F00319F83 /* PhraseListView.swift in Sources */,
 				4F69CB592BAA5F0700319F83 /* ColorSelectView.swift in Sources */,
 				4F6EFE482BA96E85007B14EC /* RealmManager.swift in Sources */,
@@ -711,7 +731,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -743,7 +763,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -55,7 +55,7 @@ final class AddPhraseCollectionViewModel: ViewModelAvailable {
     }
     
     private func validateToAddCollection(output: Output) -> Bool {
-        return !output.collectionName.value.isEmpty &&
+        return !output.collectionName.value.whiteSpaceRemoved.isEmpty &&
                 !output.collectionColor.value.isEmpty
     }
     

@@ -51,6 +51,10 @@ final class CustomTextAreaView: BaseView {
         textField.text?.removeAll()
     }
     
+    func setTextFieldText(text: String) {
+        textField.text = text
+    }
+    
     func setTextFieldPlaceholder(text: String) {
         textField.placeholder = text
     }
