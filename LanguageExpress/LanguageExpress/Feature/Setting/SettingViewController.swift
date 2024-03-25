@@ -7,10 +7,19 @@
 
 import UIKit
 
-class SettingViewController: BaseViewController {
+final class SettingViewController: BaseViewController {
+    private let mainView = SettingView()
+    
+    override func loadView() {
+        view = mainView
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    }
+    
+    override func configureNavigationBar(_ style: NavigationBarStyle = .default) {
+        super.configureNavigationBar(.main)
     }
 }
