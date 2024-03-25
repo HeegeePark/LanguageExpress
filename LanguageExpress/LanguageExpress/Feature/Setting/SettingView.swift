@@ -49,7 +49,6 @@ final class SettingView: BaseView {
     }()
     
     @objc private func rateViewTapped() {
-        print("hi")
         SKStoreReviewController.requestReviewInScene()
     }
     

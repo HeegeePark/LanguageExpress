@@ -12,7 +12,7 @@ final class TagView: BaseView {
         let view = UILabel()
         view.font = .sfPro15Regular
         view.textColor = .subtitle
-        view.backgroundColor = .accent
+        view.backgroundColor = .mainBackground
         view.textAlignment = .center
         view.setCornerRadius(.small)
         return view

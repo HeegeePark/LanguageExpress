@@ -10,7 +10,6 @@ import UIKit
 final class PCCollectionViewCell: UICollectionViewCell {
     private let nameLabel = {
         let lb = UILabel()
-        lb.text = "컬렉션 이름"
         lb.font = .sjHospital22Bold
         lb.textColor = .black
         return lb
@@ -18,7 +17,6 @@ final class PCCollectionViewCell: UICollectionViewCell {
     
     private let completionRateLabel = {
         let lb = UILabel()
-        lb.text = "35% 마스터 완료!"
         lb.font = .sfPro12Bold
         lb.textColor = .subtitle
         return lb
@@ -66,25 +64,26 @@ final class PCCollectionViewCell: UICollectionViewCell {
         
         nameLabel.snp.makeConstraints { make in
             make.horizontalEdges.equalToSuperview().inset(10)
-            make.top.equalToSuperview().inset(8)
+            make.top.equalToSuperview().inset(8.adjustedH)
         }
         
         completionRateLabel.snp.makeConstraints { make in
             make.horizontalEdges.equalTo(nameLabel)
-            make.top.equalTo(nameLabel.snp.bottom).offset(8)
+            make.top.equalTo(nameLabel.snp.bottom).offset(8.adjustedH)
         }
         
         completionRateProgressView.snp.makeConstraints { make in
             make.horizontalEdges.equalTo(nameLabel)
-            make.top.equalTo(completionRateLabel.snp.bottom).offset(8)
-            make.height.equalTo(6)
+            make.top.equalTo(completionRateLabel.snp.bottom).offset(8.adjustedH)
+            make.height.equalTo(6.adjustedH)
         }
         
         chevronButton.snp.makeConstraints { make in
-            make.top.equalTo(completionRateProgressView.snp.bottom).offset(6)
-            make.bottom.trailing.equalToSuperview().inset(8)
+            make.top.equalTo(completionRateProgressView.snp.bottom).offset(6.adjustedH)
+            make.bottom.trailing.equalToSuperview().inset(8.adjustedH)
             make.leading.greaterThanOrEqualToSuperview().inset(8)
-            make.size.equalTo(24)
+            make.width.equalTo(24)
+            make.height.equalTo(24.adjustedH)
         }
         
         contentView.backgroundColor = .white

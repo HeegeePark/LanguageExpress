@@ -41,7 +41,7 @@ extension TabBarController {
         zip(tabs, TabBarItem.allCases).forEach { (tab, item) in
             tab.tabBarItem = item.asTabBarItem()
             tab.tabBarItem.tag = item.rawValue
-            tab.tabBarItem.imageInsets = .init(top: 0, left: 0, bottom: -20, right: 0)
+            tab.tabBarItem.imageInsets = .init(top: 0, left: 0, bottom: -20.adjustedH, right: 0)
         }
         
         setViewControllers(tabs, animated: true)
