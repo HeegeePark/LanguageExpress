@@ -14,6 +14,8 @@ final class CollectionFloatyFactory: FloatyCreator {
         fab.buttonColor = .primary
         fab.plusColor = .white
         fab.openAnimationType = .slideUp
+        fab.paddingX = 30
+        fab.paddingY = 120
         
         let addPhraseItem = {
             let item = FloatyItem()
