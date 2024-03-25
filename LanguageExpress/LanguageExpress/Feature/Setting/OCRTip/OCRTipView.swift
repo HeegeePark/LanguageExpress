@@ -28,7 +28,6 @@ final class OCRTipView: BaseView {
         view.dataSource = self
         view.isScrollEnabled = false
         view.register(OCRTipCollectionViewCell.self, forCellWithReuseIdentifier: "ocrTip")
-        view.register(OCRTipCollectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "ocrTipHeader")
         return view
     }()
     
