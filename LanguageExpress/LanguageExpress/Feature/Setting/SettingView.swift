@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import StoreKit
 
 final class SettingView: BaseView {
     private let headerView = {
@@ -39,11 +40,25 @@ final class SettingView: BaseView {
         return view
     }()
     
+    private let rateView = {
+        let view = RateView()
+        view.setCornerRadius(.medium)
+        view.backgroundColor = .sheetBackground
+        view.setShadow()
+        return view
+    }()
+    
+    @objc private func rateViewTapped() {
+        print("hi")
+        SKStoreReviewController.requestReviewInScene()
+    }
+    
     override func configureHierarchy() {
         self.addSubview(headerView)
         [titleLabel, subtitleLabel, ocrTipView].forEach {
             headerView.addSubview($0)
         }
+        self.addSubview(rateView)
     }
     
     override func configureLayout() {
@@ -68,9 +83,18 @@ final class SettingView: BaseView {
             make.height.equalTo(140)
             make.bottom.equalToSuperview().inset(20)
         }
+        
+        rateView.snp.makeConstraints { make in
+            make.top.equalTo(headerView.snp.bottom).offset(30)
+            make.horizontalEdges.equalTo(self.safeAreaLayoutGuide).inset(20)
+            make.height.equalTo(200)
+        }
     }
     
     override func configureView() {
         self.backgroundColor = .mainBackground
+        let gesture = UITapGestureRecognizer()
+        gesture.addTarget(self, action: #selector(rateViewTapped))
+        rateView.addGestureRecognizer(gesture)
     }
 }
