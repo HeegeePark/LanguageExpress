@@ -28,8 +28,7 @@ final class CustomTextAreaView: BaseView {
         let tf = UITextField()
         tf.font = .sfPro15Regular
         tf.setCornerRadius(.small)
-        tf.layer.borderWidth = 2
-        tf.layer.borderColor = UIColor.strokeGray.cgColor
+        tf.backgroundColor = .sheetBackground
         tf.addLeftPadding()
         tf.delegate = self
         return tf
