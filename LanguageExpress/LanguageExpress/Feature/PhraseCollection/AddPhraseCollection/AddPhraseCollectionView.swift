@@ -37,6 +37,16 @@ final class AddPhraseCollectionView: BaseView {
         return colorCodeSelectView.currentColor
     }
     
+    private func registerKeyboardDismiss() {
+        let gesture = UITapGestureRecognizer()
+        gesture.addTarget(self, action: #selector(keyboardDismiss))
+        self.addGestureRecognizer(gesture)
+    }
+    
+    @objc private func keyboardDismiss() {
+        self.endEditing(true)
+    }
+    
     override func configureHierarchy() {
         [nameAreaView, colorCodeSelectView].forEach {
             self.addSubview($0)
@@ -56,5 +66,6 @@ final class AddPhraseCollectionView: BaseView {
     
     override func configureView() {
         self.backgroundColor = .white
+        registerKeyboardDismiss()
     }
 }
