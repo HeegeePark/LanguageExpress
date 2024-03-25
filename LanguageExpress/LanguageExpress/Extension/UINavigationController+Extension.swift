@@ -20,7 +20,7 @@ extension UINavigationController {
 enum NavigationBarStyle {
     case `default`
     case main
-    case ocr
+    case add
     
     var appearance: UINavigationBarAppearance {
         switch self {
@@ -38,7 +38,7 @@ enum NavigationBarStyle {
             appearance.titleTextAttributes = titleTextAttributes
             appearance.shadowImage = UIImage()  // 선 제거
             return appearance
-        case .ocr:
+        case .add:
             let appearance = UINavigationBarAppearance()
             appearance.configureWithTransparentBackground()
             appearance.backgroundColor = .primary
@@ -49,9 +49,18 @@ enum NavigationBarStyle {
     }
     
     var titleTextAttributes: [NSAttributedString.Key : Any] {
-        return [
-            .foregroundColor: tintColor
-        ]
+        switch self {
+        case .main:
+            return [
+                .foregroundColor: tintColor,
+                .font: UIFont.sjHospital26Light
+            ]
+        default:
+            return [
+                .foregroundColor: tintColor
+            ]
+        }
+        
     }
     
     var tintColor: UIColor {
@@ -60,7 +69,7 @@ enum NavigationBarStyle {
             return .primary
         case.main:
             return .primary
-        case .ocr:
+        case .add:
             return .white
         }
     }

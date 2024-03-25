@@ -9,6 +9,7 @@ import UIKit
 
 extension UIFont {
     static let sjHospital26Light = sjHospital(size: 26, weight: .light)
+    static let sjHospital22Bold = sjHospital(size: 22, weight: .bold)
     static let sfPro24Regular = UIFont.systemFont(ofSize: 24)
     static let sfPro22Bold = UIFont.systemFont(ofSize: 22, weight: .bold)
     static let sfPro18Bold = UIFont.systemFont(ofSize: 18, weight: .bold)
@@ -21,7 +22,7 @@ extension UIFont {
 
 extension UIFont {
     private static func sjHospital(size: CGFloat, weight: UIFont.Weight) -> UIFont {
-        let prefix = "Sejong hospital"
+        let prefix = "Sejong-hospital"
         
         var weightStr: String {
             switch weight {
@@ -32,6 +33,6 @@ extension UIFont {
             }
         }
         
-        return UIFont(name: prefix + " " + weightStr, size: size) ?? .systemFont(ofSize: size, weight: weight)
+        return UIFont(name: prefix + "-" + weightStr, size: size) ?? .systemFont(ofSize: size, weight: weight)
     }
 }

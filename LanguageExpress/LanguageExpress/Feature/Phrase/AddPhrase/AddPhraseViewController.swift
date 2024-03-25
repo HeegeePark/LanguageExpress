@@ -57,7 +57,7 @@ final class AddPhraseViewController: BaseViewController {
     }
     
     override func configureNavigationBar(_ style: NavigationBarStyle = .default) {
-        super.configureNavigationBar()
+        super.configureNavigationBar(.add)
         navigationItem.title = "새 구문"
         
         let dismiss = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .plain, target: self, action: #selector(dismissButtonTapped))

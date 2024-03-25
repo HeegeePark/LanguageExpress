@@ -118,7 +118,7 @@ final class OCRViewController: BaseViewController {
     }
     
     override func configureNavigationBar(_ style: NavigationBarStyle = .default) {
-        super.configureNavigationBar(.ocr)
+        super.configureNavigationBar(.add)
         navigationItem.title = "텍스트 인식"
         
         let dismiss = UIBarButtonItem(

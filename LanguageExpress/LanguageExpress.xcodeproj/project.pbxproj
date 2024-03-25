@@ -7,12 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F25734A2BB12CC700E706A6 /* RateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2573492BB12CC700E706A6 /* RateView.swift */; };
+		4F25734C2BB1378500E706A6 /* SKStoreReviewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25734B2BB1378500E706A6 /* SKStoreReviewController+Extension.swift */; };
+		4F25734E2BB13B3400E706A6 /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25734D2BB13B3400E706A6 /* CGFloat+Extension.swift */; };
 		4F4F03FB2B99890D003B88DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4F03FA2B99890D003B88DF /* AppDelegate.swift */; };
 		4F4F03FD2B99890D003B88DF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4F03FC2B99890D003B88DF /* SceneDelegate.swift */; };
 		4F4F04042B99890F003B88DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F4F04032B99890F003B88DF /* Assets.xcassets */; };
 		4F4F04072B99890F003B88DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F4F04052B99890F003B88DF /* LaunchScreen.storyboard */; };
 		4F53CE0B2BB06ACB005A83FA /* OCRTextAreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F53CE0A2BB06ACB005A83FA /* OCRTextAreaView.swift */; };
 		4F53CE0D2BB09DF1005A83FA /* ResultSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F53CE0C2BB09DF1005A83FA /* ResultSheetViewController.swift */; };
+		4F53CE192BB0D695005A83FA /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F53CE182BB0D694005A83FA /* TabBarController.swift */; };
+		4F53CE1C2BB0D6CB005A83FA /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F53CE1B2BB0D6CB005A83FA /* SettingViewController.swift */; };
+		4F53CE1E2BB0D71A005A83FA /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F53CE1D2BB0D71A005A83FA /* TabBarItem.swift */; };
+		4F53CE222BB0E6C9005A83FA /* OCRTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F53CE212BB0E6C9005A83FA /* OCRTip.swift */; };
+		4F53CE242BB0E6E1005A83FA /* OCRTipCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F53CE232BB0E6E1005A83FA /* OCRTipCollectionViewCell.swift */; };
+		4F53CE282BB0E716005A83FA /* OCRTipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F53CE272BB0E716005A83FA /* OCRTipView.swift */; };
+		4F53CE2A2BB0E7B1005A83FA /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F53CE292BB0E7B1005A83FA /* SettingView.swift */; };
 		4F69CB532BAA55D700319F83 /* AddPhraseCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F69CB522BAA55D700319F83 /* AddPhraseCollectionView.swift */; };
 		4F69CB552BAA55EF00319F83 /* AddPhraseCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F69CB542BAA55EF00319F83 /* AddPhraseCollectionViewController.swift */; };
 		4F69CB572BAA568000319F83 /* CustomTextAreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F69CB562BAA568000319F83 /* CustomTextAreaView.swift */; };
@@ -79,6 +89,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4F2573492BB12CC700E706A6 /* RateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateView.swift; sourceTree = "<group>"; };
+		4F25734B2BB1378500E706A6 /* SKStoreReviewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKStoreReviewController+Extension.swift"; sourceTree = "<group>"; };
+		4F25734D2BB13B3400E706A6 /* CGFloat+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extension.swift"; sourceTree = "<group>"; };
 		4F4F03F72B99890D003B88DF /* LanguageExpress.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LanguageExpress.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F4F03FA2B99890D003B88DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4F4F03FC2B99890D003B88DF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +100,13 @@
 		4F4F04082B99890F003B88DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F53CE0A2BB06ACB005A83FA /* OCRTextAreaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRTextAreaView.swift; sourceTree = "<group>"; };
 		4F53CE0C2BB09DF1005A83FA /* ResultSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultSheetViewController.swift; sourceTree = "<group>"; };
+		4F53CE182BB0D694005A83FA /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		4F53CE1B2BB0D6CB005A83FA /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		4F53CE1D2BB0D71A005A83FA /* TabBarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
+		4F53CE212BB0E6C9005A83FA /* OCRTip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRTip.swift; sourceTree = "<group>"; };
+		4F53CE232BB0E6E1005A83FA /* OCRTipCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRTipCollectionViewCell.swift; sourceTree = "<group>"; };
+		4F53CE272BB0E716005A83FA /* OCRTipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRTipView.swift; sourceTree = "<group>"; };
+		4F53CE292BB0E7B1005A83FA /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		4F69CB522BAA55D700319F83 /* AddPhraseCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhraseCollectionView.swift; sourceTree = "<group>"; };
 		4F69CB542BAA55EF00319F83 /* AddPhraseCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhraseCollectionViewController.swift; sourceTree = "<group>"; };
 		4F69CB562BAA568000319F83 /* CustomTextAreaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextAreaView.swift; sourceTree = "<group>"; };
@@ -197,6 +217,36 @@
 				4F4F04082B99890F003B88DF /* Info.plist */,
 			);
 			path = LanguageExpress;
+			sourceTree = "<group>";
+		};
+		4F53CE172BB0D67F005A83FA /* TapBar */ = {
+			isa = PBXGroup;
+			children = (
+				4F53CE182BB0D694005A83FA /* TabBarController.swift */,
+				4F53CE1D2BB0D71A005A83FA /* TabBarItem.swift */,
+			);
+			path = TapBar;
+			sourceTree = "<group>";
+		};
+		4F53CE1A2BB0D6AC005A83FA /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				4F53CE202BB0E6B4005A83FA /* OCRTip */,
+				4F53CE1B2BB0D6CB005A83FA /* SettingViewController.swift */,
+				4F53CE292BB0E7B1005A83FA /* SettingView.swift */,
+				4F2573492BB12CC700E706A6 /* RateView.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		4F53CE202BB0E6B4005A83FA /* OCRTip */ = {
+			isa = PBXGroup;
+			children = (
+				4F53CE212BB0E6C9005A83FA /* OCRTip.swift */,
+				4F53CE232BB0E6E1005A83FA /* OCRTipCollectionViewCell.swift */,
+				4F53CE272BB0E716005A83FA /* OCRTipView.swift */,
+			);
+			path = OCRTip;
 			sourceTree = "<group>";
 		};
 		4F69CB502BAA555000319F83 /* PhraseCollectionList */ = {
@@ -320,6 +370,8 @@
 				4F69CB6B2BAB1D3500319F83 /* UINavigationItem+Extension.swift */,
 				4F69CB832BACAB4C00319F83 /* String+Extension.swift */,
 				4F69CB8B2BACDE3600319F83 /* UITextField+Extension.swift */,
+				4F25734B2BB1378500E706A6 /* SKStoreReviewController+Extension.swift */,
+				4F25734D2BB13B3400E706A6 /* CGFloat+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -348,6 +400,7 @@
 				4F6EFE342BA95D19007B14EC /* Common */,
 				4F6EFE0C2BA5655A007B14EC /* PhraseCollection */,
 				4F69CB632BAB16ED00319F83 /* Phrase */,
+				4F53CE1A2BB0D6AC005A83FA /* Setting */,
 			);
 			path = Feature;
 			sourceTree = "<group>";
@@ -382,6 +435,7 @@
 		4F6EFE342BA95D19007B14EC /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				4F53CE172BB0D67F005A83FA /* TapBar */,
 				4F69CBA22BAED82800319F83 /* Tip */,
 				4F69CB9B2BAECBD000319F83 /* Floaty */,
 				4F69CB912BAD3CF100319F83 /* Alert */,
@@ -529,6 +583,8 @@
 				4F69CB7E2BAC69A400319F83 /* AddPhraseView.swift in Sources */,
 				4F69CB552BAA55EF00319F83 /* AddPhraseCollectionViewController.swift in Sources */,
 				4F4F03FB2B99890D003B88DF /* AppDelegate.swift in Sources */,
+				4F53CE2A2BB0E7B1005A83FA /* SettingView.swift in Sources */,
+				4F53CE192BB0D695005A83FA /* TabBarController.swift in Sources */,
 				4F6EFE412BA96B98007B14EC /* Tag.swift in Sources */,
 				4F69CB6C2BAB1D3500319F83 /* UINavigationItem+Extension.swift in Sources */,
 				4F6EFE1C2BA8361C007B14EC /* ViewDrawable.swift in Sources */,
@@ -544,6 +600,7 @@
 				4F6EFE442BA96D53007B14EC /* BaseRepository.swift in Sources */,
 				4F6EFE002BA353FC007B14EC /* UIFont+Extension.swift in Sources */,
 				4F69CB962BAD3E5A00319F83 /* CustomAlertViewController.swift in Sources */,
+				4F53CE242BB0E6E1005A83FA /* OCRTipCollectionViewCell.swift in Sources */,
 				4F6EFE222BA83B6D007B14EC /* PCCollectionViewCell.swift in Sources */,
 				4F69CB8C2BACDE3600319F83 /* UITextField+Extension.swift in Sources */,
 				4F6EFE192BA8346E007B14EC /* PhraseCollectionView.swift in Sources */,
@@ -558,24 +615,31 @@
 				4F6EFE3F2BA96849007B14EC /* StateOfMemorization.swift in Sources */,
 				4F69CB572BAA568000319F83 /* CustomTextAreaView.swift in Sources */,
 				4F69CB7C2BAC62BF00319F83 /* AddPhraseViewController.swift in Sources */,
+				4F53CE1E2BB0D71A005A83FA /* TabBarItem.swift in Sources */,
 				4F69CB9D2BAECBDE00319F83 /* FloatyCreator.swift in Sources */,
 				4F69CB712BAB565B00319F83 /* PhraseCollectionViewCell.swift in Sources */,
 				4F69CB612BAAA23500319F83 /* Message.swift in Sources */,
 				4F69CB532BAA55D700319F83 /* AddPhraseCollectionView.swift in Sources */,
+				4F25734C2BB1378500E706A6 /* SKStoreReviewController+Extension.swift in Sources */,
 				4F6EFE102BA73B29007B14EC /* UINavigationController+Extension.swift in Sources */,
 				4F69CB662BAB174A00319F83 /* PhraseListViewController.swift in Sources */,
 				4F69CB9F2BAECC3A00319F83 /* CollectionFloatyFactory.swift in Sources */,
 				4F53CE0D2BB09DF1005A83FA /* ResultSheetViewController.swift in Sources */,
 				4F69CB682BAB175F00319F83 /* PhraseListView.swift in Sources */,
 				4F69CB592BAA5F0700319F83 /* ColorSelectView.swift in Sources */,
+				4F25734A2BB12CC700E706A6 /* RateView.swift in Sources */,
+				4F25734E2BB13B3400E706A6 /* CGFloat+Extension.swift in Sources */,
 				4F6EFE482BA96E85007B14EC /* RealmManager.swift in Sources */,
 				4F69CB982BAD5C8E00319F83 /* PCCollectionHeaderView.swift in Sources */,
 				4F6EFE122BA833E6007B14EC /* PhraseCollectionViewController.swift in Sources */,
+				4F53CE282BB0E716005A83FA /* OCRTipView.swift in Sources */,
 				4F6EFE362BA95D21007B14EC /* Observable.swift in Sources */,
 				4F69CBA42BAED97B00319F83 /* TipViewBuilder.swift in Sources */,
 				4F6EFE162BA8340F007B14EC /* BaseView.swift in Sources */,
+				4F53CE222BB0E6C9005A83FA /* OCRTip.swift in Sources */,
 				4F69CB882BACB0E000319F83 /* AddPhraseViewModel.swift in Sources */,
 				4F69CB6A2BAB1BDF00319F83 /* TitleViewLabel.swift in Sources */,
+				4F53CE1C2BB0D6CB005A83FA /* SettingViewController.swift in Sources */,
 				4F6EFE072BA35D81007B14EC /* UIColor+Extension.swift in Sources */,
 				4F69CB8F2BAD09E400319F83 /* TTSManager.swift in Sources */,
 				4F6EFE0A2BA45AA3007B14EC /* BaseViewController.swift in Sources */,
@@ -722,7 +786,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = HAA376DX53;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LanguageExpress/Info.plist;
@@ -754,7 +818,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = HAA376DX53;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LanguageExpress/Info.plist;
