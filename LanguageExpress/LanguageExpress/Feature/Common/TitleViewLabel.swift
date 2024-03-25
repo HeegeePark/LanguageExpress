@@ -18,7 +18,7 @@ class TitleViewLabel: UILabel {
     }
     
     private func configure() {
-        self.font = .sfPro18Bold
+        self.font = .sjHospital26Light
         self.textColor = .black
     }
 }

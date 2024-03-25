@@ -21,5 +21,6 @@ final class SettingViewController: BaseViewController {
     
     override func configureNavigationBar(_ style: NavigationBarStyle = .default) {
         super.configureNavigationBar(.main)
+        navigationItem.title = "소소하지만 확실한 꿀팁 🍯"
     }
 }

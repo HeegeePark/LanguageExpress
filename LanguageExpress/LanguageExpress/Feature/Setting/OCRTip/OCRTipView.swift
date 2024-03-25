@@ -22,8 +22,6 @@ final class OCRTipView: BaseView {
         let layout = UICollectionViewFlowLayout()
         let width = UIScreen.main.bounds.width - 150
         layout.itemSize = CGSize(width: width, height: 40)
-        layout.minimumLineSpacing = inset
-        layout.minimumInteritemSpacing = inset
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
         view.dataSource = self
         view.isScrollEnabled = false

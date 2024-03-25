@@ -64,7 +64,8 @@ final class PhraseCollectionViewController: BaseViewController {
     
     override func configureNavigationBar(_ style: NavigationBarStyle = .default) {
         super.configureNavigationBar(.main)
-        //        navigationItem.title = "\n외국어 급행열차 뿌뿌 🚇"
+//                navigationItem.title = "언어급행 🚇"
+        navigationItem.setTitleView(title: "언어급행 🚇")
         
         let tipButton = TipBarButtonItem(baseViewController: self)
         navigationItem.rightBarButtonItem = tipButton

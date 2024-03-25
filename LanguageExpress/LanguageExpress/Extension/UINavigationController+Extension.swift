@@ -49,9 +49,18 @@ enum NavigationBarStyle {
     }
     
     var titleTextAttributes: [NSAttributedString.Key : Any] {
-        return [
-            .foregroundColor: tintColor
-        ]
+        switch self {
+        case .main:
+            return [
+                .foregroundColor: tintColor,
+                .font: UIFont.sjHospital26Light
+            ]
+        default:
+            return [
+                .foregroundColor: tintColor
+            ]
+        }
+        
     }
     
     var tintColor: UIColor {

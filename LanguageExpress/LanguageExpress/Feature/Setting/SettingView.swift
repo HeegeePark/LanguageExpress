@@ -9,11 +9,19 @@ import UIKit
 import SnapKit
 
 final class SettingView: BaseView {
+    private let headerView = {
+        let view = UIView()
+        view.setCornerRadius(.medium)
+        view.backgroundColor = .sheetBackground
+        view.setShadow()
+        return view
+    }()
+    
     private lazy var titleLabel = {
         let lb = UILabel()
         lb.text = OCRTip.sectionTitle
         lb.font = .sfPro22Bold
-        lb.textColor = .black
+        lb.textColor = .primary
         lb.numberOfLines = 2
         return lb
     }()
@@ -32,15 +40,21 @@ final class SettingView: BaseView {
     }()
     
     override func configureHierarchy() {
-        self.addSubview(titleLabel)
-        self.addSubview(subtitleLabel)
-        self.addSubview(ocrTipView)
+        self.addSubview(headerView)
+        [titleLabel, subtitleLabel, ocrTipView].forEach {
+            headerView.addSubview($0)
+        }
     }
     
     override func configureLayout() {
+        headerView.snp.makeConstraints { make in
+            make.top.horizontalEdges.equalTo(self.safeAreaLayoutGuide).inset(20)
+            make.height.equalTo(200).priority(.low)
+        }
+        
         titleLabel.snp.makeConstraints { make in
-            make.horizontalEdges.equalTo(self.safeAreaLayoutGuide).inset(30)
-            make.top.equalTo(self.safeAreaLayoutGuide).inset(20)
+            make.horizontalEdges.equalToSuperview().inset(30)
+            make.top.equalToSuperview().inset(20)
         }
         
         subtitleLabel.snp.makeConstraints { make in
@@ -50,8 +64,9 @@ final class SettingView: BaseView {
         
         ocrTipView.snp.makeConstraints { make in
             make.top.equalTo(subtitleLabel.snp.bottom)
-            make.horizontalEdges.equalTo(self.safeAreaLayoutGuide)
+            make.horizontalEdges.equalToSuperview()
             make.height.equalTo(140)
+            make.bottom.equalToSuperview().inset(20)
         }
     }
     

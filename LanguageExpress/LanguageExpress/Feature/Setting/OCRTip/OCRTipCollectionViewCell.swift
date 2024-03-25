@@ -11,7 +11,7 @@ import SnapKit
 final class OCRTipCollectionViewCell: UICollectionViewCell {
     private let titleLabel = {
         let lb = UILabel()
-        lb.font = .sfPro15Regular
+        lb.font = .sfPro13Regular
         lb.textColor = .black
         lb.numberOfLines = 2
         return lb
@@ -34,7 +34,8 @@ final class OCRTipCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(titleLabel)
         
         titleLabel.snp.makeConstraints { make in
-            make.edges.equalTo(contentView.safeAreaLayoutGuide)
+            make.verticalEdges.trailing.equalTo(contentView.safeAreaLayoutGuide)
+            make.leading.equalToSuperview().inset(20)
         }
         
         contentView.backgroundColor = .clear
