@@ -44,6 +44,8 @@ final class OCRViewModel: ViewModelAvailable {
         
         input.resetImageButtonTappedEvent.bind { _ in
             output.resetImageTrigger.value = ()
+            output.selectedWords.value.removeAll()
+            output.combinedResult.value.removeAll()
         }
         
         input.imageSelectedEvent.bind { event in
