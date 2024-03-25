@@ -11,7 +11,7 @@ final class PCCollectionViewCell: UICollectionViewCell {
     private let nameLabel = {
         let lb = UILabel()
         lb.text = "컬렉션 이름"
-        lb.font = .sfPro24Regular
+        lb.font = .sjHospital22Bold
         lb.textColor = .black
         return lb
     }()

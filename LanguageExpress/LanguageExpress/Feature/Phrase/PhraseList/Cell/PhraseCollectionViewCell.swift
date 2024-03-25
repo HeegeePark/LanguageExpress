@@ -19,7 +19,6 @@ final class PhraseListCollectionViewCell: UICollectionViewCell {
     
     private let phraseLabel = {
         let lb = UILabel()
-        lb.text = "영어 구문 영어 구문영어 구문 영어 구문 영어 구문 영어 구문"
         lb.font = .sfPro18Bold
         lb.textColor = .black
         lb.numberOfLines = 0
@@ -28,7 +27,6 @@ final class PhraseListCollectionViewCell: UICollectionViewCell {
     
     private let meaningLabel = {
         let lb = UILabel()
-        lb.text = "뜻 영어 구문영어 구문영어 구문영어 구문영어 구문영어 구문 fsdsf sdfs"
         lb.font = .sfPro15Regular
         lb.textColor = .black
         lb.numberOfLines = 0
@@ -37,7 +35,6 @@ final class PhraseListCollectionViewCell: UICollectionViewCell {
     
     private let memoLabel = {
         let lb = UILabel()
-        lb.text = "메모"
         lb.font = .sfPro15Regular
         lb.textColor = .subtitle
         lb.numberOfLines = 0
@@ -201,6 +198,7 @@ final class PhraseListCollectionViewCell: UICollectionViewCell {
         ttsButton.snp.makeConstraints { make in
             make.bottom.trailing.equalTo(contentView.safeAreaLayoutGuide).inset(inset)
             make.size.equalTo(25)
+            make.top.greaterThanOrEqualTo(bookMarkButton.snp.bottom).offset(inset)
         }
         
         contentView.backgroundColor = .sheetBackground
