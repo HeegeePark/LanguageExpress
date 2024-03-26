@@ -10,6 +10,12 @@
 		4F25734A2BB12CC700E706A6 /* RateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2573492BB12CC700E706A6 /* RateView.swift */; };
 		4F25734C2BB1378500E706A6 /* SKStoreReviewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25734B2BB1378500E706A6 /* SKStoreReviewController+Extension.swift */; };
 		4F25734E2BB13B3400E706A6 /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25734D2BB13B3400E706A6 /* CGFloat+Extension.swift */; };
+		4F2573802BB2A71200E706A6 /* PhraseArchiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25737F2BB2A71200E706A6 /* PhraseArchiveViewController.swift */; };
+		4F2573822BB2A73200E706A6 /* PhraseArchiveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2573812BB2A73200E706A6 /* PhraseArchiveViewModel.swift */; };
+		4F2573842BB2A74B00E706A6 /* PhraseArchiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2573832BB2A74B00E706A6 /* PhraseArchiveView.swift */; };
+		4F2573882BB2ADEB00E706A6 /* PagerTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2573872BB2ADEB00E706A6 /* PagerTab.swift */; };
+		4F25738B2BB2AE4300E706A6 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 4F25738A2BB2AE4300E706A6 /* Then */; };
+		4F25738D2BB2AF1400E706A6 /* PhraseArchivePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25738C2BB2AF1400E706A6 /* PhraseArchivePageViewController.swift */; };
 		4F4F03FB2B99890D003B88DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4F03FA2B99890D003B88DF /* AppDelegate.swift */; };
 		4F4F03FD2B99890D003B88DF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4F03FC2B99890D003B88DF /* SceneDelegate.swift */; };
 		4F4F04042B99890F003B88DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F4F04032B99890F003B88DF /* Assets.xcassets */; };
@@ -92,6 +98,11 @@
 		4F2573492BB12CC700E706A6 /* RateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateView.swift; sourceTree = "<group>"; };
 		4F25734B2BB1378500E706A6 /* SKStoreReviewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKStoreReviewController+Extension.swift"; sourceTree = "<group>"; };
 		4F25734D2BB13B3400E706A6 /* CGFloat+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extension.swift"; sourceTree = "<group>"; };
+		4F25737F2BB2A71200E706A6 /* PhraseArchiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseArchiveViewController.swift; sourceTree = "<group>"; };
+		4F2573812BB2A73200E706A6 /* PhraseArchiveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseArchiveViewModel.swift; sourceTree = "<group>"; };
+		4F2573832BB2A74B00E706A6 /* PhraseArchiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseArchiveView.swift; sourceTree = "<group>"; };
+		4F2573872BB2ADEB00E706A6 /* PagerTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagerTab.swift; sourceTree = "<group>"; };
+		4F25738C2BB2AF1400E706A6 /* PhraseArchivePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseArchivePageViewController.swift; sourceTree = "<group>"; };
 		4F4F03F72B99890D003B88DF /* LanguageExpress.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LanguageExpress.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F4F03FA2B99890D003B88DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4F4F03FC2B99890D003B88DF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -173,6 +184,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F69CB752BAB92BA00319F83 /* Floaty in Frameworks */,
+				4F25738B2BB2AE4300E706A6 /* Then in Frameworks */,
 				4F6EFDF72BA2BAD2007B14EC /* RealmSwift in Frameworks */,
 				4F6EFDF52BA2BAD2007B14EC /* Realm in Frameworks */,
 				4F69CB5F2BAAA16700319F83 /* Toast in Frameworks */,
@@ -183,6 +195,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4F25737E2BB2A68C00E706A6 /* PhraseArchive */ = {
+			isa = PBXGroup;
+			children = (
+				4F2573812BB2A73200E706A6 /* PhraseArchiveViewModel.swift */,
+				4F25737F2BB2A71200E706A6 /* PhraseArchiveViewController.swift */,
+				4F2573832BB2A74B00E706A6 /* PhraseArchiveView.swift */,
+				4F25738C2BB2AF1400E706A6 /* PhraseArchivePageViewController.swift */,
+			);
+			path = PhraseArchive;
+			sourceTree = "<group>";
+		};
 		4F4F03EE2B99890D003B88DF = {
 			isa = PBXGroup;
 			children = (
@@ -400,6 +423,7 @@
 				4F6EFE342BA95D19007B14EC /* Common */,
 				4F6EFE0C2BA5655A007B14EC /* PhraseCollection */,
 				4F69CB632BAB16ED00319F83 /* Phrase */,
+				4F25737E2BB2A68C00E706A6 /* PhraseArchive */,
 				4F53CE1A2BB0D6AC005A83FA /* Setting */,
 			);
 			path = Feature;
@@ -445,6 +469,7 @@
 				4F69CB692BAB1BDF00319F83 /* TitleViewLabel.swift */,
 				4F69CB7F2BAC710800319F83 /* TagInputView.swift */,
 				4F69CB852BACADD700319F83 /* TagView.swift */,
+				4F2573872BB2ADEB00E706A6 /* PagerTab.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -511,6 +536,7 @@
 				4F6EFDF62BA2BAD2007B14EC /* RealmSwift */,
 				4F69CB5E2BAAA16700319F83 /* Toast */,
 				4F69CB742BAB92BA00319F83 /* Floaty */,
+				4F25738A2BB2AE4300E706A6 /* Then */,
 			);
 			productName = LanguageExpress;
 			productReference = 4F4F03F72B99890D003B88DF /* LanguageExpress.app */;
@@ -545,6 +571,7 @@
 				4F6EFDF32BA2BAD2007B14EC /* XCRemoteSwiftPackageReference "realm-swift" */,
 				4F69CB5D2BAAA16700319F83 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 				4F69CB732BAB92BA00319F83 /* XCRemoteSwiftPackageReference "Floaty" */,
+				4F2573892BB2AE4300E706A6 /* XCRemoteSwiftPackageReference "Then" */,
 			);
 			productRefGroup = 4F4F03F82B99890D003B88DF /* Products */;
 			projectDirPath = "";
@@ -578,6 +605,7 @@
 				4F69CB802BAC710800319F83 /* TagInputView.swift in Sources */,
 				4F6EFE1E2BA8393A007B14EC /* UICollectionView+Extension.swift in Sources */,
 				4F6EFE4A2BA9AC04007B14EC /* PhraseRepository.swift in Sources */,
+				4F2573842BB2A74B00E706A6 /* PhraseArchiveView.swift in Sources */,
 				4F69CB6E2BAB4E0900319F83 /* PhraseListViewModel.swift in Sources */,
 				4F69CB5C2BAA7E9D00319F83 /* AddPhraseCollectionViewModel.swift in Sources */,
 				4F69CB7E2BAC69A400319F83 /* AddPhraseView.swift in Sources */,
@@ -593,11 +621,13 @@
 				4F69CBA92BAF4A4B00319F83 /* OCRViewController.swift in Sources */,
 				4F69CBA62BAED9D300319F83 /* TipViewController.swift in Sources */,
 				4F69CB862BACADD700319F83 /* TagView.swift in Sources */,
+				4F25738D2BB2AF1400E706A6 /* PhraseArchivePageViewController.swift in Sources */,
 				4F69CB792BAC44D700319F83 /* PhraseFloatyFactory.swift in Sources */,
 				4F4F03FD2B99890D003B88DF /* SceneDelegate.swift in Sources */,
 				4F6EFE462BA96DF1007B14EC /* CollectionRepository.swift in Sources */,
 				4F69CBAF2BAFE9FC00319F83 /* OCRManager.swift in Sources */,
 				4F6EFE442BA96D53007B14EC /* BaseRepository.swift in Sources */,
+				4F2573802BB2A71200E706A6 /* PhraseArchiveViewController.swift in Sources */,
 				4F6EFE002BA353FC007B14EC /* UIFont+Extension.swift in Sources */,
 				4F69CB962BAD3E5A00319F83 /* CustomAlertViewController.swift in Sources */,
 				4F53CE242BB0E6E1005A83FA /* OCRTipCollectionViewCell.swift in Sources */,
@@ -613,6 +643,7 @@
 				4F6EFE242BA90306007B14EC /* UIView+Extension.swift in Sources */,
 				4F69CB8A2BACBEF800319F83 /* TagRepository.swift in Sources */,
 				4F6EFE3F2BA96849007B14EC /* StateOfMemorization.swift in Sources */,
+				4F2573822BB2A73200E706A6 /* PhraseArchiveViewModel.swift in Sources */,
 				4F69CB572BAA568000319F83 /* CustomTextAreaView.swift in Sources */,
 				4F69CB7C2BAC62BF00319F83 /* AddPhraseViewController.swift in Sources */,
 				4F53CE1E2BB0D71A005A83FA /* TabBarItem.swift in Sources */,
@@ -641,6 +672,7 @@
 				4F69CB6A2BAB1BDF00319F83 /* TitleViewLabel.swift in Sources */,
 				4F53CE1C2BB0D6CB005A83FA /* SettingViewController.swift in Sources */,
 				4F6EFE072BA35D81007B14EC /* UIColor+Extension.swift in Sources */,
+				4F2573882BB2ADEB00E706A6 /* PagerTab.swift in Sources */,
 				4F69CB8F2BAD09E400319F83 /* TTSManager.swift in Sources */,
 				4F6EFE0A2BA45AA3007B14EC /* BaseViewController.swift in Sources */,
 				4F6EFE312BA95BEE007B14EC /* PhraseCollectionViewModel.swift in Sources */,
@@ -868,6 +900,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		4F2573892BB2AE4300E706A6 /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 		4F69CB5D2BAAA16700319F83 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
@@ -903,6 +943,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		4F25738A2BB2AE4300E706A6 /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4F2573892BB2AE4300E706A6 /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
+		};
 		4F69CB5E2BAAA16700319F83 /* Toast */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 4F69CB5D2BAAA16700319F83 /* XCRemoteSwiftPackageReference "Toast-Swift" */;

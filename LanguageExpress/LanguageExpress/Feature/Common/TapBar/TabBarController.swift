@@ -11,6 +11,7 @@ final class TabBarController: UITabBarController {
     
     private lazy var tabs: [UIViewController] = [
         UINavigationController(rootViewController: PhraseCollectionViewController()),
+        UINavigationController(rootViewController: PhraseArchiveViewController()),
         UINavigationController(rootViewController: SettingViewController())
     ]
 
