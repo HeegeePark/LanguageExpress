@@ -39,5 +39,9 @@ final class PhraseArchiveViewController: BaseViewController {
     private func getTagList() -> [String] {
         return ["전체", "북마크", "영어", "여행", "유투브"]
     }
+    
+    override func configureNavigationBar(_ style: NavigationBarStyle = .default) {
+        super.configureNavigationBar(.main)
+    }
 
 }
