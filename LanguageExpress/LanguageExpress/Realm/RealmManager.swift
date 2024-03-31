@@ -73,4 +73,8 @@ final class RealmManager {
     func deletePhrase(phrase: Phrase) {
         phraseRepository.deleteItem(object: phrase)
     }
+    
+    func tagList() -> [Tag] {
+        return tagRepository.fetch()
+    }
 }

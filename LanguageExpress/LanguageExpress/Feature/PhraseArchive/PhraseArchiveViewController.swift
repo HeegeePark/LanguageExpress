@@ -2,46 +2,65 @@
 //  PhraseArchiveViewController.swift
 //  LanguageExpress
 //
-//  Created by 박희지 on 3/26/24.
+//  Created by 박희지 on 3/30/24.
 //
 
 import UIKit
-import SnapKit
 
 final class PhraseArchiveViewController: BaseViewController {
-    private var pagerTab: PagerTab!
+    private let mainView = PhraseArchiveView()
+    
+    private let viewModel = PhraseArchiveViewModel()
+    private var input: PhraseArchiveViewModel.Input!
+    private var output: PhraseArchiveViewModel.Output!
+    
+    override func loadView() {
+        view = mainView
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        configure()
-        setTagList()
+        bindViewModel()
+        input.viewDidLoadEvent.value = ()
     }
     
-    func configure() {
-        view.backgroundColor = .white
-        pagerTab = PagerTab().then {
-            view.addSubview($0)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        input.viewDidAppearEvent.value = ()
+    }
+    
+    private func bindViewModel() {
+        input = PhraseArchiveViewModel.Input(
+            viewDidLoadEvent: Observable(nil),
+            viewDidAppearEvent: Observable(nil),
+            selectedTitleAppendedEvent: Observable(-1),
+            selectedTitleRemovedEvent: Observable(-1)
+        )
+        
+        output = viewModel.transform(from: input)
+        
+        output.pagerTabTitleList.bind { [weak self] titles in
+            guard let self else { return }
             
-            $0.snp.makeConstraints { make in
-                make.edges.equalTo(view.safeAreaLayoutGuide)
+            guard !titles.isEmpty else {
+                print("hi")
+                return
             }
+            
+            if output.didUpdateTitleAtOnce.value {
+                self.mainView.removeTabButtons()
+            }
+            
+            self.mainView.setup(titles: titles)
         }
-    }
-    
-    private func setTagList() {
-        let viewControllers = getTagList().map {
-            PhraseArchivePageViewController(type: $0)
+        
+        output.phraseList.bind { phrases in
+            print(phrases)
         }
-        let style = PagerTab.Style.default
-        pagerTab.setup(self, viewControllers: viewControllers)
-    }
-    
-    private func getTagList() -> [String] {
-        return ["전체", "북마크", "영어", "여행", "유투브"]
     }
     
     override func configureNavigationBar(_ style: NavigationBarStyle = .default) {
-        super.configureNavigationBar(.main)
+        super.configureNavigationBar()
+        navigationItem.setTitleView(title: "모든 구문 모아보기")
     }
-
 }

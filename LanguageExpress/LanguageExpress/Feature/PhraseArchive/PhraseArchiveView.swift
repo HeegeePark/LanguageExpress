@@ -2,11 +2,205 @@
 //  PhraseArchiveView.swift
 //  LanguageExpress
 //
-//  Created by 박희지 on 3/26/24.
+//  Created by 박희지 on 3/30/24.
 //
 
 import UIKit
+import Then
+import SnapKit
 
 final class PhraseArchiveView: BaseView {
+    private var style = Style.default
+    private var tabButtons = [UIButton]()
+    private var selectedIndexs: Set<Int> = [0] {
+        didSet {
+            updateTabButtons()
+            // TODO: delegate로 VC에 선택된 index 넘겨주기
+        }
+    }
     
+    private let horizontalScrollView = UIScrollView().then {
+        $0.showsHorizontalScrollIndicator = false
+    }
+    
+    private let leadingSpacingView = UIView()
+    
+    private let tabStackView = UIStackView().then {
+        $0.axis = .horizontal
+        $0.distribution = .fill
+        $0.backgroundColor = .clear
+    }
+
+    private let titleStackView = UIStackView().then {
+        $0.axis = .horizontal
+        $0.alignment = .center
+        $0.distribution = .fillEqually
+        $0.spacing = 10
+        $0.backgroundColor = .clear
+    }
+    
+    private let phraseCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionView.phraseLayout()).then {
+        $0.backgroundColor = .clear
+        $0.showsVerticalScrollIndicator = false
+        $0.register(PhraseListCollectionViewCell.self, forCellWithReuseIdentifier: "phraseList")
+    }
+    
+    func setup(titles: [String]) {
+        tabButtons = titles.enumerated().map { index, title in
+            let button = setButton(width: buttonWidth(text: title))
+            button.setTitle(title, for: .normal)
+            button.tag = index
+            return button
+        }
+        
+        tabButtons.forEach { button in
+            titleStackView.addArrangedSubview(button)
+        }
+        
+        updateTabButtons()
+    }
+    
+    func removeTabButtons() {
+        for view in titleStackView.arrangedSubviews {
+            if let button = view as? UIButton {
+                titleStackView.removeArrangedSubview(button)
+                button.removeFromSuperview()
+            }
+        }
+    }
+    
+    private func updateTabButtons() {
+        tabButtons.enumerated().forEach { index, button in
+            let isSelected = selectedIndexs.contains(index)
+            if isSelected {
+                button.setTitleColor(style.titleActiveColor, for: .normal)
+                button.backgroundColor = style.buttonBackgroundActiveColor
+                button.setShadow(color: style.buttonShadowColor, opacity: style.buttonShadowOpacity)
+            } else {
+                button.setTitleColor(style.titleDefaultColor, for: .normal)
+                button.backgroundColor = style.buttonBackgroundDefaultColor
+                button.removeShadow()
+            }
+        }
+    }
+    
+    private func setButton(width: CGFloat) -> UIButton {
+        return UIButton().then {
+            $0.titleLabel?.font = style.titleDefaultFont
+            $0.setTitleColor(style.titleDefaultColor, for: .normal)
+            $0.setTitleColor(style.titleActiveColor, for: .selected)
+            $0.layer.cornerRadius = 16
+            $0.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+            $0.titleLabel?.sizeToFit()
+            
+            $0.snp.makeConstraints() {
+                let inset: CGFloat = 16
+                $0.width.equalTo(inset * 2 + width)
+            }
+        }
+    }
+    
+    @objc private func buttonTapped(_ sender: UIButton) {
+        let index = sender.tag
+        if selectedIndexs.contains(index) {
+            selectedIndexs.remove(index)
+        } else {
+            selectedIndexs.insert(index)
+        }
+    }
+    
+    private func buttonWidth(text: String) -> CGFloat {
+        let label = UILabel().then {
+            $0.font = style.titleDefaultFont
+            $0.text = text
+            $0.sizeToFit()
+        }
+        
+        return label.frame.width
+    }
+    
+    override func configureHierarchy() {
+        addSubview(horizontalScrollView)
+        horizontalScrollView.addSubview(tabStackView)
+        tabStackView.addArrangedSubview(leadingSpacingView)
+        tabStackView.addArrangedSubview(titleStackView)
+        addSubview(phraseCollectionView)
+    }
+    
+    override func configureLayout() {
+        horizontalScrollView.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(22)
+            make.center.width.equalToSuperview()
+            make.height.equalTo(100)
+        }
+        
+        tabStackView.snp.makeConstraints { make in
+            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10))
+            make.edges.equalToSuperview()
+        }
+        
+        leadingSpacingView.snp.makeConstraints { make in
+            make.top.leading.bottom.equalToSuperview()
+            make.width.equalTo(10)
+        }
+        
+        titleStackView.snp.makeConstraints { make in
+            make.leading.equalTo(leadingSpacingView.snp.trailing)
+            make.top.trailing.bottom.equalToSuperview()
+        }
+        
+        tabStackView.setCustomSpacing(0, after: tabStackView.subviews[1])
+        
+        phraseCollectionView.snp.makeConstraints { make in
+            make.top.equalTo(titleStackView.snp.bottom).offset(10)
+            make.leading.trailing.equalToSuperview()
+            make.bottom.equalToSuperview()
+        }
+    }
+    
+    override func configureView() {
+        backgroundColor = .white
+        phraseCollectionView.backgroundColor = .gray
+    }
+}
+
+extension PhraseArchiveView {
+    struct Style {
+        var barColor: UIColor
+        var barHeight: CGFloat
+        var barHorizontalSpacing: CGFloat
+        var barCornerRadius: CGFloat
+        var barDividerColor: UIColor
+
+        var buttonBackgroundActiveColor: UIColor
+        var buttonBackgroundDefaultColor: UIColor
+        var buttonHeight: CGFloat
+        
+        var buttonShadowOpacity: Float
+        var buttonShadowColor: UIColor
+        var buttonShadowOffset: CGSize
+
+        var titleActiveColor: UIColor
+        var titleDefaultColor: UIColor
+        var titleActiveFont: UIFont
+        var titleDefaultFont: UIFont
+
+        static var `default` = Style(
+            barColor: .orange,
+            barHeight: 3.0,
+            barHorizontalSpacing: 10.0,
+            barCornerRadius: 2.0,
+            barDividerColor: .red,
+            buttonBackgroundActiveColor: .primary,
+            buttonBackgroundDefaultColor: .clear,
+            buttonHeight: 32.0,
+            buttonShadowOpacity: 0.2,
+            buttonShadowColor: .primary,
+            buttonShadowOffset: CGSize(width: 5, height: 5),
+            titleActiveColor: .white,
+            titleDefaultColor: .deactiveGray,
+            titleActiveFont: .sfPro15Regular,
+            titleDefaultFont: .sfPro15Regular
+        )
+    }
 }
