@@ -11,7 +11,7 @@ import Floaty
 final class PhraseListView: BaseView {
     // TODO: tag scrollview
     let phraseCollectionView = {
-        let cv = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: UICollectionView.phraseLayout())
         cv.backgroundColor = .clear
         cv.showsVerticalScrollIndicator = false
         cv.register(PhraseListCollectionViewCell.self, forCellWithReuseIdentifier: "phraseList")
@@ -26,27 +26,6 @@ final class PhraseListView: BaseView {
             handlerToPresent(sender)
         }
         self.addSubview(floatingButton)
-    }
-    
-    static private func createLayout() -> UICollectionViewLayout {
-        let layout = UICollectionViewCompositionalLayout { _, _ in
-            let groupMargin: CGFloat = 8
-            let itemMargin: CGFloat = 8
-            
-            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(488))
-            let item = NSCollectionLayoutItem(layoutSize: itemSize)
-            item.contentInsets = .init(top: itemMargin, leading: itemMargin, bottom: itemMargin, trailing: itemMargin)
-            
-            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(488))
-            let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
-            group.contentInsets = .init(top: groupMargin, leading: groupMargin, bottom: groupMargin, trailing: groupMargin)
-            
-            let layoutSection = NSCollectionLayoutSection(group: group)
-            layoutSection.interGroupSpacing = 20
-            return layoutSection
-        }
-        
-        return layout
     }
     
     override func configureHierarchy() {

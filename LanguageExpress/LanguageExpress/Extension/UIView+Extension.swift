@@ -21,6 +21,15 @@ extension UIView {
         self.layer.shadowOffset = CGSize(width: 2, height: 2)
     }
     
+    func setBorder(color: UIColor, width: CGFloat = 1) {
+        self.layer.borderColor = color.cgColor
+        self.layer.borderWidth = width
+    }
+    
+    func removeShadow() {
+        self.layer.shadowOpacity = 0
+    }
+    
     func showIndicator() {
         let indicator = UIActivityIndicatorView()
         let height = self.bounds.size.height

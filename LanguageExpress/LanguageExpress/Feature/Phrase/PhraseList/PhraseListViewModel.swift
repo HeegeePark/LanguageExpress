@@ -11,7 +11,6 @@ final class PhraseListViewModel: ViewModelAvailable {
     struct Input {
         var bindViewModelEvent: Observable<Collection>
         var viewDidAppearEvent: Observable<Void?>
-//        var tagButtonTappedEvent: Observable<String>
         var phraseCollectionViewCellDidSelectItemAtEvent: Observable<Int>
         var phraseCollectionViewCellBookMarkButtonTappedEvent: Observable<Int>
         var phraseCollectionViewCellStateOfMemorizationButtonTappedEvent: Observable<Int>
@@ -34,7 +33,6 @@ final class PhraseListViewModel: ViewModelAvailable {
         input.bindViewModelEvent.bind { collection in
             self.loadCollection(collection: collection, output: output)
             self.loadPhraseList(collection: collection, output: output)
-            // TODO: 태그 버튼에 쓸 전체 태그 불러오기
         }
         
         input.viewDidAppearEvent.bind { event in
