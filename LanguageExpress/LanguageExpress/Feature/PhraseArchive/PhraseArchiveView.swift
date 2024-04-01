@@ -9,13 +9,18 @@ import UIKit
 import Then
 import SnapKit
 
+protocol PhraseArchiveViewDelegate: UIViewController {
+    func seledcted(at idx: Int)
+    func deSeledcted(at idx: Int)
+}
+
 final class PhraseArchiveView: BaseView {
+    weak var delegate: PhraseArchiveViewDelegate?
     private var style = Style.default
     private var tabButtons = [UIButton]()
-    private var selectedIndexs: Set<Int> = [0] {
+    private var selectedIndexs: Set<Int> = [] {
         didSet {
             updateTabButtons()
-            // TODO: delegate로 VC에 선택된 index 넘겨주기
         }
     }
     
@@ -45,6 +50,15 @@ final class PhraseArchiveView: BaseView {
         $0.register(PhraseListCollectionViewCell.self, forCellWithReuseIdentifier: "phraseList")
     }
     
+    func setCollectionViewDelegate(target: UIViewController & UICollectionViewDelegate & UICollectionViewDataSource) {
+        phraseCollectionView.delegate = target
+        phraseCollectionView.dataSource = target
+    }
+    
+    func reloadCollectionView() {
+        phraseCollectionView.reloadData()
+    }
+    
     func setup(titles: [String]) {
         tabButtons = titles.enumerated().map { index, title in
             let button = setButton(width: buttonWidth(text: title))
@@ -66,6 +80,17 @@ final class PhraseArchiveView: BaseView {
                 titleStackView.removeArrangedSubview(button)
                 button.removeFromSuperview()
             }
+        }
+    }
+    
+    @objc private func buttonTapped(_ sender: UIButton) {
+        let index = sender.tag
+        if selectedIndexs.contains(index) {
+            selectedIndexs.remove(index)
+            delegate?.deSeledcted(at: index)
+        } else {
+            selectedIndexs.insert(index)
+            delegate?.seledcted(at: index)
         }
     }
     
@@ -100,15 +125,6 @@ final class PhraseArchiveView: BaseView {
         }
     }
     
-    @objc private func buttonTapped(_ sender: UIButton) {
-        let index = sender.tag
-        if selectedIndexs.contains(index) {
-            selectedIndexs.remove(index)
-        } else {
-            selectedIndexs.insert(index)
-        }
-    }
-    
     private func buttonWidth(text: String) -> CGFloat {
         let label = UILabel().then {
             $0.font = style.titleDefaultFont
@@ -135,7 +151,7 @@ final class PhraseArchiveView: BaseView {
         }
         
         tabStackView.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10))
+            make.edges.equalToSuperview().inset(10)
             make.edges.equalToSuperview()
         }
         
@@ -160,18 +176,11 @@ final class PhraseArchiveView: BaseView {
     
     override func configureView() {
         backgroundColor = .white
-        phraseCollectionView.backgroundColor = .gray
     }
 }
 
 extension PhraseArchiveView {
     struct Style {
-        var barColor: UIColor
-        var barHeight: CGFloat
-        var barHorizontalSpacing: CGFloat
-        var barCornerRadius: CGFloat
-        var barDividerColor: UIColor
-
         var buttonBackgroundActiveColor: UIColor
         var buttonBackgroundDefaultColor: UIColor
         var buttonHeight: CGFloat
@@ -186,11 +195,6 @@ extension PhraseArchiveView {
         var titleDefaultFont: UIFont
 
         static var `default` = Style(
-            barColor: .orange,
-            barHeight: 3.0,
-            barHorizontalSpacing: 10.0,
-            barCornerRadius: 2.0,
-            barDividerColor: .red,
             buttonBackgroundActiveColor: .primary,
             buttonBackgroundDefaultColor: .clear,
             buttonHeight: 32.0,

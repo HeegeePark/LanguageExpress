@@ -33,6 +33,8 @@ final class PhraseArchiveViewController: BaseViewController {
         input = PhraseArchiveViewModel.Input(
             viewDidLoadEvent: Observable(nil),
             viewDidAppearEvent: Observable(nil),
+            phraseCollectionViewCellBookMarkButtonTappedEvent: Observable(-1),
+            phraseCollectionViewCellStateOfMemorizationButtonTappedEvent: Observable(-1),
             selectedTitleAppendedEvent: Observable(-1),
             selectedTitleRemovedEvent: Observable(-1)
         )
@@ -43,7 +45,6 @@ final class PhraseArchiveViewController: BaseViewController {
             guard let self else { return }
             
             guard !titles.isEmpty else {
-                print("hi")
                 return
             }
             
@@ -55,12 +56,51 @@ final class PhraseArchiveViewController: BaseViewController {
         }
         
         output.phraseList.bind { phrases in
-            print(phrases)
+            self.mainView.reloadCollectionView()
         }
+    }
+    
+    override func configureView() {
+        mainView.delegate = self
+        mainView.setCollectionViewDelegate(target: self)
     }
     
     override func configureNavigationBar(_ style: NavigationBarStyle = .default) {
         super.configureNavigationBar()
         navigationItem.setTitleView(title: "모든 구문 모아보기")
+    }
+}
+
+extension PhraseArchiveViewController: PhraseArchiveViewDelegate {
+    func seledcted(at idx: Int) {
+        input.selectedTitleAppendedEvent.value = idx
+    }
+    
+    func deSeledcted(at idx: Int) {
+        input.selectedTitleRemovedEvent.value = idx
+    }
+}
+
+extension PhraseArchiveViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        // TODO: empty view
+        return output.phraseList.value.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "phraseList", for: indexPath) as! PhraseListCollectionViewCell
+        
+        cell.bookMarkButtonTapHandler = {
+            self.input.phraseCollectionViewCellBookMarkButtonTappedEvent.value = indexPath.item
+        }
+        
+        cell.stateOfMemorizationButtonTapHandler = {
+            self.input.phraseCollectionViewCellStateOfMemorizationButtonTappedEvent.value = indexPath.item
+        }
+        
+        let phrase = output.phraseList.value[indexPath.item]
+        cell.bindData(phrase: phrase)
+        
+        return cell
     }
 }

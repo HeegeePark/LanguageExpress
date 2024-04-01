@@ -424,10 +424,10 @@
 		4F6EFE0B2BA56553007B14EC /* Feature */ = {
 			isa = PBXGroup;
 			children = (
-				4F4BA7A42BB8103C00CB32A2 /* PhraseArchive */,
 				4F6EFE342BA95D19007B14EC /* Common */,
 				4F6EFE0C2BA5655A007B14EC /* PhraseCollection */,
 				4F69CB632BAB16ED00319F83 /* Phrase */,
+				4F4BA7A42BB8103C00CB32A2 /* PhraseArchive */,
 				4F53CE1A2BB0D6AC005A83FA /* Setting */,
 			);
 			path = Feature;
