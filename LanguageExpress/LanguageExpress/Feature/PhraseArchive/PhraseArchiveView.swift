@@ -170,7 +170,7 @@ final class PhraseArchiveView: BaseView {
     }
     
     override func configureView() {
-        backgroundColor = .white
+        backgroundColor = .mainBackground
     }
 }
 

@@ -66,7 +66,7 @@ final class PhraseArchiveViewController: BaseViewController {
     }
     
     override func configureNavigationBar(_ style: NavigationBarStyle = .default) {
-        super.configureNavigationBar()
+        super.configureNavigationBar(.main)
         navigationItem.setTitleView(title: "모든 구문 모아보기", style: .small)
     }
 }

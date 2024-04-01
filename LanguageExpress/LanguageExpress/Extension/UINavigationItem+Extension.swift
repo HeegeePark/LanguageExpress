@@ -24,7 +24,7 @@ extension UINavigationItem {
         var font: UIFont {
             switch self {
             case .small:
-                return .sjHospital14Bold
+                return .sjHospital16Bold
             case .large:
                 return .sjHospital26Light
             }

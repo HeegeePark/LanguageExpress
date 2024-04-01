@@ -10,7 +10,7 @@ import UIKit
 extension UIFont {
     static let sjHospital26Light = sjHospital(size: 26, weight: .light)
     static let sjHospital22Bold = sjHospital(size: 22, weight: .bold)
-    static let sjHospital14Bold = sjHospital(size: 14, weight: .bold)
+    static let sjHospital16Bold = sjHospital(size: 16, weight: .bold)
     static let sfPro24Regular = UIFont.systemFont(ofSize: 24)
     static let sfPro22Bold = UIFont.systemFont(ofSize: 22, weight: .bold)
     static let sfPro18Bold = UIFont.systemFont(ofSize: 18, weight: .bold)
