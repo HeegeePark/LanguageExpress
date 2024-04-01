@@ -39,7 +39,6 @@ final class PhraseArchiveView: BaseView {
     private let titleStackView = UIStackView().then {
         $0.axis = .horizontal
         $0.alignment = .center
-        $0.distribution = .fillEqually
         $0.spacing = 10
         $0.backgroundColor = .clear
     }
@@ -101,10 +100,12 @@ final class PhraseArchiveView: BaseView {
                 button.setTitleColor(style.titleActiveColor, for: .normal)
                 button.backgroundColor = style.buttonBackgroundActiveColor
                 button.setShadow(color: style.buttonShadowColor, opacity: style.buttonShadowOpacity)
+                button.setBorder(color: style.buttonBackgroundActiveColor)
             } else {
                 button.setTitleColor(style.titleDefaultColor, for: .normal)
                 button.backgroundColor = style.buttonBackgroundDefaultColor
                 button.removeShadow()
+                button.setBorder(color: style.titleDefaultColor)
             }
         }
     }
@@ -152,17 +153,11 @@ final class PhraseArchiveView: BaseView {
         
         tabStackView.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(10)
-            make.edges.equalToSuperview()
         }
         
         leadingSpacingView.snp.makeConstraints { make in
             make.top.leading.bottom.equalToSuperview()
             make.width.equalTo(10)
-        }
-        
-        titleStackView.snp.makeConstraints { make in
-            make.leading.equalTo(leadingSpacingView.snp.trailing)
-            make.top.trailing.bottom.equalToSuperview()
         }
         
         tabStackView.setCustomSpacing(0, after: tabStackView.subviews[1])
