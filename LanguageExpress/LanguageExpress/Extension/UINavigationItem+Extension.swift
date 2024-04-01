@@ -8,9 +8,26 @@
 import UIKit
 
 extension UINavigationItem {
-    func setTitleView(title: String) {
+    func setTitleView(title: String, style: TitleStyle = .large) {
         let titleViewLabel = TitleViewLabel()
         titleViewLabel.text = title
+        titleViewLabel.font = style.font
         self.leftBarButtonItem = UIBarButtonItem(customView: titleViewLabel)
+    }
+}
+
+extension UINavigationItem {
+    enum TitleStyle {
+        case small
+        case large
+        
+        var font: UIFont {
+            switch self {
+            case .small:
+                return .sjHospital14Bold
+            case .large:
+                return .sjHospital26Light
+            }
+        }
     }
 }
