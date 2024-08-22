@@ -1,0 +1,21 @@
+name: Bug Template
+description: 개발 중 부딪힌 문제나 버그 발생 시 쓰는 템플릿
+title: "[Bug]: Bug Title"
+labels: ["🐛 bug"]
+
+body:
+  - type: textarea
+    id: bug-contents
+    attributes:
+      label: Bug 설명
+      description: 현상을 적어주세요.
+    validations:
+      required: true
+  - type: input
+    id: related-issue
+    attributes:
+      label: Related Issue(Optional)
+      description: 관련된 Issue가 있다면 적어주세요.
+      placeholder: "ex. #14"
+    validations:
+      required: false
