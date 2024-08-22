@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F1193E42C775CED00B5675E /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = 4F1193E32C775CED00B5675E /* RxBlocking */; };
+		4F1193E62C775CED00B5675E /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 4F1193E52C775CED00B5675E /* RxCocoa */; };
+		4F1193E82C775CED00B5675E /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 4F1193E72C775CED00B5675E /* RxRelay */; };
+		4F1193EA2C775CED00B5675E /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4F1193E92C775CED00B5675E /* RxSwift */; };
+		4F1193EC2C775CED00B5675E /* RxTest in Frameworks */ = {isa = PBXBuildFile; productRef = 4F1193EB2C775CED00B5675E /* RxTest */; };
 		4F25734A2BB12CC700E706A6 /* RateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2573492BB12CC700E706A6 /* RateView.swift */; };
 		4F25734C2BB1378500E706A6 /* SKStoreReviewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25734B2BB1378500E706A6 /* SKStoreReviewController+Extension.swift */; };
 		4F25734E2BB13B3400E706A6 /* CGFloat+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F25734D2BB13B3400E706A6 /* CGFloat+Extension.swift */; };
@@ -184,15 +189,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F1193EC2C775CED00B5675E /* RxTest in Frameworks */,
 				4F2573AB2BB528ED00E706A6 /* FirebaseMessaging in Frameworks */,
 				4F69CB752BAB92BA00319F83 /* Floaty in Frameworks */,
+				4F1193E62C775CED00B5675E /* RxCocoa in Frameworks */,
 				4F25738B2BB2AE4300E706A6 /* Then in Frameworks */,
 				4F6EFDF72BA2BAD2007B14EC /* RealmSwift in Frameworks */,
 				4F6EFDF52BA2BAD2007B14EC /* Realm in Frameworks */,
+				4F1193EA2C775CED00B5675E /* RxSwift in Frameworks */,
+				4F1193E82C775CED00B5675E /* RxRelay in Frameworks */,
 				4F2573A72BB528ED00E706A6 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				4F2573A92BB528ED00E706A6 /* FirebaseCrashlytics in Frameworks */,
 				4F69CB5F2BAAA16700319F83 /* Toast in Frameworks */,
 				4F6EFDF22BA2BA03007B14EC /* SnapKit in Frameworks */,
+				4F1193E42C775CED00B5675E /* RxBlocking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -544,6 +554,11 @@
 				4F2573A62BB528ED00E706A6 /* FirebaseAnalyticsWithoutAdIdSupport */,
 				4F2573A82BB528ED00E706A6 /* FirebaseCrashlytics */,
 				4F2573AA2BB528ED00E706A6 /* FirebaseMessaging */,
+				4F1193E32C775CED00B5675E /* RxBlocking */,
+				4F1193E52C775CED00B5675E /* RxCocoa */,
+				4F1193E72C775CED00B5675E /* RxRelay */,
+				4F1193E92C775CED00B5675E /* RxSwift */,
+				4F1193EB2C775CED00B5675E /* RxTest */,
 			);
 			productName = LanguageExpress;
 			productReference = 4F4F03F72B99890D003B88DF /* LanguageExpress.app */;
@@ -580,6 +595,7 @@
 				4F69CB732BAB92BA00319F83 /* XCRemoteSwiftPackageReference "Floaty" */,
 				4F2573892BB2AE4300E706A6 /* XCRemoteSwiftPackageReference "Then" */,
 				4F2573A52BB528ED00E706A6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				4F1193E22C775CED00B5675E /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = 4F4F03F82B99890D003B88DF /* Products */;
 			projectDirPath = "";
@@ -936,6 +952,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		4F1193E22C775CED00B5675E /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.7.1;
+			};
+		};
 		4F2573892BB2AE4300E706A6 /* XCRemoteSwiftPackageReference "Then" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/devxoul/Then.git";
@@ -987,6 +1011,31 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		4F1193E32C775CED00B5675E /* RxBlocking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4F1193E22C775CED00B5675E /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxBlocking;
+		};
+		4F1193E52C775CED00B5675E /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4F1193E22C775CED00B5675E /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		4F1193E72C775CED00B5675E /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4F1193E22C775CED00B5675E /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		4F1193E92C775CED00B5675E /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4F1193E22C775CED00B5675E /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		4F1193EB2C775CED00B5675E /* RxTest */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4F1193E22C775CED00B5675E /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxTest;
+		};
 		4F25738A2BB2AE4300E706A6 /* Then */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 4F2573892BB2AE4300E706A6 /* XCRemoteSwiftPackageReference "Then" */;
