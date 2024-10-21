@@ -4,7 +4,7 @@
 🚆 OCR로 쉽게 외국어 구문을 저장하고 열람할 수 있는 iOS App
 </aside>
 
-![image.png](images/image.png)
+<img src="images/image.png" width=700 />
 
 ## **💻** 프로젝트 세부사항
 
@@ -26,7 +26,7 @@
 
 https://bit.ly/languageexpress
 
-<img src="images/QR.png" alt="앱스토어링크QR.png" style="zoom: 25%;" />
+<img src="images/QR.png" alt="앱스토어링크QR.png" width=120 />
 
 ### 개발 환경
 
@@ -66,7 +66,7 @@ https://bit.ly/languageexpress
   -  암기 정도 체크
 -  북마크/태그 필터링
 
-<img src="images/collection_video.gif" width=296/> <img src="images/phrase_video.gif" width=296/> !<img src="images/filter_video.gif" width=296/> <img src="images/ocr_video.gif" width=296/>
+<img src="images/collection_video.gif" width=230 /> <img src="images/phrase_video.gif" width=230 /> <img src="images/filter_video.gif" width=230 /> <img src="images/ocr_video.gif" width=230 />
 
 
 
